@@ -12,6 +12,10 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    if (!db) {
+      return NextResponse.json({ error: 'Database not available' }, { status: 500 });
+    }
+
     // Get homepage content from Firebase
     const homepageRef = doc(db, 'homepage', 'content');
     const homepageDoc = await getDoc(homepageRef);
@@ -72,6 +76,10 @@ export async function POST(request: Request) {
     
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    if (!db) {
+      return NextResponse.json({ error: 'Database not available' }, { status: 500 });
     }
 
     // TODO: Add admin role check here
@@ -136,6 +144,10 @@ export async function PUT(request: Request) {
     
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    if (!db) {
+      return NextResponse.json({ error: 'Database not available' }, { status: 500 });
     }
 
     const { field, value } = await request.json();

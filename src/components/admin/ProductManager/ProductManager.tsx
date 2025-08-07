@@ -46,7 +46,6 @@ import {
   FiFileText,
   FiGlobe,
   FiTarget,
-  FiFlask,
   FiUserCheck,
   FiLock,
   FiUnlock
@@ -74,15 +73,12 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
     stock: product?.stock || 0,
     requiresCertification: product?.requiresCertification || false,
     certificationLevel: product?.certificationLevel || 'none',
-    professionalGrade: product?.professionalGrade || '',
     isActive: product?.isActive ?? true,
     featured: product?.featured || false,
     bestSeller: product?.bestSeller || false,
     newArrival: product?.newArrival || false,
-    badge: product?.badge || '',
     image: product?.image || '',
     images: product?.images || [],
-    coverVideo: product?.coverVideo || '',
     category: product?.category || '',
     sku: product?.sku || '',
     weight: product?.weight || 0,
@@ -94,14 +90,6 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
     expiryDate: product?.expiryDate || '',
     manufacturer: product?.manufacturer || '',
     tags: product?.tags || [],
-    keywords: product?.keywords || [],
-    technology: product?.technology || '',
-    target: product?.target || '',
-    application: product?.application || '',
-    aiContent: product?.aiContent || '',
-    specifications: product?.specifications || {},
-    features: product?.features || [],
-    application: product?.application || '',
     rating: product?.rating || 0,
     reviewCount: product?.reviewCount || 0,
     soldCount: product?.soldCount || 0,
@@ -123,13 +111,7 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
     setForm((prev) => ({ ...prev, tags: e.target.value.split(',').map((t) => t.trim()) }));
   };
 
-  const handleKeywords = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((prev) => ({ ...prev, keywords: e.target.value.split(',').map((k) => k.trim()) }));
-  };
 
-  const handleFeatures = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((prev) => ({ ...prev, features: e.target.value.split(',').map((f) => f.trim()) }));
-  };
 
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -149,7 +131,7 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
     { id: 'basic', label: 'Basic Info', icon: FiPackage },
     { id: 'content', label: 'Content', icon: FiFileText },
     { id: 'pricing', label: 'Pricing & Stock', icon: FiDollarSign },
-    { id: 'technical', label: 'Technical', icon: FiFlask },
+    { id: 'technical', label: 'Technical', icon: FiSettings },
     { id: 'marketing', label: 'Marketing', icon: FiTarget },
     { id: 'media', label: 'Media', icon: FiImage },
   ];
@@ -496,7 +478,7 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
                     <label>Ingredients</label>
                     <textarea 
                       name="ingredients" 
-                      value={form.ingredients} 
+                      value={typeof form.ingredients === 'string' ? form.ingredients : ''} 
                       onChange={handleChange} 
                       placeholder="List of ingredients"
                       rows={3}
@@ -518,7 +500,7 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
                     <label>Benefits</label>
                     <textarea 
                       name="benefits" 
-                      value={form.benefits} 
+                      value={typeof form.benefits === 'string' ? form.benefits : ''} 
                       onChange={handleChange} 
                       placeholder="Product benefits"
                       rows={3}
@@ -536,15 +518,6 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
                     />
                   </div>
 
-                  <div className={styles.formGroup}>
-                    <label>Features (comma-separated)</label>
-                    <input 
-                      name="features" 
-                      value={form.features.join(', ')} 
-                      onChange={handleFeatures} 
-                      placeholder="Feature 1, Feature 2, Feature 3" 
-                    />
-                  </div>
                 </div>
 
                 <div className={styles.certificationSection}>
@@ -568,15 +541,6 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
                       </select>
                     </div>
 
-                    <div className={styles.formGroup}>
-                      <label>Professional Grade</label>
-                      <input 
-                        name="professionalGrade" 
-                        value={form.professionalGrade} 
-                        onChange={handleChange} 
-                        placeholder="Medical Grade, Clinical Grade" 
-                      />
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -611,15 +575,6 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
                     />
                   </div>
 
-                  <div className={styles.formGroup}>
-                    <label>Keywords (comma-separated)</label>
-                    <input 
-                      name="keywords" 
-                      value={form.keywords.join(', ')} 
-                      onChange={handleKeywords} 
-                      placeholder="keyword1, keyword2, keyword3" 
-                    />
-                  </div>
 
                   <div className={styles.formGroup}>
                     <label>Product Rating (0-5)</label>
@@ -681,15 +636,6 @@ function ProductForm({ product, onSave, onClose, loading }: ProductFormProps) {
                     />
                   </div>
 
-                  <div className={styles.formGroup}>
-                    <label>Cover Video URL</label>
-                    <input 
-                      name="coverVideo" 
-                      value={form.coverVideo} 
-                      onChange={handleChange} 
-                      placeholder="https://..." 
-                    />
-                  </div>
 
                   <div className={styles.formGroup}>
                     <label>Upload New Image</label>

@@ -38,58 +38,7 @@ import {
   AdminTable, 
   AdminCard 
 } from "@/components/admin/shared";
-
-interface Event {
-  id: string;
-  title: string;
-  subtitle?: string;
-  description: string;
-  type: 'conference' | 'workshop' | 'webinar' | 'product_launch' | 'training' | 'networking';
-  status: 'draft' | 'published' | 'cancelled' | 'completed';
-  visibility: 'public' | 'private' | 'unlisted';
-  startDate: string;
-  endDate: string;
-  timezone: string;
-  location: {
-    type: 'physical' | 'virtual' | 'hybrid';
-    venue?: string;
-    address?: string;
-    city?: string;
-    country?: string;
-    virtualLink?: string;
-  };
-  capacity: number;
-  registeredCount: number;
-  waitlistCount: number;
-  price?: number;
-  currency?: string;
-  coverImage?: string;
-  tags: string[];
-  category: string;
-  speakers: Array<{
-    name: string;
-    title: string;
-    company?: string;
-    image?: string;
-  }>;
-  registrationSettings: {
-    isOpen: boolean;
-    requiresApproval: boolean;
-    allowWaitlist: boolean;
-    closeDate?: string;
-  };
-  analytics: {
-    views: number;
-    registrations: number;
-    attendance: number;
-    completionRate: number;
-    averageRating: number;
-    revenue: number;
-  };
-  createdAt: string;
-  updatedAt: string;
-  createdBy: string;
-}
+import { Event } from "@/types";
 
 type EventStatus = 'draft' | 'published' | 'cancelled' | 'completed';
 type EventType = 'conference' | 'workshop' | 'webinar' | 'product_launch' | 'training' | 'networking';
@@ -519,9 +468,9 @@ export default function AdminEventsPage() {
       sortable: true, 
       render: (value: any, row: Event) => (
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          {row.coverImage && (
+          {row.images?.[0] && (
             <img 
-              src={row.coverImage} 
+              src={row.images[0]} 
               alt={row.title}
               style={{
                 width: "48px",
@@ -542,7 +491,7 @@ export default function AdminEventsPage() {
             }}>
               {row.title}
             </strong>
-            {row.subtitle && (
+            {row.shortDescription && (
               <small style={{ 
                 color: "rgba(255, 255, 255, 0.6)", 
                 fontSize: "0.8rem",
@@ -551,7 +500,7 @@ export default function AdminEventsPage() {
                 textOverflow: "ellipsis",
                 maxWidth: "200px"
               }}>
-                {row.subtitle}
+                {row.shortDescription}
               </small>
             )}
             <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.25rem" }}>
@@ -574,7 +523,7 @@ export default function AdminEventsPage() {
           <small style={{ color: "rgba(255, 255, 255, 0.6)", fontSize: "0.75rem" }}>
             {row.location.type === 'virtual' ? '🌐 Virtual' : 
              row.location.type === 'hybrid' ? '🔄 Hybrid' : 
-             `📍 ${row.location.city || 'TBD'}`}
+             `📍 ${row.location.address?.city || 'TBD'}`}
           </small>
         </div>
       )

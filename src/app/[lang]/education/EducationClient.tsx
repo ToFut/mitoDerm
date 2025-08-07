@@ -68,7 +68,7 @@ export default function EducationClient() {
       setLoading(true);
       try {
         const allMedia = await getMedia();
-        setMediaItems(allMedia);
+        setMediaItems(allMedia.filter(item => item.id) as any);
       } catch (error) {
         console.error('Error fetching media:', error);
         setMediaItems([]);

@@ -22,6 +22,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!db) {
+      return NextResponse.json({ error: 'Database not available' }, { status: 500 });
+    }
+
     // Check if user already exists
     const usersRef = collection(db, 'users');
     const q = query(usersRef, where('email', '==', email.toLowerCase()));

@@ -827,9 +827,8 @@ export default function AdminBrandsPage() {
       {/* AI Insights Card */}
       {aiInsights && (
         <AdminCard 
-          variant="ai" 
+          variant="gradient" 
           padding="large"
-          style={{ marginBottom: "2rem" }}
         >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem" }}>
             <div style={{

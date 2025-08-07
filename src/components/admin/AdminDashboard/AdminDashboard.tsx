@@ -151,7 +151,18 @@ export default function AdminDashboard() {
     userGrowth: 0,
     productViews: 0,
     eventRegistrations: 0,
-    systemHealth: 100
+    systemHealth: 100,
+    // Enhanced analytics
+    bounceRate: 0,
+    avgOrderValue: 0,
+    customerLifetimeValue: 0,
+    churnRate: 0,
+    npsScore: 0,
+    topPerformingProduct: '',
+    topTrafficSource: '',
+    mobileTrafficPercentage: 0,
+    errorRate: 0,
+    apiResponseTime: 0
   });
   const [loading, setLoading] = useState(true);
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
@@ -332,7 +343,7 @@ export default function AdminDashboard() {
           description: 'Machine learning model identified 3 optimization opportunities',
           timestamp: new Date(Date.now() - 10 * 60 * 1000),
           status: 'info' as const,
-          priority: 'medium',
+          priority: 'medium' as const,
           actionRequired: true
         },
         {
@@ -342,7 +353,7 @@ export default function AdminDashboard() {
           description: 'All systems secure. No vulnerabilities detected.',
           timestamp: new Date(Date.now() - 25 * 60 * 1000),
           status: 'success' as const,
-          priority: 'low'
+          priority: 'low' as const
         },
         {
           id: '5',
@@ -351,7 +362,7 @@ export default function AdminDashboard() {
           description: 'Response times improved by 15% after caching implementation',
           timestamp: new Date(Date.now() - 35 * 60 * 1000),
           status: 'success' as const,
-          priority: 'medium'
+          priority: 'medium' as const
         }
       );
       

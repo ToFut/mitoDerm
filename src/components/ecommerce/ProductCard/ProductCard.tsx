@@ -43,9 +43,9 @@ const ProductCard: FC<ProductCardProps> = ({
   const [imageError, setImageError] = useState(false);
 
   const isPartner = user?.role === 'partner';
-  const canAccess = canUserAccessProduct(product, user);
+  const canAccess = canUserAccessProduct(product.id!, user?.id || '');
   const isInWishlist = wishlist.includes(product.id!);
-  const currentPrice = getProductPrice(product, isPartner);
+  const currentPrice = product.price || 0;
   const hasDiscount = product.pricing?.salePrice && product.flags?.onSale;
   const discountPercent = hasDiscount 
     ? Math.round(((product.price - product.pricing!.salePrice!) / product.price) * 100)

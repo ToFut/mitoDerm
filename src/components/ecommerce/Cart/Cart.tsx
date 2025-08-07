@@ -84,7 +84,7 @@ const Cart: FC<CartProps> = ({ isOpen = false, onClose, products = [] }) => {
     
     // Check if user can access all products
     const restrictedItems = cartItemsWithProducts.filter(item => 
-      !canUserAccessProduct(item.product!, user)
+      !canUserAccessProduct(item.product!.id!, user?.id || '')
     );
     
     if (restrictedItems.length > 0) {
@@ -141,7 +141,7 @@ const Cart: FC<CartProps> = ({ isOpen = false, onClose, products = [] }) => {
                   <div key={item.productId} className={styles.cartItem}>
                     <div className={styles.itemImage}>
                       <img 
-                        src={item.product!.images?.[0]?.url || item.product!.image} 
+                        src={item.product!.images?.[0]?.url || '/images/placeholder.jpg'} 
                         alt={item.product!.name}
                         loading="lazy"
                       />
@@ -153,11 +153,11 @@ const Cart: FC<CartProps> = ({ isOpen = false, onClose, products = [] }) => {
                       
                       <div className={styles.itemPrice}>
                         <span className={styles.currentPrice}>
-                          ${getProductPrice(item.product!, isPartner).toFixed(2)}
+                          ${(isPartner && item.product!.partnerPrice ? item.product!.partnerPrice : item.product!.price || 0).toFixed(2)}
                         </span>
                         {isPartner && item.product!.partnerPrice && (
                           <span className={styles.originalPrice}>
-                            ${item.product!.price.toFixed(2)}
+                            ${(item.product!.price || 0).toFixed(2)}
                           </span>
                         )}
                       </div>

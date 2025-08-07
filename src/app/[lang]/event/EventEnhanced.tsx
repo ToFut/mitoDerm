@@ -154,7 +154,7 @@ const EventEnhanced = () => {
     if (navigator.share) {
       await navigator.share({
         title: event.title,
-        text: event.subtitle,
+        text: event.shortDescription,
         url: window.location.href
       });
     }
@@ -175,7 +175,7 @@ const EventEnhanced = () => {
       >
         <div className={styles.heroBackground}>
           <Image
-            src={event.image}
+            src={event.images?.[0] || '/images/placeholder-event.jpg'}
             alt={event.title}
             fill
             className={styles.heroImage}

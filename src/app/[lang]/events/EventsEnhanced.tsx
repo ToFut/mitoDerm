@@ -15,7 +15,8 @@ import {
   FiCoffee, FiShield, FiPackage, FiHeadphones, FiCamera
 } from 'react-icons/fi';
 import styles from './EventsEnhanced.module.scss';
-import { Event, EventSpeaker, EventAgendaItem, getAllEvents } from '@/lib/services/eventService';
+import { Event } from '@/lib/services/eventService';
+import { eventService } from '@/lib/services/eventService';
 
 interface EventsEnhancedProps {
   initialEvents?: Event[];
@@ -142,7 +143,8 @@ const EventsEnhanced = ({ initialEvents = [] }: EventsEnhancedProps) => {
             },
             createdBy: 'admin',
             createdAt: '2024-01-15T10:00:00Z',
-            updatedAt: '2024-01-20T15:30:00Z'
+            updatedAt: '2024-01-20T15:30:00Z',
+            feedback: []
           },
           {
             id: '2',
@@ -215,7 +217,8 @@ const EventsEnhanced = ({ initialEvents = [] }: EventsEnhancedProps) => {
             },
             createdBy: 'admin',
             createdAt: '2024-01-10T10:00:00Z',
-            updatedAt: '2024-01-25T15:30:00Z'
+            updatedAt: '2024-01-25T15:30:00Z',
+            feedback: []
           }
         ];
         setEvents(mockEvents);

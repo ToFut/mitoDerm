@@ -38,8 +38,8 @@ const MultiStepForm = () => {
     { id: 4, title: 'סיכום', icon: FiCheck }
   ];
 
-  const validateStep = (step) => {
-    const newErrors = {};
+  const validateStep = (step: number) => {
+    const newErrors: any = {};
     
     if (step === 1) {
       if (!formData.name.trim()) newErrors.name = 'שם מלא נדרש';
@@ -82,9 +82,9 @@ const MultiStepForm = () => {
     }
   };
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
+    if ((errors as any)[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }));
     }
   };
@@ -159,10 +159,10 @@ const MultiStepForm = () => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={errors.name ? styles.error : ''}
+                  className={(errors as any).name ? styles.error : ''}
                   placeholder="הכניסו את שמכם המלא"
                 />
-                {errors.name && <span className={styles.errorText}>{errors.name}</span>}
+                {(errors as any).name && <span className={styles.errorText}>{(errors as any).name}</span>}
               </div>
               
               <div className={styles.inputGroup}>
@@ -171,10 +171,10 @@ const MultiStepForm = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={errors.email ? styles.error : ''}
+                  className={(errors as any).email ? styles.error : ''}
                   placeholder="example@email.com"
                 />
-                {errors.email && <span className={styles.errorText}>{errors.email}</span>}
+                {(errors as any).email && <span className={styles.errorText}>{(errors as any).email}</span>}
               </div>
               
               <div className={styles.inputGroup}>
@@ -183,10 +183,10 @@ const MultiStepForm = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
-                  className={errors.phone ? styles.error : ''}
+                  className={(errors as any).phone ? styles.error : ''}
                   placeholder="050-123-4567"
                 />
-                {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
+                {(errors as any).phone && <span className={styles.errorText}>{(errors as any).phone}</span>}
               </div>
             </div>
           )}
@@ -200,10 +200,10 @@ const MultiStepForm = () => {
                   type="text"
                   value={formData.businessName}
                   onChange={(e) => handleInputChange('businessName', e.target.value)}
-                  className={errors.businessName ? styles.error : ''}
+                  className={(errors as any).businessName ? styles.error : ''}
                   placeholder="שם הקליניקה או העסק"
                 />
-                {errors.businessName && <span className={styles.errorText}>{errors.businessName}</span>}
+                {(errors as any).businessName && <span className={styles.errorText}>{(errors as any).businessName}</span>}
               </div>
               
               <div className={styles.inputGroup}>
@@ -211,7 +211,7 @@ const MultiStepForm = () => {
                 <select
                   value={formData.businessType}
                   onChange={(e) => handleInputChange('businessType', e.target.value)}
-                  className={errors.businessType ? styles.error : ''}
+                  className={(errors as any).businessType ? styles.error : ''}
                 >
                   <option value="">בחרו סוג עסק</option>
                   <option value="clinic">קליניקה אסתטית</option>
@@ -220,7 +220,7 @@ const MultiStepForm = () => {
                   <option value="medical">מרפאה רפואית</option>
                   <option value="other">אחר</option>
                 </select>
-                {errors.businessType && <span className={styles.errorText}>{errors.businessType}</span>}
+                {(errors as any).businessType && <span className={styles.errorText}>{(errors as any).businessType}</span>}
               </div>
               
               <div className={styles.inputGroup}>
@@ -264,7 +264,7 @@ const MultiStepForm = () => {
                     </label>
                   ))}
                 </div>
-                {errors.inquiryType && <span className={styles.errorText}>{errors.inquiryType}</span>}
+                {(errors as any).inquiryType && <span className={styles.errorText}>{(errors as any).inquiryType}</span>}
               </div>
               
               <div className={styles.inputGroup}>
@@ -272,11 +272,11 @@ const MultiStepForm = () => {
                 <textarea
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
-                  className={errors.message ? styles.error : ''}
+                  className={(errors as any).message ? styles.error : ''}
                   placeholder="אנא פרטו את בקשתכם..."
-                  rows="4"
+                  rows={4}
                 />
-                {errors.message && <span className={styles.errorText}>{errors.message}</span>}
+                {(errors as any).message && <span className={styles.errorText}>{(errors as any).message}</span>}
               </div>
               
               <div className={styles.inputGroup}>
@@ -316,7 +316,7 @@ const MultiStepForm = () => {
                   <input
                     type="checkbox"
                     checked={formData.newsletter}
-                    onChange={(e) => handleInputChange('newsletter', e.target.checked)}
+                    onChange={(e) => handleInputChange('newsletter', e.target.checked.toString())}
                   />
                   <span>אני מעוניין לקבל עדכונים ופרסומות</span>
                 </label>
@@ -324,7 +324,7 @@ const MultiStepForm = () => {
                   <input
                     type="checkbox"
                     checked={formData.updates}
-                    onChange={(e) => handleInputChange('updates', e.target.checked)}
+                    onChange={(e) => handleInputChange('updates', e.target.checked.toString())}
                   />
                   <span>אני מעוניין לקבל עדכונים על מוצרים חדשים</span>
                 </label>

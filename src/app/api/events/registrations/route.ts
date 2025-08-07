@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
           },
           pricingId: '1',
           totalAmount: 299,
-          status: 'confirmed',
+          status: 'approved',
           paymentStatus: 'paid',
           registrationDate: new Date('2024-01-22'),
           invitationCode: 'INV-002'
@@ -110,7 +110,7 @@ export async function GET(request: NextRequest) {
       }
 
       const snapshot = await query.get();
-      registrations = snapshot.docs.map(doc => ({
+      registrations = snapshot.docs.map((doc: any) => ({
         id: doc.id,
         ...doc.data(),
         // Convert Firestore timestamps to ISO strings
@@ -121,7 +121,7 @@ export async function GET(request: NextRequest) {
 
       // Client-side sorting when we couldn't sort in Firestore
       if (status && status !== 'all') {
-        registrations.sort((a, b) => {
+        registrations.sort((a: any, b: any) => {
           const dateA = new Date(a.registrationDate);
           const dateB = new Date(b.registrationDate);
           return dateB.getTime() - dateA.getTime(); // Descending order
@@ -225,10 +225,9 @@ export async function POST(request: NextRequest) {
       pricingId: registrationData.pricingId,
       totalAmount: registrationData.totalAmount || 0,
       status: eventData?.requiresApproval ? 'pending' : 'approved',
-      paymentStatus: registrationData.totalAmount > 0 ? 'pending' : 'completed',
+      paymentStatus: registrationData.totalAmount > 0 ? 'pending' : 'paid',
       registrationDate: new Date(),
-      invitationCode,
-      specialRequests: registrationData.specialRequests || ''
+      invitationCode
     };
 
     // Add registration to Firestore

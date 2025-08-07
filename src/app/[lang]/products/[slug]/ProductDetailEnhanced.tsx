@@ -75,14 +75,14 @@ const HeroProductShowcase = ({ product }: { product: Product }) => {
               <FiClock /> Only {product.stock} left
             </motion.div>
           )}
-          {product.discount && (
+          {(product as any).discount && (
             <motion.div 
               className={`${styles.badge} ${styles.discount}`}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.5 }}
             >
-              -{product.discount}% OFF
+              -{(product as any).discount}% OFF
             </motion.div>
           )}
         </div>
@@ -193,8 +193,8 @@ const ProductInfoPanel = ({ product }: { product: Product }) => {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   
   const calculateSavings = () => {
-    if (product.originalPrice && product.price) {
-      return product.originalPrice - product.price;
+    if ((product as any).originalPrice && product.price) {
+      return (product as any).originalPrice - product.price;
     }
     return 0;
   };
@@ -229,8 +229,8 @@ const ProductInfoPanel = ({ product }: { product: Product }) => {
       {/* Price Section */}
       <div className={styles.priceSection}>
         <div className={styles.priceRow}>
-          {product.originalPrice && (
-            <span className={styles.originalPrice}>${product.originalPrice}</span>
+          {(product as any).originalPrice && (
+            <span className={styles.originalPrice}>${(product as any).originalPrice}</span>
           )}
           <span className={styles.currentPrice}>${product.price}</span>
           {calculateSavings() > 0 && (
@@ -239,13 +239,13 @@ const ProductInfoPanel = ({ product }: { product: Product }) => {
         </div>
         
         {/* Limited Time Offer */}
-        {product.discount && (
+        {(product as any).discount && (
           <motion.div 
             className={styles.limitedOffer}
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <FiClock /> Limited Time: Extra {product.discount}% OFF
+            <FiClock /> Limited Time: Extra {(product as any).discount}% OFF
           </motion.div>
         )}
       </div>
@@ -263,18 +263,18 @@ const ProductInfoPanel = ({ product }: { product: Product }) => {
               transition={{ delay: 0.1 * index }}
             >
               <FiCheck className={styles.checkIcon} />
-              <span>{benefit}</span>
+              <span>{typeof benefit === 'string' ? benefit : benefit.title}</span>
             </motion.div>
           ))}
         </div>
       </div>
 
       {/* Product Variants */}
-      {product.variants && product.variants.length > 0 && (
+      {(product as any).variants && (product as any).variants.length > 0 && (
         <div className={styles.variantsSection}>
           <h3>Select Size</h3>
           <div className={styles.variantOptions}>
-            {product.variants.map((variant, index) => (
+            {(product as any).variants.map((variant: any, index: number) => (
               <motion.button
                 key={index}
                 className={`${styles.variantBtn} ${selectedVariant === variant ? styles.selected : ''}`}
@@ -584,7 +584,7 @@ const InteractiveTabs = ({ product }: { product: Product }) => {
 
 // ============= LIVE SOCIAL PROOF =============
 const LiveSocialProof = () => {
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState<any[]>([]);
 
   return (
     <motion.div 

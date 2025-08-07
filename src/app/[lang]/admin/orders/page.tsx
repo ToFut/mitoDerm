@@ -522,7 +522,7 @@ export default function AdminOrdersPage() {
       label: "AI Order Insights",
       icon: <FiCpu />,
       onClick: () => console.log('AI insights'),
-      variant: "ai" as const
+      variant: "primary" as const
     },
     {
       label: "Export Orders",
@@ -872,14 +872,14 @@ export default function AdminOrdersPage() {
       label: "Mark as Shipped",
       icon: <FiTruck />,
       onClick: (order: Order) => handleUpdateOrderStatus(order.id, 'shipped'),
-      variant: "info" as const,
+      variant: "secondary" as const,
       show: (order: Order) => order.status === 'processing'
     },
     {
       label: "Mark as Delivered",
       icon: <FiCheckCircle />,
       onClick: (order: Order) => handleUpdateOrderStatus(order.id, 'delivered'),
-      variant: "success" as const,
+      variant: "secondary" as const,
       show: (order: Order) => order.status === 'shipped'
     }
   ];
@@ -912,7 +912,7 @@ export default function AdminOrdersPage() {
         breadcrumb={["Admin", "Orders"]}
       />
 
-      <AdminStats stats={statsData} columns={8} />
+      <AdminStats stats={statsData} columns={6} />
 
       {/* AI Insights Panel */}
       {aiInsights.length > 0 && (

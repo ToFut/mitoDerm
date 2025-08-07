@@ -113,14 +113,9 @@ export default function ProductDetailPage() {
               <FiDollarSign />
               <span>Price: ${product.price}</span>
             </div>
-            {product.originalPrice && (
-              <div className={styles.metaItem}>
-                <span>Original: ${product.originalPrice}</span>
-              </div>
-            )}
             <div className={styles.metaItem}>
               <FiEye />
-              <span>Views: {product.views || 0}</span>
+              <span>Views: 0</span>
             </div>
           </div>
 
@@ -133,9 +128,11 @@ export default function ProductDetailPage() {
             <div className={styles.section}>
               <h3>Ingredients</h3>
               <ul>
-                {product.ingredients.map((ingredient, index) => (
+                {Array.isArray(product.ingredients) ? product.ingredients.map((ingredient, index) => (
                   <li key={index}>{ingredient}</li>
-                ))}
+                )) : (
+                  <li>{product.ingredients}</li>
+                )}
               </ul>
             </div>
           )}
@@ -144,9 +141,13 @@ export default function ProductDetailPage() {
             <div className={styles.section}>
               <h3>Benefits</h3>
               <ul>
-                {product.benefits.map((benefit, index) => (
-                  <li key={index}>{benefit}</li>
-                ))}
+                {Array.isArray(product.benefits) ? product.benefits.map((benefit, index) => (
+                  <li key={index}>
+                    {typeof benefit === 'object' ? `${benefit.title}: ${benefit.description}` : benefit}
+                  </li>
+                )) : (
+                  <li>{product.benefits}</li>
+                )}
               </ul>
             </div>
           )}
@@ -159,8 +160,8 @@ export default function ProductDetailPage() {
               {product.images.map((image, index) => (
                 <div key={index} className={styles.imageItem}>
                   <Image
-                    src={image.url || image}
-                    alt={image.alt || `Product image ${index + 1}`}
+                    src={typeof image === 'string' ? image : image.url}
+                    alt={typeof image === 'string' ? `Product image ${index + 1}` : (image.alt || `Product image ${index + 1}`)}
                     width={200}
                     height={200}
                     className={styles.productImage}

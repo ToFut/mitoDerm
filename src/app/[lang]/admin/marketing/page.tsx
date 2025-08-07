@@ -608,6 +608,12 @@ export default function AdminMarketingPage() {
     }
   ];
 
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
+    return num.toString();
+  };
+
   const statsData = [
     {
       label: "Active Campaigns",
@@ -852,12 +858,6 @@ export default function AdminMarketingPage() {
     }
   ];
 
-  const formatNumber = (num: number) => {
-    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
-    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
-    return num.toString();
-  };
-
   if (loading) {
     return (
       <AdminPageContainer>
@@ -889,9 +889,8 @@ export default function AdminMarketingPage() {
       {/* AI Insights */}
       {aiInsights && (
         <AdminCard 
-          variant="ai" 
+          variant="gradient" 
           padding="large"
-          style={{ marginBottom: "2rem" }}
         >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem" }}>
             <div style={{

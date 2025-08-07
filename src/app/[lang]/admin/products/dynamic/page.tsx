@@ -196,7 +196,7 @@ export default function DynamicProductManager() {
                       keywords: '',
                       features: '',
                       specifications: '',
-                      ingredients: product.ingredients || '',
+                      ingredients: Array.isArray(product.ingredients) ? product.ingredients.join(', ') : (product.ingredients || ''),
                       aiPrompt: '',
                       benefits: '',
                       aiContent: ''

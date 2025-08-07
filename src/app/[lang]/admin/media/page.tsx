@@ -872,7 +872,7 @@ export default function AdminMediaPage() {
       label: "Copy URL",
       icon: <FiCopy />,
       onClick: (item: MediaItem) => handleCopyUrl(item.url),
-      variant: "info" as const
+      variant: "secondary" as const
     },
     {
       label: "Edit",
@@ -963,7 +963,7 @@ export default function AdminMediaPage() {
         </div>
       )}
 
-      <AdminStats stats={statsData} columns={8} />
+      <AdminStats stats={statsData} columns={6} />
 
       {/* Upload Progress */}
       {uploading && Object.keys(uploadProgress).length > 0 && (

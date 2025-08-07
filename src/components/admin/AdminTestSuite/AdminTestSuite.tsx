@@ -300,10 +300,13 @@ export default function AdminTestSuite() {
       const response = await fetch('/images/products/kit.jpg');
       const blob = await response.blob();
       const file = new File([blob], 'test-image.jpg', { type: 'image/jpeg' });
+      
+      const formData = new FormData();
+      formData.append('file', file);
 
-      const result = await uploadMedia(file, 'test');
+      const result = await uploadMedia(formData);
       tests[0].status = 'passed';
-      tests[0].message = `Successfully uploaded file: ${result.name}`;
+      tests[0].message = `Successfully uploaded file: ${result[0]?.name || 'unknown'}`;
       tests[0].duration = Date.now() - startTime;
     } catch (error) {
       tests[0].status = 'failed';
@@ -338,7 +341,7 @@ export default function AdminTestSuite() {
       setTestSuites(prev => [...prev]);
 
       const files = await getMedia();
-      if (files.length > 0) {
+      if (files.length > 0 && files[0].id) {
         await deleteMedia(files[0].id);
         tests[2].status = 'passed';
         tests[2].message = 'Successfully deleted test file';
@@ -447,17 +450,33 @@ export default function AdminTestSuite() {
 
       const testProduct = {
         name: 'Test Product',
+        slug: 'test-product',
         description: 'Test product description',
         price: 99.99,
         category: 'test',
         isActive: true,
         stock: 10,
-        featured: false
+        featured: false,
+        requiresCertification: false,
+        certificationLevel: 'none' as const,
+        image: '/images/test-product.jpg',
+        sku: 'TEST-001',
+        weight: 100,
+        dimensions: '10x10x10',
+        ingredients: 'Test ingredients',
+        instructions: 'Test instructions',
+        benefits: 'Test benefits',
+        contraindications: 'None',
+        expiryDate: '2025-12-31',
+        manufacturer: 'Test Manufacturer',
+        tags: ['test'],
+        bestSeller: false,
+        newArrival: false
       };
 
       const result = await productService.createProduct(testProduct);
       tests[0].status = 'passed';
-      tests[0].message = `Successfully created test product: ${result.id}`;
+      tests[0].message = `Successfully created test product: ${result}`;
       tests[0].duration = Date.now() - startTime;
     } catch (error) {
       tests[0].status = 'failed';
@@ -471,9 +490,9 @@ export default function AdminTestSuite() {
       setTestSuites(prev => [...prev]);
 
       const products = await productService.getProducts();
-      if (products.length > 0) {
+      if (products.length > 0 && products[0].id) {
         const product = products[0];
-        await productService.updateProduct(product.id, { name: 'Updated Test Product' });
+        await productService.updateProduct(product.id!, { name: 'Updated Test Product' });
         tests[1].status = 'passed';
         tests[1].message = 'Successfully updated test product';
         tests[1].duration = Date.now() - startTime;
@@ -498,7 +517,7 @@ export default function AdminTestSuite() {
         const blob = await response.blob();
         const file = new File([blob], 'test-product-image.jpg', { type: 'image/jpeg' });
 
-        const result = await adminService.uploadProductImage(products[0].id, file);
+        const result = await adminService.uploadProductImage(products[0].id!, file);
         tests[2].status = 'passed';
         tests[2].message = `Successfully uploaded product image: ${result.name}`;
         tests[2].duration = Date.now() - startTime;

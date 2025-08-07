@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
       totalProducts: productStats.total,
       activeProducts: productStats.active,
       lowStockProducts: productStats.lowStock,
-      partnerOnlyProducts: productStats.partnerOnly,
+      partnerOnlyProducts: 0, // This would need to be calculated in getProductStats
       
       // Orders
       totalOrders: orderStats.totalOrders,

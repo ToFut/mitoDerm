@@ -26,7 +26,6 @@ import {
   FiAlertCircle,
   FiVideo,
   FiFileText,
-  FiGraduationCap,
   FiMoreHorizontal,
   FiCopy,
   FiRefreshCw,
@@ -44,42 +43,7 @@ import {
   AdminTable,
   AdminCard
 } from "@/components/admin/shared";
-
-interface Course {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-  duration: number; // in minutes
-  price: number;
-  isFree: boolean;
-  status: 'draft' | 'published' | 'archived';
-  thumbnail?: string;
-  instructor: {
-    id: string;
-    name: string;
-    avatar?: string;
-    title: string;
-  };
-  lessons: Array<{
-    id: string;
-    title: string;
-    type: 'video' | 'text' | 'quiz' | 'assignment';
-    duration: number;
-    order: number;
-  }>;
-  tags: string[];
-  enrollmentCount: number;
-  completionRate: number;
-  averageRating: number;
-  reviewCount: number;
-  requiresCertification: boolean;
-  certificationLevel?: 'basic' | 'advanced' | 'expert';
-  certificateTemplate?: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { Course } from "@/types";
 
 interface EducationStats {
   totalCourses: number;
@@ -923,7 +887,7 @@ export default function AdminEducationPage() {
         breadcrumb={["Admin", "Education"]}
       />
 
-      <AdminStats stats={statsData} columns={8} />
+      <AdminStats stats={statsData} columns={6} />
 
       {/* AI Insights Panel */}
       {aiInsights.length > 0 && (

@@ -140,7 +140,7 @@ export default function IntegratedHomepage({
         setIsLoading(true);
         const [productsData, eventsData] = await Promise.all([
           getAllProducts(),
-          eventService.getAllEvents()
+          eventService.getEvents()
         ]);
         setProducts(productsData);
         setEvents(eventsData);

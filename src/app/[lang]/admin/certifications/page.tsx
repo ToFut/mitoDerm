@@ -742,7 +742,7 @@ export default function AdminCertificationsPage() {
         breadcrumb={["Admin", "Certifications"]}
       />
 
-      <AdminStats stats={statsData} columns={8} />
+      <AdminStats stats={statsData} columns={6} />
 
       {/* AI Insights Panel */}
       {aiInsights.length > 0 && (

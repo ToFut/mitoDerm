@@ -342,7 +342,9 @@ export default function AdminProductsPage() {
         case "featured":
           return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
         case "createdAt":
-          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          const dateA = a.createdAt ? (typeof a.createdAt === 'string' ? new Date(a.createdAt) : a.createdAt.toDate()) : new Date(0);
+          const dateB = b.createdAt ? (typeof b.createdAt === 'string' ? new Date(b.createdAt) : b.createdAt.toDate()) : new Date(0);
+          return dateB.getTime() - dateA.getTime();
         default:
           return 0;
       }
@@ -755,7 +757,7 @@ export default function AdminProductsPage() {
     {
       label: "Delete",
       icon: <FiTrash2 />,
-      onClick: (product: Product) => handleDeleteProduct(product.id),
+      onClick: (product: Product) => product.id && handleDeleteProduct(product.id),
       variant: "danger" as const
     }
   ];
@@ -788,7 +790,7 @@ export default function AdminProductsPage() {
         breadcrumb={["Admin", "Products"]}
       />
 
-      <AdminStats stats={statsData} columns={8} />
+      <AdminStats stats={statsData} columns={6} />
 
       {/* AI Insights Panel */}
       {aiInsights.length > 0 && (

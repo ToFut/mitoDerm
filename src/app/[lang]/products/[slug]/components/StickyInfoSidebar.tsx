@@ -36,10 +36,10 @@ const StickyInfoSidebar: React.FC<{ product: Product }> = ({ product }) => {
             <span className={styles.metaValue}>{product.technology}</span>
           </div>
         )}
-        {product.professionalGrade && (
+        {(product as any).professionalGrade && (
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>Grade:</span>
-            <span className={styles.metaValue}>{product.professionalGrade}</span>
+            <span className={styles.metaValue}>{(product as any).professionalGrade}</span>
           </div>
         )}
         {product.stock !== undefined && (

@@ -214,7 +214,7 @@ export default function HomepageManager() {
       heroSection: {
         ...prev.heroSection,
         [field]: {
-          ...prev.heroSection[field as keyof typeof prev.heroSection],
+          ...(prev.heroSection[field as keyof typeof prev.heroSection] as any) || {},
           [currentLanguage]: value
         }
       }

@@ -188,7 +188,7 @@ export async function GET(request: NextRequest) {
       }
 
       const snapshot = await query.get();
-      events = snapshot.docs.map(doc => ({
+      events = snapshot.docs.map((doc: any) => ({
         id: doc.id,
         ...doc.data(),
         // Convert Firestore timestamps to ISO strings
@@ -201,7 +201,7 @@ export async function GET(request: NextRequest) {
 
       // Client-side sorting when we couldn't sort in Firestore
       if (hasFilters) {
-        events.sort((a, b) => {
+        events.sort((a: any, b: any) => {
           const dateA = new Date(a.createdAt);
           const dateB = new Date(b.createdAt);
           return dateB.getTime() - dateA.getTime(); // Descending order
@@ -243,7 +243,7 @@ export async function GET(request: NextRequest) {
     // Filter upcoming events if requested
     if (upcoming === 'true') {
       const now = new Date();
-      events = events.filter(event => new Date(event.startDate) > now);
+      events = events.filter((event: any) => new Date(event.startDate) > now);
     }
 
     return NextResponse.json({ 

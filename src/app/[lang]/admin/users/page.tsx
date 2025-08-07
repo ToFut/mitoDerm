@@ -18,7 +18,8 @@ import {
   FiDownload,
   FiZap
 } from "react-icons/fi";
-import { userService, User } from "@/lib/services/userService";
+import { userService } from "@/lib/services/userService";
+import { User } from "@/types";
 import { 
   AdminPageContainer, 
   AdminHeader, 
@@ -238,7 +239,7 @@ export default function AdminUsersPage() {
     },
     {
       label: "Toggle Status",
-      icon: (user: User) => user.status === 'active' ? <FiToggleRight /> : <FiToggleLeft />,
+      icon: <FiToggleRight />,
       onClick: (user: User) => handleToggleUserStatus(user.id, user.status === 'active'),
       variant: "secondary" as const
     }
@@ -416,14 +417,14 @@ export default function AdminUsersPage() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <strong style={{ color: "rgba(255, 255, 255, 0.8)" }}>Join Date:</strong>
                   <span style={{ color: "rgba(255, 255, 255, 0.7)" }}>
-                    {selectedUser.createdAt ? new Date(selectedUser.createdAt.seconds * 1000).toLocaleDateString() : 'Unknown'}
+                    {selectedUser.createdAt ? (typeof selectedUser.createdAt === 'string' ? new Date(selectedUser.createdAt).toLocaleDateString() : new Date((selectedUser.createdAt as any).seconds * 1000).toLocaleDateString()) : 'Unknown'}
                   </span>
                 </div>
                 
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <strong style={{ color: "rgba(255, 255, 255, 0.8)" }}>Last Login:</strong>
                   <span style={{ color: "rgba(255, 255, 255, 0.7)" }}>
-                    {selectedUser.lastLogin ? new Date(selectedUser.lastLogin.seconds * 1000).toLocaleDateString() : 'Never'}
+                    {selectedUser.lastLogin ? (typeof selectedUser.lastLogin === 'string' ? new Date(selectedUser.lastLogin).toLocaleDateString() : new Date((selectedUser.lastLogin as any).seconds * 1000).toLocaleDateString()) : 'Never'}
                   </span>
                 </div>
                 

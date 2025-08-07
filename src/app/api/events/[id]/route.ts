@@ -74,7 +74,7 @@ export async function PUT(
         .where('slug', '==', newSlug)
         .get();
       
-      const hasConflict = existingEvent.docs.some(doc => doc.id !== id);
+      const hasConflict = existingEvent.docs.some((doc: any) => doc.id !== id);
       if (hasConflict) {
         return NextResponse.json(
           { success: false, error: 'Event with this title already exists' },
