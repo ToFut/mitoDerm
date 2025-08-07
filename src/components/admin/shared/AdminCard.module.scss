@@ -1,0 +1,139 @@
+@import '../../../styles/nextgen-variables.scss';
+
+.adminCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(190, 128, 12, 0.05) 0%, transparent 50%, rgba(212, 165, 116, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+// Padding variants
+.small {
+  padding: 1rem;
+}
+
+.medium {
+  padding: 1.5rem;
+}
+
+.large {
+  padding: 2rem;
+}
+
+// Style variants
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.gradient {
+  background: linear-gradient(135deg, 
+    rgba(190, 128, 12, 0.1) 0%, 
+    rgba(212, 165, 116, 0.05) 50%, 
+    rgba(148, 0, 48, 0.08) 100%);
+  border: 1px solid rgba(190, 128, 12, 0.2);
+  
+  &:hover {
+    background: linear-gradient(135deg, 
+      rgba(190, 128, 12, 0.15) 0%, 
+      rgba(212, 165, 116, 0.08) 50%, 
+      rgba(148, 0, 48, 0.12) 100%);
+    border-color: rgba(190, 128, 12, 0.3);
+    box-shadow: 0 8px 32px rgba(190, 128, 12, 0.2);
+  }
+}
+
+.default:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.clickable {
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Content styling helpers
+.adminCard {
+  h2, h3, h4 {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Icon styling
+  svg {
+    color: var(--colorPrimary);
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .large {
+    padding: 1.5rem;
+  }
+  
+  .medium {
+    padding: 1.25rem;
+  }
+  
+  .small {
+    padding: 0.75rem;
+  }
+}

@@ -11,7 +11,8 @@ import { useMediaQuery } from 'react-responsive';
 import MobileButtons from '../../sharedUI/MobileButtons/MobileButtons';
 
 const Reviews: FC = () => {
-  const { reviewPage, setReviewPage } = useAppStore((state) => state);
+  const reviewPage = useAppStore((state) => state.reviewPage);
+  const setReviewPage = useAppStore((state) => state.setReviewPage);
   const t = useTranslations();
   const locale = useLocale();
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });

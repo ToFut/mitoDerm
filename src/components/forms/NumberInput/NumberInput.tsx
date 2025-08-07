@@ -6,7 +6,8 @@ import useAppStore from '@/store/store';
 
 const NumberInput: FC = () => {
   const t = useTranslations();
-  const { numberOfTickets, setNumberOfTickets } = useAppStore((state) => state);
+  const numberOfTickets = useAppStore((state) => state.numberOfTickets);
+  const setNumberOfTickets = useAppStore((state) => state.setNumberOfTickets);
 
   const handleChange = (arg: 'inc' | 'dec') => {
     if (arg === 'dec') {
@@ -19,7 +20,7 @@ const NumberInput: FC = () => {
 
   useEffect(() => {
     setNumberOfTickets(1);
-  }, []);
+  }, [setNumberOfTickets]); // Include setNumberOfTickets in dependencies
 
   return (
     <div className={styles.container}>

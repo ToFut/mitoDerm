@@ -1,25 +1,27 @@
 'use client';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useCallback } from 'react';
 import styles from './Modal.module.scss';
 import useAppStore from '@/store/store';
 import PrivatePolicy from '@/components/layout/PrivatePolicy/PrivatePolicy';
 import Accessibility from '@/components/layout/Accessibility/Accessibility';
 
 const Modal: FC = () => {
-  const { modalIsOpen, toggleModal, modalContent } = useAppStore(
-    (state) => state
-  );
-  const handleClose = (e: MouseEvent) => {
+  // Only subscribe to the specific parts of the store we need
+  const modalIsOpen = useAppStore((state) => state.modalIsOpen);
+  const toggleModal = useAppStore((state) => state.toggleModal);
+  const modalContent = useAppStore((state) => state.modalContent);
+  
+  const handleClose = useCallback((e: MouseEvent) => {
     const { target } = e;
     if ((target as HTMLDivElement).id === 'modal') toggleModal(false);
-  };
+  }, [toggleModal]);
 
   useEffect(() => {
-    modalIsOpen
-      ? window.addEventListener('click', handleClose)
-      : window.removeEventListener('click', handleClose);
-    return () => window.removeEventListener('click', handleClose);
-  }, [modalIsOpen]);
+    if (modalIsOpen) {
+      window.addEventListener('click', handleClose);
+      return () => window.removeEventListener('click', handleClose);
+    }
+  }, [modalIsOpen, handleClose]);
 
   useEffect(() => {
     const body = document.querySelector('body');

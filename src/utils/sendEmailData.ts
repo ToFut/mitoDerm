@@ -1,5 +1,5 @@
 'use server';
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 const emailUsername = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
 const emailPassword = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;

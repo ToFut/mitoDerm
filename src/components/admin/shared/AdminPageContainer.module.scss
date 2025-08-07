@@ -1,0 +1,83 @@
+@import '../../../styles/nextgen-variables.scss';
+
+.adminPageContainer {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  color: white;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #16213e 75%, #1a1a2e 100%);
+    z-index: -3;
+  }
+}
+
+.glassBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(190, 128, 12, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(148, 0, 48, 0.08) 0%, transparent 40%);
+  backdrop-filter: blur(1px);
+  z-index: -2;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, transparent 0%, rgba(190, 128, 12, 0.03) 25%, transparent 50%, rgba(212, 165, 116, 0.02) 75%, transparent 100%);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--colorPrimary), var(--colorPrimaryLight));
+    border-radius: 3px;
+    
+    &:hover {
+      background: linear-gradient(to bottom, var(--colorPrimaryDark), var(--colorPrimary));
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1200px) {
+  .adminPageContainer {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .adminPageContainer {
+    padding: 1rem;
+  }
+}

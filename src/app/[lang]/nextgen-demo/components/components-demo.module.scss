@@ -1,0 +1,359 @@
+@import '../../../../styles/nextgen-variables.scss';
+
+.componentsDemo {
+  min-height: 100vh;
+  background: var(--accent-midnight);
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+// QUANTUM BACKGROUND
+.quantumBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+
+  .particleField {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(191, 128, 12, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(232, 180, 166, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 40% 60%, rgba(229, 228, 226, 0.05) 0%, transparent 40%);
+    animation: particleFlow 25s ease-in-out infinite;
+  }
+
+  .energyWaves {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, transparent 0%, rgba(191, 128, 12, 0.02) 25%, transparent 50%),
+      linear-gradient(-45deg, transparent 0%, rgba(232, 180, 166, 0.02) 25%, transparent 50%);
+    animation: energyPulse 20s linear infinite;
+  }
+}
+
+// HEADER
+.demoHeader {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  .headerContent {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    background: var(--gradient-luxury);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 1rem 0;
+    filter: drop-shadow(0 0 30px var(--primary-gold-glow));
+    letter-spacing: -1px;
+  }
+
+  .subtitle {
+    font-family: var(--font-luxury);
+    font-size: 1.3rem;
+    color: var(--accent-pearl);
+    opacity: 0.9;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+// SHOWCASE GRID
+.showcaseGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.componentSection {
+  .sectionTitle {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient-luxury);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 3rem 0;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 2px;
+      background: var(--gradient-primary);
+      border-radius: 1px;
+    }
+  }
+}
+
+// BUTTON GRID
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
+
+// CARD GRID
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardContent {
+  padding: 1rem;
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    color: var(--accent-pearl);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.9;
+  }
+
+  .cardMetrics {
+    display: flex;
+    gap: 1rem;
+    
+    span {
+      background: rgba(191, 128, 12, 0.1);
+      color: var(--primary-gold-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(191, 128, 12, 0.3);
+    }
+  }
+}
+
+// INPUT GRID
+.inputGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// PROGRESS GRID
+.progressGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .progressDemo {
+    .progressControls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+
+      .controlButton {
+        @include glass-morphism;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: var(--border-radius);
+        color: var(--accent-pearl);
+        font-family: var(--font-luxury);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all var(--duration-normal) var(--ease-luxury);
+
+        &:hover {
+          background: rgba(191, 128, 12, 0.1);
+          color: var(--primary-gold);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+// PLAYGROUND
+.playground {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  .playgroundControls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .playgroundCard {
+    padding: 1rem;
+    text-align: center;
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: rainbowShift 3s ease-in-out infinite;
+    }
+
+    p {
+      color: var(--accent-pearl);
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+// CODE EXAMPLES
+.codeExamples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .codeBlock {
+    h4 {
+      font-family: var(--font-luxury);
+      color: var(--primary-gold-light);
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+
+    .code {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #e8e8e8;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--primary-gold);
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// ANIMATIONS
+@keyframes particleFlow {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.6; 
+  }
+  33% { 
+    transform: translate(20px, -20px) scale(1.1); 
+    opacity: 0.8; 
+  }
+  66% { 
+    transform: translate(-15px, 15px) scale(0.9); 
+    opacity: 0.7; 
+  }
+}
+
+@keyframes energyPulse {
+  0% { 
+    background-position: 0% 0%; 
+  }
+  100% { 
+    background-position: 100% 100%; 
+  }
+}
+
+@keyframes rainbowShift {
+  0%, 100% { 
+    filter: hue-rotate(0deg); 
+  }
+  50% { 
+    filter: hue-rotate(180deg); 
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 768px) {
+  .demoHeader {
+    padding: 4rem 0 3rem;
+
+    .title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  .showcaseGrid {
+    padding: 0 1rem 4rem;
+    gap: 4rem;
+  }
+
+  .componentSection .sectionTitle {
+    font-size: 2rem;
+  }
+}

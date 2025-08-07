@@ -13,9 +13,9 @@ const LanguageSwitch: FC = () => {
   const popupRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
   const pathname = usePathname();
-  const isEventFormPage = pathname.includes('event/form');
-  const isEventPage = pathname.includes('event');
-  const isFormPage = pathname.includes('form');
+  const isEventFormPage = pathname ? pathname.includes('event/form') : false;
+  const isEventPage = pathname ? pathname.includes('event') : false;
+  const isFormPage = pathname ? pathname.includes('form') : false;
 
   const handleClick = () => {
     setIsOpen(() => !isOpen);

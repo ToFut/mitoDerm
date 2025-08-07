@@ -1,34 +1,13 @@
 import type { Metadata } from 'next';
 import { unstable_setRequestLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import '../globals.scss';
 import { Rubik } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
-import Footer from '@/components/layout/Footer/Footer';
-import { GoogleAnalytics } from '@next/third-parties/google';
-import Script from 'next/script';
-
-const Header = dynamic(() => import('@/components/layout/Header/Header'), {
-  ssr: false,
-});
-
-const Modal = dynamic(() => import('@/components/layout/Modal/Modal'), {
-  ssr: false,
-});
-
-const Chatbot = dynamic(() => import('@/components/ChatBot/ChatBot'), {
-  ssr: false,
-});
-
-const WhatsappLink = dynamic(
-  () => import('@/components/layout/WhatsappLink/WhatsappLink'),
-  {
-    ssr: false,
-  }
-);
+import SessionProvider from '@/components/providers/SessionProvider';
+import AppShellClient from '@/components/layout/AppShellClient';
 
 const rubik = Rubik({
   weight: ['300', '400', '500', '900'],
@@ -134,66 +113,34 @@ const structuredData = {
   },
 };
 
-export default async function RootLayout({
+export default async function LangLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }>) {
   const messages = await getMessages();
+  const resolvedParams = await params;
 
-  if (!routing.locales.includes(params.lang as any)) {
+  if (!routing.locales.includes(resolvedParams.lang as any)) {
     notFound();
   }
 
-  unstable_setRequestLocale(params.lang);
+  unstable_setRequestLocale(resolvedParams.lang);
 
   return (
-    <html lang={params.lang}>
-      {/* Google Tag Manager */}
-      <Script
-        id='gtm-script'
-        strategy='afterInteractive'
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-W7HBVJPC');
-          `,
-        }}
-      />
-
-      <NextIntlClientProvider messages={messages}>
-        <body
+    <NextIntlClientProvider messages={messages}>
+      <SessionProvider>
+        <div
           className={rubik.className}
-          dir={params.lang === 'he' ? 'rtl' : 'ltr'}
+          dir={resolvedParams.lang === 'he' ? 'rtl' : 'ltr'}
         >
-          {/* Google Tag Manager (noscript) */}
-          <noscript>
-            <iframe
-              src='https://www.googletagmanager.com/ns.html?id=GTM-W7HBVJPC'
-              height='0'
-              width='0'
-              style={{ display: 'none', visibility: 'hidden' }}
-            />
-          </noscript>
-
-          <Header />
-          <Modal />
-          {children}
-          <Footer />
-          {params.lang === 'he' && <Chatbot locale={params.lang} />}
-          <WhatsappLink />
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-          />
-        </body>
-      </NextIntlClientProvider>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ID as string} />
-    </html>
+          <AppShellClient lang={resolvedParams.lang} structuredData={structuredData}>
+            {children}
+          </AppShellClient>
+        </div>
+      </SessionProvider>
+    </NextIntlClientProvider>
   );
 }

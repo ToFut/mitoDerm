@@ -1,0 +1,439 @@
+.certificationRequest {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .icon {
+      font-size: 3rem;
+      color: #6366f1;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #6b7280;
+      font-size: 1.1rem;
+    }
+  }
+
+  .progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e5e7eb;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+
+      .stepNumber {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e5e7eb;
+        color: #6b7280;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .stepLabel {
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: 500;
+      }
+
+      &.active {
+        .stepNumber {
+          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+          color: white;
+          box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .stepLabel {
+          color: #6366f1;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .stepContent {
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+
+    .formGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .formGroup {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 0.5rem;
+
+        svg {
+          color: #6366f1;
+        }
+      }
+
+      .formInput,
+      .formSelect,
+      .formTextarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8);
+
+        &:focus {
+          outline: none;
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+
+      .formTextarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    .uploadSection {
+      margin-bottom: 2rem;
+
+      .uploadArea {
+        position: relative;
+        border: 2px dashed #d1d5db;
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+          border-color: #6366f1;
+          background: rgba(99, 102, 241, 0.05);
+        }
+
+        .uploadIcon {
+          font-size: 3rem;
+          color: #6366f1;
+          margin-bottom: 1rem;
+        }
+
+        .fileInput {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .uploadText {
+          p {
+            margin: 0.25rem 0;
+            color: #6b7280;
+
+            &.uploadHint {
+              font-size: 0.875rem;
+              color: #9ca3af;
+            }
+          }
+        }
+      }
+    }
+
+    .documentsList {
+      margin-bottom: 2rem;
+
+      h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+
+      .documentItem {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
+        border: 1px solid #e5e7eb;
+
+        .documentIcon {
+          color: #6366f1;
+          font-size: 1.25rem;
+        }
+
+        .documentName {
+          flex: 1;
+          font-weight: 500;
+          color: #374151;
+        }
+
+        .removeDocument {
+          background: none;
+          border: none;
+          color: #ef4444;
+          font-size: 1.25rem;
+          cursor: pointer;
+          padding: 0.25rem;
+          border-radius: 4px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: rgba(239, 68, 68, 0.1);
+          }
+        }
+      }
+    }
+
+    .requiredDocuments {
+      background: rgba(99, 102, 241, 0.05);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+
+      h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          padding: 0.5rem 0;
+          padding-left: 1.5rem;
+          position: relative;
+          color: #6b7280;
+
+          &::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .stepActions {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      .prevButton,
+      .nextButton,
+      .submitButton {
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      .prevButton {
+        background: #f3f4f6;
+        color: #6b7280;
+
+        &:hover:not(:disabled) {
+          background: #e5e7eb;
+        }
+      }
+
+      .nextButton {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+      }
+
+      .submitButton {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+      }
+    }
+  }
+
+  .successMessage {
+    text-align: center;
+    padding: 2rem;
+
+    .successIcon {
+      font-size: 4rem;
+      color: #10b981;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+
+    .nextSteps {
+      text-align: left;
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+
+      ol {
+        padding-left: 1.5rem;
+        color: #6b7280;
+
+        li {
+          margin-bottom: 0.75rem;
+          line-height: 1.6;
+        }
+      }
+    }
+
+    .contactInfo {
+      background: rgba(99, 102, 241, 0.05);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      color: #6b7280;
+
+      strong {
+        color: #6366f1;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .certificationRequest {
+    padding: 1rem;
+    margin: 1rem;
+
+    .header {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .progress {
+      .step {
+        .stepLabel {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .stepContent {
+      .formGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .stepActions {
+        flex-direction: column;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+} 

@@ -19,14 +19,15 @@ const Price: FC<Props> = ({ total, setTotal }) => {
   const t = useTranslations();
   const locale = useLocale();
   const currentPrice = process.env.NEXT_PUBLIC_EVENT_PRICE;
-  const { numberOfTickets, discountModifier, setDiscountModifier } =
-    useAppStore((state) => state);
+  const numberOfTickets = useAppStore((state) => state.numberOfTickets);
+  const discountModifier = useAppStore((state) => state.discountModifier);
+  const setDiscountModifier = useAppStore((state) => state.setDiscountModifier);
 
   useEffect(() => {
     setValue('');
     setDiscountModifier(1);
     setErrorMessage(initialErrorStatus);
-  }, []);
+  }, [setDiscountModifier]); // Include setDiscountModifier in dependencies
 
   const handleClick = () => {
     if (value === process.env.NEXT_PUBLIC_EVENT_PROMOCODE) {
@@ -51,7 +52,7 @@ const Price: FC<Props> = ({ total, setTotal }) => {
   useEffect(() => {
     const result = parseInt(currentPrice || '1500');
     setTotal(result.toString());
-  }, [numberOfTickets]);
+  }, [numberOfTickets, currentPrice]); // setTotal is stable and doesn't need to be in dependencies
 
   return (
     <div className={styles.container}>

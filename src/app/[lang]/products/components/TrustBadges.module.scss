@@ -1,0 +1,45 @@
+.trustBadges {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 4px 24px rgba(255,215,0,0.08);
+  backdrop-filter: blur(12px);
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #ffd70022 0%, #ffed4e22 100%);
+  border-radius: 14px;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  color: #ffd700;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px #ffd70022;
+}
+
+.icon {
+  font-size: 1.3rem;
+  color: #ffd700;
+}
+
+.label {
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .trustBadges {
+    gap: 1rem;
+    padding: 0.7rem 0.5rem;
+  }
+  .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+} 

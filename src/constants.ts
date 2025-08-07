@@ -9,28 +9,134 @@ import {
   CenterItemData,
 } from './types';
 
+// Main navigation with dropdown structure
 export const navMainList: NavItem[] = [
-  { text: 'navigation.product', scrollId: ScrollItems.solution },
-  { text: 'navigation.results', scrollId: ScrollItems.gallery },
-  { text: 'navigation.about', scrollId: ScrollItems.mission },
-  { text: 'navigation.info', scrollId: ScrollItems.moreInfo },
-  { text: 'navigation.contact', scrollId: ScrollItems.contactUs },
-  { text: 'navigation.event', url: '/event' },
-  { text: 'navigation.clinic', scrollId: ScrollItems.clinic },
+  { 
+    text: 'navigation.about', 
+    url: '/about',
+    icon: 'info'
+  },
+  { 
+    text: 'navigation.products', 
+    url: '/products',
+    icon: 'shopping',
+    hasDropdown: true,
+    dropdownItems: [
+      { text: 'navigation.allProducts', url: '/products', icon: 'shopping' },
+      { text: 'navigation.productsVM', url: '/products/vm', icon: 'star' }
+    ]
+  },
+  { 
+    text: 'navigation.member', 
+    url: '/member',
+    icon: 'users',
+    hasDropdown: true,
+    dropdownItems: [
+      { text: 'navigation.education', url: '/education', icon: 'book' },
+      { text: 'navigation.certification', url: '/certification', icon: 'award' }
+    ]
+  },
+  { 
+    text: 'navigation.events', 
+    url: '/events',
+    icon: 'calendar'
+  },
+  { 
+    text: 'navigation.clinic', 
+    url: '/clinic',
+    icon: 'clinic'
+  },
+  { 
+    text: 'navigation.contact', 
+    url: '/contact',
+    icon: 'contact'
+  }
 ];
 
 export const navEventList: NavItem[] = [
-  { text: 'navigation.product', url: '/' },
-  { text: 'navigation.info', scrollId: ScrollItems.about },
-  { text: 'navigation.agenda', scrollId: ScrollItems.agenda },
-  { text: 'navigation.contact', scrollId: ScrollItems.contactUs },
-  { text: 'navigation.results', scrollId: ScrollItems.gallery },
-  { text: 'navigation.about', scrollId: ScrollItems.mission },
+  { 
+    text: 'navigation.about', 
+    url: '/about',
+    icon: 'info'
+  },
+  { 
+    text: 'navigation.products', 
+    url: '/products',
+    icon: 'shopping',
+    hasDropdown: true,
+    dropdownItems: [
+      { text: 'navigation.allProducts', url: '/products', icon: 'shopping' },
+      { text: 'navigation.productsVM', url: '/products/vm', icon: 'star' }
+    ]
+  },
+  { 
+    text: 'navigation.member', 
+    url: '/member',
+    icon: 'users',
+    hasDropdown: true,
+    dropdownItems: [
+      { text: 'navigation.education', url: '/education', icon: 'book' },
+      { text: 'navigation.certification', url: '/certification', icon: 'award' }
+    ]
+  },
+  { 
+    text: 'navigation.events', 
+    url: '/events',
+    icon: 'calendar'
+  },
+  { 
+    text: 'navigation.clinic', 
+    url: '/clinic',
+    icon: 'clinic'
+  },
+  { 
+    text: 'navigation.contact', 
+    url: '/contact',
+    icon: 'contact'
+  }
 ];
 
 export const navFormList: NavItem[] = [
-  { text: 'navigation.product', url: '/' },
-  { text: 'navigation.event', url: '/event' },
+  { 
+    text: 'navigation.about', 
+    url: '/about',
+    icon: 'info'
+  },
+  { 
+    text: 'navigation.products', 
+    url: '/products',
+    icon: 'shopping',
+    hasDropdown: true,
+    dropdownItems: [
+      { text: 'navigation.allProducts', url: '/products', icon: 'shopping' },
+      { text: 'navigation.productsVM', url: '/products/vm', icon: 'star' }
+    ]
+  },
+  { 
+    text: 'navigation.member', 
+    url: '/member',
+    icon: 'users',
+    hasDropdown: true,
+    dropdownItems: [
+      { text: 'navigation.education', url: '/education', icon: 'book' },
+      { text: 'navigation.certification', url: '/certification', icon: 'award' }
+    ]
+  },
+  { 
+    text: 'navigation.events', 
+    url: '/events',
+    icon: 'calendar'
+  },
+  { 
+    text: 'navigation.clinic', 
+    url: '/clinic',
+    icon: 'clinic'
+  },
+  { 
+    text: 'navigation.contact', 
+    url: '/contact',
+    icon: 'contact'
+  }
 ];
 
 export const howToUseItemList: HowToUseItem[] = [
@@ -196,4 +302,13 @@ export const centerItemData: CenterItemData[] = [
   { name: 'שני אברהם', city: 'קריית גת', contact: '050-7700234' },
   { name: 'סימה פייר', city: 'צפון', contact: '050-8333654' },
   { name: 'שרי לוי', city: 'יבנה', contact: '050-6667891' },
+];
+
+export const navigation = [
+  { name: 'home', href: '/' },
+  { name: 'about', href: '/about' },
+  { name: 'products', href: '/products' },
+  { name: 'education', href: '/education' },
+  { name: 'contact', href: '/contact' },
+  { name: 'admin', href: '/admin' },
 ];

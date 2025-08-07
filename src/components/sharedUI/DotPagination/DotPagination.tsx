@@ -19,7 +19,8 @@ const DotPagination: FC<Props> = ({
   gallery,
   intro,
 }) => {
-  const { galleryPage, introPage } = useAppStore((state) => state);
+  const galleryPage = useAppStore((state) => state.galleryPage);
+  const introPage = useAppStore((state) => state.introPage);
   const arr = Array.from(Array(count).keys());
   return (
     <div style={style} className={styles.container}>

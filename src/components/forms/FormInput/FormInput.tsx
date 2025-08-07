@@ -42,7 +42,7 @@ const FormInput: FC<Props> = ({
 
   useEffect(() => {
     setFormData(data, name, !error.length ? true : false);
-  }, [error, data, name]);
+  }, [error, data, name, setFormData]);
 
   useEffect(() => {
     const input: HTMLInputElement | null =
@@ -56,7 +56,7 @@ const FormInput: FC<Props> = ({
       input?.addEventListener('input', handlePhoneNumber);
     }
     return () => input?.removeEventListener('input', handlePhoneNumber);
-  }, []);
+  }, [locale, type]); // Include locale and type in dependencies since they're accessed in the effect
 
   return (
     <label className={styles.inputLabel}>

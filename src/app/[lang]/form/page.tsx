@@ -1,8 +1,9 @@
 import { unstable_setRequestLocale } from 'next-intl/server';
 import MainForm from '@/components/forms/MainForm';
 
-export default function FormPage({ params: { lang } }: any) {
-  unstable_setRequestLocale(lang);
+export default async function FormPage(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
+  unstable_setRequestLocale(params.lang);
   return (
     <main className='formPage'>
       <MainForm />

@@ -1,0 +1,775 @@
+@use '../../../../styles/admin-dark-theme.scss' as *;
+
+.eventsAdminContainer {
+  min-height: 100vh;
+  background: $admin-gradient-bg;
+  padding: $admin-spacing-xl;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba($admin-primary, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba($admin-secondary, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+// Header Section
+.header {
+  margin-bottom: $admin-spacing-2xl;
+  position: relative;
+  z-index: 1;
+  
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $admin-spacing-xl;
+    
+    @include admin-responsive(md) {
+      align-items: center;
+    }
+  }
+  
+  .headerLeft {
+    .pageTitle {
+      font-size: $admin-font-size-4xl;
+      font-weight: $admin-font-weight-bold;
+      color: $admin-text-primary;
+      margin: 0 0 $admin-spacing-sm 0;
+      background: linear-gradient(135deg, $admin-text-primary 0%, $admin-text-secondary 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .pageSubtitle {
+      font-size: $admin-font-size-lg;
+      color: $admin-text-secondary;
+      margin: 0;
+    }
+  }
+  
+  .headerActions {
+    display: flex;
+    gap: $admin-spacing-md;
+    align-items: center;
+    
+    .refreshButton {
+      .spinning {
+        animation: admin-spin 1s linear infinite;
+      }
+    }
+  }
+}
+
+// Stats Grid
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $admin-spacing-lg;
+  margin-bottom: $admin-spacing-2xl;
+  
+  .statCard {
+    @include admin-card;
+    padding: $admin-spacing-xl;
+    border: none;
+    
+    .statContent {
+      display: flex;
+      align-items: center;
+      gap: $admin-spacing-lg;
+      
+      .statIcon {
+        width: 60px;
+        height: 60px;
+        border-radius: $admin-radius-xl;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $admin-font-size-2xl;
+        color: $admin-text-primary;
+        background: rgba($admin-primary, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      
+      .statInfo {
+        display: flex;
+        flex-direction: column;
+        gap: $admin-spacing-xs;
+        
+        .statNumber {
+          font-size: $admin-font-size-3xl;
+          font-weight: $admin-font-weight-bold;
+          color: $admin-text-primary;
+          line-height: 1;
+        }
+        
+        .statLabel {
+          font-size: $admin-font-size-sm;
+          color: $admin-text-secondary;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+}
+
+// Tab Navigation
+.tabNavigation {
+  display: flex;
+  gap: $admin-spacing-sm;
+  margin-bottom: $admin-spacing-xl;
+  border-bottom: 1px solid $admin-border-primary;
+  position: relative;
+  z-index: 1;
+  
+  .tabButton {
+    display: flex;
+    align-items: center;
+    gap: $admin-spacing-sm;
+    padding: $admin-spacing-md $admin-spacing-lg;
+    background: transparent;
+    border: none;
+    color: $admin-text-secondary;
+    font-size: $admin-font-size-base;
+    font-weight: $admin-font-weight-medium;
+    cursor: pointer;
+    transition: all $admin-transition-fast;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    
+    &:hover {
+      color: $admin-text-primary;
+      background: rgba($admin-primary, 0.05);
+    }
+    
+    &.active {
+      color: $admin-primary;
+      border-bottom-color: $admin-primary;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $admin-gradient-primary;
+        border-radius: $admin-radius-sm;
+      }
+    }
+  }
+}
+
+// Content Area
+.contentArea {
+  position: relative;
+  z-index: 1;
+}
+
+// Controls
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $admin-spacing-lg;
+  margin-bottom: $admin-spacing-xl;
+  padding: $admin-spacing-lg;
+  background: $admin-bg-card;
+  border-radius: $admin-radius-lg;
+  border: 1px solid $admin-border-primary;
+  
+  @include admin-responsive(md) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchAndFilters {
+    display: flex;
+    gap: $admin-spacing-lg;
+    align-items: center;
+    flex: 1;
+    
+    @include admin-responsive(md) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .searchContainer {
+      position: relative;
+      min-width: 300px;
+      
+      @include admin-responsive(md) {
+        min-width: auto;
+      }
+      
+      .searchIcon {
+        position: absolute;
+        left: $admin-spacing-md;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $admin-text-muted;
+        z-index: 1;
+      }
+      
+      .searchInput {
+        padding-left: $admin-spacing-xl;
+        width: 100%;
+      }
+    }
+    
+    .filters {
+      display: flex;
+      gap: $admin-spacing-md;
+      
+      @include admin-responsive(md) {
+        flex-wrap: wrap;
+      }
+      
+      .filterSelect {
+        @include admin-input;
+        min-width: 120px;
+        cursor: pointer;
+        
+        &:focus {
+          border-color: $admin-primary;
+        }
+      }
+    }
+  }
+  
+  .viewControls {
+    display: flex;
+    gap: $admin-spacing-md;
+    align-items: center;
+    
+    .viewModeToggle {
+      display: flex;
+      border: 1px solid $admin-border-primary;
+      border-radius: $admin-radius-md;
+      overflow: hidden;
+      
+      .viewModeButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        color: $admin-text-secondary;
+        cursor: pointer;
+        transition: all $admin-transition-fast;
+        
+        &:hover {
+          background: rgba($admin-primary, 0.1);
+          color: $admin-text-primary;
+        }
+        
+        &.active {
+          background: $admin-primary;
+          color: $admin-text-primary;
+        }
+      }
+    }
+    
+    .sortSelect {
+      @include admin-input;
+      min-width: 150px;
+      cursor: pointer;
+    }
+  }
+}
+
+// Bulk Actions
+.bulkActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $admin-spacing-lg;
+  background: rgba($admin-primary, 0.1);
+  border: 1px solid rgba($admin-primary, 0.3);
+  border-radius: $admin-radius-lg;
+  margin-bottom: $admin-spacing-xl;
+  
+  .bulkInfo {
+    display: flex;
+    align-items: center;
+    gap: $admin-spacing-md;
+    
+    span {
+      color: $admin-text-primary;
+      font-weight: $admin-font-weight-medium;
+    }
+    
+    .clearSelection {
+      background: none;
+      border: none;
+      color: $admin-text-muted;
+      cursor: pointer;
+      font-size: $admin-font-size-sm;
+      text-decoration: underline;
+      
+      &:hover {
+        color: $admin-text-primary;
+      }
+    }
+  }
+  
+  .bulkButtons {
+    display: flex;
+    gap: $admin-spacing-md;
+  }
+}
+
+// Events Container
+.eventsContainer {
+  display: grid;
+  gap: $admin-spacing-lg;
+  
+  &.grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    
+    @include admin-responsive(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &.list {
+    grid-template-columns: 1fr;
+  }
+  
+  .eventCard {
+    .eventCardContent {
+      height: 100%;
+      padding: $admin-spacing-xl;
+      transition: all $admin-transition-normal;
+      
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+    
+    .eventHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: $admin-spacing-lg;
+      
+      .eventStatus {
+        display: flex;
+        align-items: center;
+        gap: $admin-spacing-sm;
+        
+        .statusIcon {
+          font-size: $admin-font-size-lg;
+        }
+        
+        .statusBadge {
+          padding: $admin-spacing-xs $admin-spacing-sm;
+          border-radius: $admin-radius-sm;
+          font-size: $admin-font-size-xs;
+          font-weight: $admin-font-weight-medium;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          
+          &.statusPublished {
+            background: rgba($admin-success, 0.2);
+            color: $admin-success;
+          }
+          
+          &.statusDraft {
+            background: rgba($admin-warning, 0.2);
+            color: $admin-warning;
+          }
+          
+          &.statusCancelled {
+            background: rgba($admin-error, 0.2);
+            color: $admin-error;
+          }
+          
+          &.statusCompleted {
+            background: rgba($admin-info, 0.2);
+            color: $admin-info;
+          }
+          
+          &.statusDefault {
+            background: rgba($admin-text-muted, 0.2);
+            color: $admin-text-muted;
+          }
+        }
+      }
+      
+      .eventActions {
+        display: flex;
+        align-items: center;
+        gap: $admin-spacing-sm;
+        
+        .eventCheckbox {
+          width: 18px;
+          height: 18px;
+          accent-color: $admin-primary;
+        }
+        
+        .actionMenu {
+          position: relative;
+          
+          .actionButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: 1px solid $admin-border-primary;
+            border-radius: $admin-radius-sm;
+            color: $admin-text-secondary;
+            cursor: pointer;
+            transition: all $admin-transition-fast;
+            
+            &:hover {
+              background: rgba($admin-primary, 0.1);
+              color: $admin-text-primary;
+              border-color: $admin-primary;
+            }
+          }
+          
+          .actionDropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: $admin-bg-card;
+            border: 1px solid $admin-border-primary;
+            border-radius: $admin-radius-md;
+            box-shadow: 0 4px 12px $admin-shadow-lg;
+            z-index: 1000;
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all $admin-transition-fast;
+            
+            button {
+              display: flex;
+              align-items: center;
+              gap: $admin-spacing-sm;
+              width: 100%;
+              padding: $admin-spacing-sm $admin-spacing-md;
+              background: none;
+              border: none;
+              color: $admin-text-secondary;
+              cursor: pointer;
+              transition: all $admin-transition-fast;
+              
+              &:hover {
+                background: rgba($admin-primary, 0.1);
+                color: $admin-text-primary;
+              }
+              
+              &:first-child {
+                border-radius: $admin-radius-md $admin-radius-md 0 0;
+              }
+              
+              &:last-child {
+                border-radius: 0 0 $admin-radius-md $admin-radius-md;
+              }
+            }
+          }
+          
+          &:hover .actionDropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+    
+    .eventContent {
+      .eventTitle {
+        font-size: $admin-font-size-xl;
+        font-weight: $admin-font-weight-semibold;
+        color: $admin-text-primary;
+        margin: 0 0 $admin-spacing-sm 0;
+        line-height: 1.3;
+      }
+      
+      .eventSubtitle {
+        font-size: $admin-font-size-base;
+        color: $admin-text-secondary;
+        margin: 0 0 $admin-spacing-lg 0;
+        line-height: 1.5;
+      }
+      
+      .eventDetails {
+        display: flex;
+        flex-direction: column;
+        gap: $admin-spacing-sm;
+        margin-bottom: $admin-spacing-lg;
+        
+        .eventDetail {
+          display: flex;
+          align-items: center;
+          gap: $admin-spacing-sm;
+          color: $admin-text-secondary;
+          font-size: $admin-font-size-sm;
+          
+          svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+          }
+        }
+      }
+      
+      .eventStats {
+        display: flex;
+        gap: $admin-spacing-lg;
+        
+        .stat {
+          display: flex;
+          align-items: center;
+          gap: $admin-spacing-xs;
+          color: $admin-text-muted;
+          font-size: $admin-font-size-sm;
+          
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Loading and Empty States
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $admin-spacing-4xl;
+  color: $admin-text-secondary;
+  
+  .loadingSpinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid $admin-border-primary;
+    border-top: 3px solid $admin-primary;
+    border-radius: 50%;
+    animation: admin-spin 1s linear infinite;
+    margin-bottom: $admin-spacing-lg;
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $admin-spacing-4xl;
+  text-align: center;
+  
+  .emptyIcon {
+    font-size: $admin-font-size-4xl;
+    color: $admin-text-muted;
+    margin-bottom: $admin-spacing-lg;
+  }
+  
+  h3 {
+    font-size: $admin-font-size-2xl;
+    font-weight: $admin-font-weight-semibold;
+    color: $admin-text-primary;
+    margin: 0 0 $admin-spacing-md 0;
+  }
+  
+  p {
+    font-size: $admin-font-size-base;
+    color: $admin-text-secondary;
+    margin: 0 0 $admin-spacing-xl 0;
+    max-width: 400px;
+  }
+}
+
+// Registrations Tab
+.registrationsTab {
+  .registrationsHeader {
+    margin-bottom: $admin-spacing-xl;
+    
+    h2 {
+      font-size: $admin-font-size-3xl;
+      font-weight: $admin-font-weight-bold;
+      color: $admin-text-primary;
+      margin: 0 0 $admin-spacing-sm 0;
+    }
+    
+    p {
+      font-size: $admin-font-size-base;
+      color: $admin-text-secondary;
+      margin: 0;
+    }
+  }
+  
+  .registrationsList {
+    display: flex;
+    flex-direction: column;
+    gap: $admin-spacing-md;
+    
+    .registrationCard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: $admin-spacing-lg;
+      background: $admin-bg-card;
+      border: 1px solid $admin-border-primary;
+      border-radius: $admin-radius-lg;
+      transition: all $admin-transition-fast;
+      
+      &:hover {
+        border-color: $admin-primary;
+        box-shadow: 0 4px 12px $admin-shadow-md;
+      }
+      
+      .registrationInfo {
+        h4 {
+          font-size: $admin-font-size-lg;
+          font-weight: $admin-font-weight-semibold;
+          color: $admin-text-primary;
+          margin: 0 0 $admin-spacing-xs 0;
+        }
+        
+        p {
+          font-size: $admin-font-size-base;
+          color: $admin-text-secondary;
+          margin: 0 0 $admin-spacing-xs 0;
+        }
+        
+        .eventName {
+          font-size: $admin-font-size-sm;
+          color: $admin-text-muted;
+          background: rgba($admin-primary, 0.1);
+          padding: $admin-spacing-xs $admin-spacing-sm;
+          border-radius: $admin-radius-sm;
+        }
+      }
+      
+      .registrationActions {
+        display: flex;
+        gap: $admin-spacing-sm;
+      }
+    }
+  }
+}
+
+// Analytics Tab
+.analyticsTab {
+  .analyticsHeader {
+    margin-bottom: $admin-spacing-xl;
+    
+    h2 {
+      font-size: $admin-font-size-3xl;
+      font-weight: $admin-font-weight-bold;
+      color: $admin-text-primary;
+      margin: 0 0 $admin-spacing-sm 0;
+    }
+    
+    p {
+      font-size: $admin-font-size-base;
+      color: $admin-text-secondary;
+      margin: 0;
+    }
+  }
+  
+  .analyticsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $admin-spacing-lg;
+    
+    .analyticsCard {
+      padding: $admin-spacing-xl;
+      
+      h3 {
+        font-size: $admin-font-size-xl;
+        font-weight: $admin-font-weight-semibold;
+        color: $admin-text-primary;
+        margin: 0 0 $admin-spacing-lg 0;
+      }
+      
+      .chartPlaceholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: $admin-spacing-2xl;
+        color: $admin-text-muted;
+        
+        svg {
+          font-size: $admin-font-size-4xl;
+          margin-bottom: $admin-spacing-md;
+        }
+        
+        p {
+          font-size: $admin-font-size-base;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@include admin-responsive(sm) {
+  .eventsAdminContainer {
+    padding: $admin-spacing-lg;
+  }
+  
+  .header .headerContent {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $admin-spacing-lg;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tabNavigation {
+    flex-wrap: wrap;
+    
+    .tabButton {
+      flex: 1;
+      min-width: 120px;
+    }
+  }
+}
+
+// Animations
+@keyframes admin-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes admin-slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes admin-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

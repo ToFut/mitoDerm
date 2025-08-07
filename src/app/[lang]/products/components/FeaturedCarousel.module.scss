@@ -1,0 +1,111 @@
+.carouselSection {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.carouselTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.carouselWrapper {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+
+.carouselCard {
+  min-width: 320px;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,215,0,0.2);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(255,215,0,0.08);
+  backdrop-filter: blur(20px);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: start;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  &:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 48px rgba(255,215,0,0.18);
+    border-color: #ffd700;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 1rem;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 2px solid #ffd70044;
+    box-shadow: 0 4px 16px rgba(255,215,0,0.10);
+  }
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+  }
+}
+
+.infoWrapper {
+  text-align: center;
+}
+
+.productName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.detailsButton {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 0.7rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.10);
+  transition: background 0.2s, transform 0.2s;
+  &:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+    transform: translateY(-2px) scale(1.04);
+  }
+}
+
+@media (max-width: 600px) {
+  .carouselCard {
+    min-width: 240px;
+    padding: 1rem;
+  }
+  .imageWrapper {
+    width: 120px;
+    height: 120px;
+  }
+} 

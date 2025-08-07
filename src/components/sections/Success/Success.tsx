@@ -12,19 +12,19 @@ const Success: FC = () => {
   const router = useRouter();
 
   const params = useSearchParams();
-  const name = params.get('name');
-  const email = params.get('email');
-  const phone = params.get('phone');
-  const amount = params.get('amount');
-  const idNumber = params.get('idNumber');
-  console.log(name, email, phone, amount, idNumber);
+  const name = params ? params.get('name') : null;
+  const email = params ? params.get('email') : null;
+  const phone = params ? params.get('phone') : null;
+  const amount = params ? params.get('amount') : null;
+  const idNumber = params ? params.get('idNumber') : null;
+  // Processing success page data
   useEffect(() => {
     if (!name || !email || !phone || !amount || !idNumber) {
       router.push('/');
     } else {
       sendPaymentEmail({ name, email, phone, amount, idNumber });
     }
-  }, []);
+  }, [name, email, phone, amount, idNumber, router]);
 
   return (
     <div className={styles.container}>

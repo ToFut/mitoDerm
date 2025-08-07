@@ -15,7 +15,7 @@ const scrollTo = () => {
 const About: FC = () => {
   const t = useTranslations();
   const pathname = usePathname();
-  const isEventPage = pathname.includes('event');
+  const isEventPage = pathname ? pathname.includes('event') : false;
 
   return (
     <section id='about' className={styles.section}>

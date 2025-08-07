@@ -10,6 +10,8 @@ import { useMediaQuery } from 'react-responsive';
 import type { MainFormDataType, NameTypeEvent, NameTypeMain } from '@/types';
 import { sendDataOnMail } from '@/utils/sendEmailData';
 import { sendDataToCRM } from '@/utils/sendCRMData';
+import { useUser, useAddNotification } from '@/store/store';
+import { userService } from '@/lib/services/userService';
 import Loader from '../sharedUI/Loader/Loader';
 import { usePathname } from 'next/navigation';
 import {
@@ -22,10 +24,12 @@ import {
 const MainForm: FC = () => {
   const t = useTranslations();
   const pathname = usePathname();
-  const isEventPage = pathname.includes('event');
+  const isEventPage = pathname ? pathname.includes('event') : false;
   const locale = useLocale();
   const formRef = useRef<HTMLDivElement>(null);
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const user = useUser();
+  const addNotification = useAddNotification();
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [formData, setFormData] = useState<MainFormDataType>({
@@ -49,17 +53,47 @@ const MainForm: FC = () => {
     e?.preventDefault();
     setIsSending(true);
 
-    Promise.all([
-      sendDataOnMail(formData)
-        .then()
-        .catch((err) => console.log(err)),
-      sendDataToCRM(formData)
-        .then()
-        .catch((err) => console.log(err)),
-    ]).then((values: any) => {
-      (values[0] || values[1]) && setIsSent(true);
-    });
-    return;
+    try {
+      // Check if user exists, if not create a lead
+      if (!user) {
+        const leadData = {
+          name: formData.name.value,
+          email: formData.email.value,
+          phone: formData.phone.value,
+          profession: formData.profession.value,
+          source: isEventPage ? 'event_registration' : 'callback_request',
+          status: 'new',
+          createdAt: new Date().toISOString()
+        };
+        
+        await userService.createLead(leadData);
+        
+        addNotification({
+          type: 'success',
+          title: t('form.success.title'),
+          message: t('form.success.message'),
+          isRead: false
+        });
+      }
+
+      // Also send to existing email/CRM systems
+      await Promise.all([
+        sendDataOnMail(formData).catch((err) => console.log(err)),
+        sendDataToCRM(formData).catch((err) => console.log(err)),
+      ]);
+      
+      setIsSent(true);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      addNotification({
+        type: 'error',
+        title: t('form.error.title'),
+        message: t('form.error.message'),
+        isRead: false
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const onEnterHit = (e: KeyboardEvent) => {

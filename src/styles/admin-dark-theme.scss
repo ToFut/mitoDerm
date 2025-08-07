@@ -1,0 +1,292 @@
+// Admin Dark Theme Variables
+// =========================
+
+// Color Palette
+$admin-primary: #4f46e5;
+$admin-primary-light: #6366f1;
+$admin-primary-dark: #3730a3;
+$admin-secondary: #10b981;
+$admin-secondary-light: #34d399;
+$admin-secondary-dark: #059669;
+$admin-accent: #3b82f6;
+$admin-accent-light: #60a5fa;
+$admin-accent-dark: #2563eb;
+
+// Background Colors
+$admin-bg-primary: #0f172a;
+$admin-bg-secondary: #1e293b;
+$admin-bg-tertiary: #334155;
+$admin-bg-card: #1e293b;
+$admin-bg-overlay: rgba(15, 23, 42, 0.8);
+
+// Text Colors
+$admin-text-primary: #f8fafc;
+$admin-text-secondary: #cbd5e1;
+$admin-text-muted: #94a3b8;
+$admin-text-inverse: #0f172a;
+
+// Border Colors
+$admin-border-primary: #475569;
+$admin-border-secondary: #64748b;
+$admin-border-accent: #4f46e5;
+
+// Status Colors
+$admin-success: #10b981;
+$admin-warning: #f59e0b;
+$admin-error: #ef4444;
+$admin-info: #3b82f6;
+
+// Shadow Colors
+$admin-shadow-sm: rgba(0, 0, 0, 0.1);
+$admin-shadow-md: rgba(0, 0, 0, 0.15);
+$admin-shadow-lg: rgba(0, 0, 0, 0.2);
+$admin-shadow-xl: rgba(0, 0, 0, 0.25);
+
+// Gradient Colors
+$admin-gradient-primary: linear-gradient(135deg, $admin-primary 0%, $admin-primary-light 100%);
+$admin-gradient-secondary: linear-gradient(135deg, $admin-secondary 0%, $admin-secondary-light 100%);
+$admin-gradient-accent: linear-gradient(135deg, $admin-accent 0%, $admin-accent-light 100%);
+$admin-gradient-bg: linear-gradient(135deg, $admin-bg-primary 0%, $admin-bg-secondary 25%, $admin-bg-tertiary 100%);
+
+// Spacing
+$admin-spacing-xs: 0.25rem;
+$admin-spacing-sm: 0.5rem;
+$admin-spacing-md: 1rem;
+$admin-spacing-lg: 1.5rem;
+$admin-spacing-xl: 2rem;
+$admin-spacing-2xl: 3rem;
+$admin-spacing-3xl: 4rem;
+$admin-spacing-4xl: 6rem;
+
+// Border Radius
+$admin-radius-sm: 0.25rem;
+$admin-radius-md: 0.5rem;
+$admin-radius-lg: 0.75rem;
+$admin-radius-xl: 1rem;
+$admin-radius-2xl: 1.5rem;
+$admin-radius-full: 9999px;
+
+// Typography
+$admin-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$admin-font-size-xs: 0.75rem;
+$admin-font-size-sm: 0.875rem;
+$admin-font-size-base: 1rem;
+$admin-font-size-lg: 1.125rem;
+$admin-font-size-xl: 1.25rem;
+$admin-font-size-2xl: 1.5rem;
+$admin-font-size-3xl: 1.875rem;
+$admin-font-size-4xl: 2.25rem;
+
+// Font Weights
+$admin-font-weight-normal: 400;
+$admin-font-weight-medium: 500;
+$admin-font-weight-semibold: 600;
+$admin-font-weight-bold: 700;
+
+// Line Heights
+$admin-line-height-tight: 1.25;
+$admin-line-height-normal: 1.5;
+$admin-line-height-relaxed: 1.75;
+
+// Transitions
+$admin-transition-fast: 0.15s ease-in-out;
+$admin-transition-normal: 0.3s ease-in-out;
+$admin-transition-slow: 0.5s ease-in-out;
+
+// Z-Index
+$admin-z-dropdown: 1000;
+$admin-z-sticky: 1020;
+$admin-z-fixed: 1030;
+$admin-z-modal-backdrop: 1040;
+$admin-z-modal: 1050;
+$admin-z-popover: 1060;
+$admin-z-tooltip: 1070;
+
+// Breakpoints
+$admin-breakpoint-sm: 640px;
+$admin-breakpoint-md: 768px;
+$admin-breakpoint-lg: 1024px;
+$admin-breakpoint-xl: 1280px;
+$admin-breakpoint-2xl: 1536px;
+
+// Mixins
+@mixin admin-card {
+  background: $admin-bg-card;
+  border: 1px solid $admin-border-primary;
+  border-radius: $admin-radius-lg;
+  box-shadow: 0 4px 6px $admin-shadow-md;
+  transition: all $admin-transition-normal;
+  
+  &:hover {
+    box-shadow: 0 8px 25px $admin-shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin admin-button-primary {
+  background: $admin-gradient-primary;
+  color: $admin-text-primary;
+  border: none;
+  border-radius: $admin-radius-md;
+  padding: $admin-spacing-sm $admin-spacing-lg;
+  font-weight: $admin-font-weight-medium;
+  transition: all $admin-transition-fast;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($admin-primary, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin admin-button-secondary {
+  background: transparent;
+  color: $admin-text-secondary;
+  border: 1px solid $admin-border-primary;
+  border-radius: $admin-radius-md;
+  padding: $admin-spacing-sm $admin-spacing-lg;
+  font-weight: $admin-font-weight-medium;
+  transition: all $admin-transition-fast;
+  cursor: pointer;
+  
+  &:hover {
+    background: rgba($admin-primary, 0.1);
+    border-color: $admin-primary-light;
+    color: $admin-text-primary;
+  }
+}
+
+@mixin admin-input {
+  background: $admin-bg-secondary;
+  border: 1px solid $admin-border-primary;
+  border-radius: $admin-radius-md;
+  color: $admin-text-primary;
+  padding: $admin-spacing-sm $admin-spacing-md;
+  font-size: $admin-font-size-base;
+  transition: all $admin-transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $admin-primary;
+    box-shadow: 0 0 0 3px rgba($admin-primary, 0.1);
+  }
+  
+  &::placeholder {
+    color: $admin-text-muted;
+  }
+}
+
+@mixin admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: $admin-spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $admin-border-primary;
+  }
+  
+  th {
+    background: $admin-bg-secondary;
+    color: $admin-text-secondary;
+    font-weight: $admin-font-weight-semibold;
+  }
+  
+  tr:hover {
+    background: rgba($admin-primary, 0.05);
+  }
+}
+
+@mixin admin-modal {
+  background: $admin-bg-card;
+  border-radius: $admin-radius-xl;
+  box-shadow: 0 20px 25px $admin-shadow-xl;
+  border: 1px solid $admin-border-primary;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+@mixin admin-sidebar {
+  background: $admin-bg-secondary;
+  border-right: 1px solid $admin-border-primary;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $admin-z-fixed;
+}
+
+@mixin admin-header {
+  background: $admin-bg-card;
+  border-bottom: 1px solid $admin-border-primary;
+  padding: $admin-spacing-md $admin-spacing-xl;
+  position: sticky;
+  top: 0;
+  z-index: $admin-z-sticky;
+}
+
+// Utility Classes
+.admin-text-primary { color: $admin-text-primary; }
+.admin-text-secondary { color: $admin-text-secondary; }
+.admin-text-muted { color: $admin-text-muted; }
+.admin-text-success { color: $admin-success; }
+.admin-text-warning { color: $admin-warning; }
+.admin-text-error { color: $admin-error; }
+.admin-text-info { color: $admin-info; }
+
+.admin-bg-primary { background: $admin-bg-primary; }
+.admin-bg-secondary { background: $admin-bg-secondary; }
+.admin-bg-tertiary { background: $admin-bg-tertiary; }
+.admin-bg-card { background: $admin-bg-card; }
+
+.admin-border-primary { border-color: $admin-border-primary; }
+.admin-border-secondary { border-color: $admin-border-secondary; }
+.admin-border-accent { border-color: $admin-border-accent; }
+
+// Animation Keyframes
+@keyframes admin-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes admin-slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes admin-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes admin-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Responsive Mixins
+@mixin admin-responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $admin-breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $admin-breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $admin-breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $admin-breakpoint-xl) { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (min-width: $admin-breakpoint-2xl) { @content; }
+  }
+} 

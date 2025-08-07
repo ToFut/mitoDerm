@@ -12,9 +12,8 @@ type DotProps = {
 };
 
 const Dot: FC<DotProps> = ({ colored, index, active, gallery, intro }) => {
-  const { galleryPage, setGalleryPage, setIntroPage } = useAppStore(
-    (state) => state
-  );
+  const setGalleryPage = useAppStore((state) => state.setGalleryPage);
+  const setIntroPage = useAppStore((state) => state.setIntroPage);
 
   const handleClick = () => {
     intro && setIntroPage(index);
@@ -29,7 +28,7 @@ const Dot: FC<DotProps> = ({ colored, index, active, gallery, intro }) => {
       onClick={handleClick}
       className={`${colored ? styles.colored : ''} ${
         active ? styles.dotActive : styles.dot
-      } ${gallery && galleryPage === index ? styles.dotActive : styles.dot}`}
+      }`}
     />
   );
 };

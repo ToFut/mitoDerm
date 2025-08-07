@@ -1,0 +1,439 @@
+.ctaSection {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floatingElement,
+.floatingElement2,
+.floatingElement3 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingElement {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floatingElement2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+  width: 150px;
+  height: 150px;
+}
+
+.floatingElement3 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+.ctaContent {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 32px;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.ctaHeader {
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.ctaSubtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.urgencyFeatures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+  }
+}
+
+.featureIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--colorWhite);
+  margin-bottom: 0.5rem;
+}
+
+.featureDescription {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.registrationProgress {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.progressTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--colorWhite);
+  margin: 0;
+}
+
+.progressBadge {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.progressBar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ef4444, #f87171);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.progressStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statItem {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #ffd700;
+    color: #000000;
+    transform: translateY(-2px);
+  }
+}
+
+.trustIndicators {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.trustIcon {
+  font-size: 1.2rem;
+  color: #ffd700;
+}
+
+.countdownSection {
+  position: relative;
+  z-index: 1;
+}
+
+.countdownTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--colorWhite);
+  margin-bottom: 1.5rem;
+}
+
+.countdownTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.countdownItem {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 12px;
+  min-width: 80px;
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 1rem;
+    min-width: 60px;
+  }
+}
+
+.countdownNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.3rem;
+  display: block;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.countdownLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.countdownSeparator {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffd700;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+// Animation Classes
+.ctaSection {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.featureCard {
+  animation: fadeInUp 0.8s ease-out;
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+.registrationProgress {
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.actionButtons {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.trustIndicators {
+  animation: fadeInUp 0.8s ease-out 0.7s both;
+}
+
+.countdownSection {
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .ctaContent {
+    padding: 2rem;
+  }
+  
+  .urgencyFeatures {
+    gap: 1rem;
+  }
+  
+  .featureCard {
+    padding: 1rem;
+  }
+  
+  .registrationProgress {
+    padding: 1.5rem;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .trustIndicators {
+    flex-direction: column;
+    align-items: center;
+  }
+} 

@@ -1,94 +1,370 @@
 :root {
+  // Enhanced Typography with Fluid Scaling
   --font-Rubik: 'Rubik', sans-serif;
-  --fontSizeH1: 88px;
-  --fontSizeH2: 48px;
-  --fontSizeP1: 24px;
-  --fontSizeP2: 18px;
-  --fontSizeMobH1: 44px;
-  --fontSizeMobH2: 24px;
-  --fontSizeMobP1: 18px;
-  --fontSizeMobP2: 14px;
-  --fontSizeMobExtra: 12px;
-  --colorAccentDark: #222222;
+  
+  // Fluid Typography Scale
+  --fontSizeH1: clamp(2rem, 4vw + 1rem, 5.5rem); // 32px - 88px
+  --fontSizeH2: clamp(1.5rem, 3vw + 0.5rem, 3rem); // 24px - 48px
+  --fontSizeH3: clamp(1.25rem, 2vw + 0.5rem, 2rem); // 20px - 32px
+  --fontSizeP1: clamp(1rem, 1.5vw + 0.5rem, 1.5rem); // 16px - 24px
+  --fontSizeP2: clamp(0.875rem, 1vw + 0.5rem, 1.125rem); // 14px - 18px
+  --fontSizeSmall: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem); // 12px - 14px
+  
+  // Legacy mobile sizes (for backwards compatibility)
+  --fontSizeMobH1: var(--fontSizeH1);
+  --fontSizeMobH2: var(--fontSizeH2);
+  --fontSizeMobP1: var(--fontSizeP1);
+  --fontSizeMobP2: var(--fontSizeP2);
+  --fontSizeMobExtra: var(--fontSizeSmall);
+  
+  // Enhanced Brand Colors with Better Contrast
+  --colorAccentDark: #1a1a1a; // Improved contrast
   --colorAccentLight: #be800c;
   --colorBG: #000000;
-  --colorWhite: #fff;
+  --colorWhite: #ffffff;
   --colorGold: #dfba74;
   --colorLightBG: #f8ecd6;
-  --contentWidthDesktop: 1200px;
   --buttonAccentColor: #940030;
+  
+  // Comprehensive Color System
+  --colorPrimary: #be800c;
+  --colorPrimaryDark: #8b5f09;
+  --colorPrimaryLight: #dfba74;
+  --colorSecondary: #940030;
+  --colorSecondaryDark: #7a0025;
+  --colorSecondaryLight: #b8405a;
+  
+  // Status Colors with Better Accessibility
+  --colorSuccess: #10b981;
+  --colorSuccessDark: #059669;
+  --colorSuccessLight: #34d399;
+  --colorError: #ef4444;
+  --colorErrorDark: #dc2626;
+  --colorErrorLight: #f87171;
+  --colorWarning: #f59e0b;
+  --colorWarningDark: #d97706;
+  --colorWarningLight: #fbbf24;
+  --colorInfo: #3b82f6;
+  --colorInfoDark: #2563eb;
+  --colorInfoLight: #60a5fa;
+  
+  // Extended Neutral Palette
+  --colorGray50: #f9fafb;
+  --colorGray100: #f3f4f6;
+  --colorGray200: #e5e7eb;
+  --colorGray300: #d1d5db;
+  --colorGray400: #9ca3af;
+  --colorGray500: #6b7280;
+  --colorGray600: #4b5563;
+  --colorGray700: #374151;
+  --colorGray800: #1f2937;
+  --colorGray900: #111827;
+  
+  // Responsive Layout System
+  --contentWidthMobile: min(100vw - 2rem, 480px);
+  --contentWidthTablet: min(100vw - 4rem, 768px);
+  --contentWidthDesktop: min(100vw - 6rem, 1200px);
+  --contentWidthMax: min(100vw - 8rem, 1400px);
+  
+  // Fluid Spacing Scale
+  --spacing-xs: clamp(0.25rem, 0.5vw, 0.5rem);   // 4px - 8px
+  --spacing-sm: clamp(0.5rem, 1vw, 1rem);        // 8px - 16px
+  --spacing-md: clamp(1rem, 2vw, 2rem);          // 16px - 32px
+  --spacing-lg: clamp(1.5rem, 3vw, 3rem);        // 24px - 48px
+  --spacing-xl: clamp(2rem, 4vw, 4rem);          // 32px - 64px
+  --spacing-2xl: clamp(3rem, 6vw, 6rem);         // 48px - 96px
+  --spacing-3xl: clamp(4rem, 8vw, 8rem);         // 64px - 128px
+  
+  // Enhanced Border Radius System
+  --borderRadiusSmall: 4px;
+  --borderRadius: 8px;
+  --borderRadiusLarge: 12px;
+  --borderRadiusXL: 16px;
+  --borderRadius2XL: 24px;
+  --borderRadiusFull: 9999px;
+  
+  // Sophisticated Shadow System
+  --shadowSmall: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadowMedium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadowLarge: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadowXl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow2Xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadowInner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  // Enhanced Z-Index Scale
+  --zIndexHidden: -1;
+  --zIndexBase: 0;
+  --zIndexDropdown: 1000;
+  --zIndexSticky: 1020;
+  --zIndexFixed: 1030;
+  --zIndexModalBackdrop: 1040;
+  --zIndexModal: 1050;
+  --zIndexPopover: 1060;
+  --zIndexTooltip: 1070;
+  --zIndexToast: 1080;
+  --zIndexMax: 9999;
+  
+  // Enhanced Transition System
+  --transitionFast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transitionNormal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transitionSlow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transitionBounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  // Responsive Breakpoints (for JS usage)
+  --breakpointSm: 640px;
+  --breakpointMd: 768px;
+  --breakpointLg: 1024px;
+  --breakpointXl: 1280px;
+  --breakpoint2Xl: 1536px;
+  
+  // Enhanced Commerce Colors
+  --colorCartBadge: var(--colorSecondary);
+  --colorWishlistHeart: var(--colorError);
+  --colorPriceStrike: var(--colorGray400);
+  --colorDiscountBadge: var(--colorError);
+  --colorInStock: var(--colorSuccess);
+  --colorOutOfStock: var(--colorError);
+  --colorLowStock: var(--colorWarning);
+  
+  // Partner/Certification Colors
+  --colorPartnerBronze: #cd7f32;
+  --colorPartnerSilver: #c0c0c0;
+  --colorPartnerGold: #ffd700;
+  --colorPartnerPlatinum: #e5e4e2;
+  
+  // Focus States for Accessibility
+  --focusRing: 0 0 0 3px rgba(190, 128, 12, 0.3);
+  --focusRingError: 0 0 0 3px rgba(239, 68, 68, 0.3);
+  --focusRingSuccess: 0 0 0 3px rgba(16, 185, 129, 0.3);
+  
+  // Enhanced Design System Colors (for ProductPageEnhanced)
+  --primary-gold: #BE800C;
+  --primary-gold-light: #dfba74;
+  --primary-gold-dark: #8b5f09;
+  --primary-gold-glow: rgba(190, 128, 12, 0.5);
+  --primary-gold-rgb: 190, 128, 12;
+  --accent-rose-gold: #D4A574;
+  --accent-platinum: #e5e4e2;
 }
 
-html,
-body {
-  max-width: 100vw;
+// Enhanced Global Reset and Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  // Prevent horizontal scroll
   overflow-x: hidden;
-  width: 100%;
-  background-color: #000;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 body {
-  color: var(--colorAccentDark);
-  background-color: var(--colorBG);
+  font-family: var(--font-Rubik);
+  font-size: var(--fontSizeP2);
+  line-height: 1.6;
+  color: var(--colorWhite);
+  background: var(--colorBG);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  text-rendering: optimizeLegibility;
+  // Prevent horizontal scroll
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-a {
-  cursor: pointer;
+// Enhanced Focus Management
+:focus-visible {
   outline: none;
-  border: none;
+  box-shadow: var(--focusRing);
 }
 
-section {
-  scroll-margin-top: 60px;
+// Skip Link for Accessibility
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--colorPrimary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: var(--borderRadius);
+  z-index: var(--zIndexMax);
+  transition: top var(--transitionFast);
+  
+  &:focus {
+    top: 6px;
+  }
 }
 
-.formPage {
+// Enhanced Responsive Utilities
+.container {
   width: 100%;
-  padding-top: 70px;
-  display: flex;
-  justify-content: center;
-  min-height: calc(100% - 60px);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  
+  @media (min-width: 640px) {
+    max-width: var(--contentWidthTablet);
+  }
+  
+  @media (min-width: 1024px) {
+    max-width: var(--contentWidthDesktop);
+    padding: 0 var(--spacing-lg);
+  }
+  
+  @media (min-width: 1280px) {
+    max-width: var(--contentWidthMax);
+    padding: 0 var(--spacing-xl);
+  }
 }
 
-.successPage {
-  padding-top: 60px;
-  height: calc(100vh - 195px);
+// Responsive Grid System
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+  
+  &.cols-1 { grid-template-columns: 1fr; }
+  &.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  
+  @media (max-width: 768px) {
+    &.cols-2,
+    &.cols-3,
+    &.cols-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    &.cols-3,
+    &.cols-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
-@media screen and (max-width: 1224px) {
-  body.modalOpened {
-    touch-action: none;
-    -webkit-overflow-scrolling: none;
-    overflow: hidden;
-    overscroll-behavior: none;
+// Enhanced Typography Scale
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+  color: var(--colorWhite);
+}
+
+h1 { font-size: var(--fontSizeH1); }
+h2 { font-size: var(--fontSizeH2); }
+h3 { font-size: var(--fontSizeH3); }
+
+p {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+// Enhanced Button Base Styles
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all var(--transitionNormal);
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
-  .formPage {
-    min-height: calc(100vh - 70px);
-    height: auto;
+}
+
+// Enhanced Link Styles
+a {
+  color: var(--colorPrimary);
+  text-decoration: none;
+  transition: color var(--transitionFast);
+  
+  &:hover {
+    color: var(--colorPrimaryLight);
   }
-  .successPage {
-    padding-top: 72px;
-    height: calc(100vh - 284px);
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--focusRing);
+    border-radius: var(--borderRadiusSmall);
+  }
+}
+
+// Enhanced Form Elements
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: 2px solid var(--colorGray300);
+  border-radius: var(--borderRadius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: all var(--transitionNormal);
+  background: white;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--colorPrimary);
+    box-shadow: var(--focusRing);
+  }
+  
+  &:invalid:not(:focus) {
+    border-color: var(--colorError);
+  }
+  
+  &:disabled {
+    background: var(--colorGray100);
+    cursor: not-allowed;
+  }
+}
+
+// Enhanced Image Handling
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Modal and Overlay Improvements
+.modalOpened {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+// Print Styles
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  @page {
+    margin: 0.5in;
+  }
+}
+
+// Reduced Motion Support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

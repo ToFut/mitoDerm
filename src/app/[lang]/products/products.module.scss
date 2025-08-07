@@ -1,0 +1,485 @@
+@use '../../../styles/nextgen-variables.scss' as *;
+
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+}
+
+.header {
+      text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-rose-gold) 100%);
+  background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+        opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+        line-height: 1.6;
+      }
+      
+// Search and Filters
+.searchAndFilters {
+  margin-bottom: 2rem;
+          padding: 1.5rem;
+          background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.searchContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+        
+        .searchInput {
+          width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+          
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+          }
+          
+          &:focus {
+            outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 2px rgba(190, 128, 12, 0.2);
+  }
+}
+
+.searchIcon {
+            position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.clearSearch {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.5rem;
+          
+          &:hover {
+    color: white;
+  }
+}
+
+.filterControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filterToggle {
+        display: flex;
+  align-items: center;
+        gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          
+          &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.viewModeToggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.viewModeBtn {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+        
+        &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  &.active {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: black;
+  }
+}
+
+.filtersPanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.filterSelect {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+  }
+  
+  option {
+    background: #1a1a2e;
+    color: white;
+  }
+}
+
+.resultsInfo {
+            display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resultCount {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.clearFilters {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+              
+              &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// Loading States
+.loadingGrid {
+          display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 2rem;
+}
+
+.loadingSkeleton {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1rem;
+  animation: pulse 2s infinite;
+}
+
+.skeletonImage {
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+              margin-bottom: 1rem;
+}
+
+.skeletonText {
+  height: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  
+  &:last-child {
+    width: 60%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Products Container
+.productsContainer {
+  &.gridMode {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  &.listMode {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+// Product Cards
+.productCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+      transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-gold);
+  }
+  
+  &.listView {
+    display: flex;
+    align-items: center;
+    
+    .productImageContainer {
+      width: 200px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+    
+    .productInfo {
+      flex: 1;
+      padding: 1.5rem;
+    }
+  }
+}
+
+.productLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.productImageContainer {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.productBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--primary-gold);
+  color: black;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.productOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productCard:hover .productOverlay {
+  opacity: 1;
+}
+
+.productActions {
+    display: flex;
+  gap: 1rem;
+}
+
+.actionBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: var(--primary-gold);
+    color: black;
+    transform: scale(1.1);
+  }
+}
+
+.productInfo {
+  padding: 1.5rem;
+}
+
+.productName {
+  font-size: 1.25rem;
+  font-weight: 600;
+        margin-bottom: 0.5rem;
+  color: white;
+}
+
+.productSubtitle {
+  font-size: 0.9rem;
+  color: var(--primary-gold);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.productDescription {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+        margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productPrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+          margin-bottom: 0.5rem;
+}
+
+.productTech {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+// Empty State
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .container {
+      padding: 1rem;
+  }
+  
+  .title {
+          font-size: 2rem;
+        }
+        
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .productsContainer.gridMode {
+    grid-template-columns: 1fr;
+  }
+  
+  .productCard.listView {
+    flex-direction: column;
+
+.productImageContainer {
+  width: 100%;
+  height: 200px;
+    }
+  }
+  
+  .filterControls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .filtersPanel {
+    grid-template-columns: 1fr;
+  }
+} 

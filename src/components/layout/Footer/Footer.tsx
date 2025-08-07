@@ -6,7 +6,8 @@ import useAppStore from '@/store/store';
 import { usePathname } from '@/i18n/routing';
 
 const Footer: FC = () => {
-  const { setModalContent, toggleModal } = useAppStore((state) => state);
+  const setModalContent = useAppStore((state) => state.setModalContent);
+  const toggleModal = useAppStore((state) => state.toggleModal);
   const t = useTranslations();
   const pathname = usePathname();
   const isFormPage = pathname.includes('form');

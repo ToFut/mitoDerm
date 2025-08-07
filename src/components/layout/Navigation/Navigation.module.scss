@@ -1,69 +1,1286 @@
+// Premium Navigation Styles - Enhanced Design System
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 536px;
+  max-width: 100%; // Prevent overflow
+  position: relative;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0 20px;
+  overflow: visible; // Changed from hidden to allow mega menu to show
+  
+  &.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .navigation.formPage {
   min-width: unset;
 }
 
-.button {
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 16px;
-  line-height: 24px;
-  padding-inline: 10px;
-  transition: color 0.3s linear;
-}
-
-.button:hover {
-  color: rgba(255, 255, 255, 1);
-}
-
-.arrowIcon {
-  margin: 0 0 2px 5px;
-}
-
-.arrowIcon.reversed {
-  margin: 0 5px 2px 0;
-}
-
-.mobileNavigation {
-  position: absolute;
-  top: 72px;
+// Enhanced Search Modal
+.searchModal {
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 120px;
+  animation: fadeInSearch 0.3s ease;
+}
+
+@keyframes fadeInSearch {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.searchContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+.searchForm {
+  width: 100%;
+}
+
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+  
+  &:focus-within {
+    border-color: var(--colorGold);
+    box-shadow: 0 0 0 4px rgba(223, 186, 116, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  outline: none;
+  
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.searchIcon {
+  color: rgba(255, 255, 255, 0.7);
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.searchClose {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.searchSuggestions {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: right;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+}
+
+.suggestionIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--colorGold);
+}
+
+// Navigation Items Container
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 2px; // Reduced from 4px
+  flex-wrap: nowrap; // Prevent wrapping
+  overflow: visible; // Changed from hidden to allow mega menu to show
+}
+
+.navItem {
+  position: relative;
+  flex-shrink: 0; // Prevent shrinking
+}
+
+// Enhanced Navigation Button Styles
+.navButton {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px; // Reduced from 14px
+  line-height: 1.2;
+  padding: 10px 12px; // Reduced from 12px 16px
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px; // Reduced from 8px
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border-radius: 10px; // Reduced from 12px
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap; // Prevent text wrapping
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &.active {
+    color: var(--colorGold);
+    background: rgba(223, 186, 116, 0.15);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(223, 186, 116, 0.3);
+  }
+  
+  &.dropdownActive {
+    color: var(--colorGold);
+    background: rgba(223, 186, 116, 0.2);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(223, 186, 116, 0.4);
+  }
+}
+
+.navIcon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.navButton:hover .navIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.navText {
+  position: relative;
+  font-weight: 500;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--colorGold), var(--colorAccentLight));
+    transition: width 0.3s ease;
+  }
+}
+
+.navButton:hover .navText::after {
+  width: 100%;
+}
+
+.navArrow {
+  transition: transform 0.3s ease;
+  width: 14px;
+  height: 14px;
+  
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+// Premium Mega Menu Styles
+.dropdownWrapper {
+  position: relative;
+}
+
+.megaMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(30px);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  min-width: 500px;
+  max-width: 80vw;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: visible;
+  pointer-events: auto;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    transform: none;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(255, 255, 255, 0.98);
+    pointer-events: none;
+  }
+  
+  @media (min-width: 1200px) {
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.dropdownWrapper .megaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  
+  @media (min-width: 1200px) {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.megaMenuContent {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.megaMenuSection {
+  h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--colorDark);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    opacity: 0.8;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--colorGold), transparent);
+    }
+  }
+}
+
+.featuredProducts {
   display: flex;
   flex-direction: column;
-  border-radius: 0 0 50px 50px;
-  transition: all 1s linear;
-  height: 0;
-  overflow: hidden;
+  gap: 8px;
 }
 
-.linkContainerMobile {
+.featuredProduct {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(223, 186, 116, 0.05);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(223, 186, 116, 0.1);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  
+  &:hover {
+    background: rgba(223, 186, 116, 0.1);
+    transform: translateX(4px);
+    border-color: rgba(223, 186, 116, 0.3);
+  }
+}
+
+.productIcon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--colorGold), var(--colorAccentLight));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.productIcon img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: #fff;
+  display: block;
+}
+
+.productInfo {
+  flex: 1;
+  min-width: 0;
+  
+  h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--colorDark);
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  p {
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    display: none;
+  }
+}
+
+.productBadge {
+  display: inline-block;
+  padding: 2px 4px;
+  background: var(--colorGold);
+  color: white;
+  font-size: 8px;
+  font-weight: 600;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+.categoriesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoryGroup {
+  h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--colorDark);
+    margin: 0 0 6px 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 4px;
+  }
+}
+
+.categoryLink {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  
+  &:hover {
+    transform: translateX(2px);
+  }
+}
+
+.itemName {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--colorDark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemDescription {
+  display: none;
+}
+
+.technologiesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.technologyItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateX(2px);
+  }
+  
+  span {
+    font-size: 11px;
+    color: var(--colorDark);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.techIcon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--colorGold), var(--colorAccentLight));
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+// Action Buttons
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 6px; // Reduced from 8px
+  flex-shrink: 0; // Prevent shrinking
+}
+
+.actionButton {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px; // Reduced from 12px
+  border-radius: 10px; // Reduced from 12px
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  svg {
+    width: 16px; // Reduced from 18px
+    height: 16px;
+  }
+}
+
+.cartBadge {
+  position: absolute;
+  top: 4px; // Reduced from 6px
+  right: 4px; // Reduced from 6px
+  background: var(--colorGold);
+  color: white;
+  font-size: 9px; // Reduced from 10px
+  font-weight: 600;
+  padding: 1px 4px; // Reduced from 2px 6px
+  border-radius: 8px; // Reduced from 10px
+  min-width: 14px; // Reduced from 16px
+  text-align: center;
+}
+
+// Enhanced Mobile Menu
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 60px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-.buttonMobile {
-  user-select: none;
+// Enhanced Mobile Navigation with better UX
+.mobileNavigation {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(360px, 90vw); // Responsive width
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(30px) saturate(180%);
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: -16px 0 64px rgba(0, 0, 0, 0.15);
+  z-index: var(--zIndexModal);
+  
+  // Smooth scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+  
+  &.active {
+    right: 0;
+    
+    // Add slide-in animation for content
+    .mobileNavItems {
+      animation: slideInNav 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+    }
+  }
+}
+
+@keyframes slideInNav {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Enhanced mobile header with better typography
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 20px 20px 20px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(190, 128, 12, 0.15);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(223, 186, 116, 0.05));
+}
+
+.mobileTitle {
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 700;
+  color: var(--colorAccentDark);
+  margin: 0 0 4px 0;
+  background: linear-gradient(135deg, var(--colorGold), var(--colorAccentLight));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.mobileSubtitle {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.65);
+  margin: 0;
+  font-weight: 500;
+}
+
+// Improved close button with better interaction
+.mobileCloseButton {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  color: var(--colorAccentDark);
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px; // Touch target size
+  min-height: 44px;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg) scale(1.1);
+  }
+  
+  &:active {
+    transform: rotate(90deg) scale(0.95);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: inherit;
+  }
+}
+
+// Enhanced search with better visual hierarchy
+.mobileSearch {
+  padding: 0 20px 24px 20px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.searchField {
   width: 100%;
-  padding: 20px 40px;
-  color: var(--colorLightBG);
-  background-color: transparent;
-  font-size: var(--fontSizeP2);
-  text-align: end;
+  padding: 16px 50px 16px 16px;
+  border: 2px solid rgba(190, 128, 12, 0.2);
+  border-radius: 12px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--colorAccentLight);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 4px rgba(190, 128, 12, 0.1);
+  }
+  
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+  }
 }
 
-.linkContainerMobile:last-child {
-  margin-bottom: 40px;
+// Improved navigation items with better spacing and interaction
+.mobileNavItems {
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.mobileNavigation.active {
-  height: auto;
+.mobileNavItem {
+  margin: 0;
 }
+
+.mobileNavButton,
+.mobileDropdownButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 56px; // Better touch target
+  
+  &:hover {
+    background: rgba(190, 128, 12, 0.08);
+    transform: translateX(4px);
+  }
+  
+  &:active {
+    background: rgba(190, 128, 12, 0.12);
+    transform: translateX(2px);
+  }
+  
+  &.active {
+    background: linear-gradient(90deg, rgba(190, 128, 12, 0.1), transparent);
+    border-right: 3px solid var(--colorAccentLight);
+    
+    .mobileNavText {
+      color: var(--colorAccentLight);
+      font-weight: 600;
+    }
+  }
+}
+
+.mobileNavText {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--colorAccentDark);
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+// Enhanced dropdown with better animation
+.mobileDropdownMenu {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(190, 128, 12, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 2px solid rgba(190, 128, 12, 0.2);
+  margin-left: 20px;
+  
+  &.open {
+    max-height: 400px;
+    border-left-color: var(--colorAccentLight);
+  }
+}
+
+.mobileDropdownLink {
+  display: block;
+  padding: 14px 20px 14px 40px;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    background: rgba(190, 128, 12, 0.08);
+    color: var(--colorAccentLight);
+    padding-left: 44px;
+  }
+  
+  &:active {
+    background: rgba(190, 128, 12, 0.12);
+  }
+}
+
+// Enhanced user profile section
+.mobileUserSection {
+  padding: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.03), rgba(223, 186, 116, 0.03));
+  margin-top: auto;
+}
+
+// Improved overlay with better blur effect
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: calc(var(--zIndexModal) - 1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Dropdown Menu Styles (for Member section)
+.dropdownMenu {
+  padding: 16px;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(30px);
+  border-radius: 16px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  overflow: visible; // Changed from hidden to allow clicks
+  pointer-events: auto;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(255, 255, 255, 0.98);
+    pointer-events: none;
+  }
+  
+  @media (min-width: 1200px) {
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// Show dropdown menu when active
+.dropdownWrapper .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  
+  @media (min-width: 1200px) {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdownMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--colorDark);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  
+  &:hover {
+    background: rgba(223, 186, 116, 0.1);
+    color: var(--colorGold);
+    transform: translateX(4px);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--colorGold);
+  }
+}
+
+// Desktop Authentication
+.desktopAuth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+  
+  // Ensure UserProfile and SignInButton are properly styled
+  > * {
+    flex-shrink: 0;
+  }
+}
+
+// Responsive Mega Menu
+@media (max-width: 1200px) {
+  .megaMenu {
+    min-width: 500px;
+    left: 0;
+    transform: translateY(0);
+    
+    &::before {
+      left: 20px;
+      transform: none;
+    }
+  }
+  
+  .megaMenuContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .dropdownMenu {
+    min-width: 180px;
+    left: 0;
+    transform: translateY(0);
+    
+    &::before {
+      left: 20px;
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    min-width: unset;
+    padding: 0 16px;
+  }
+  
+  .mobileNavigation {
+    width: 280px; // Further reduced for mobile
+    max-width: 90vw;
+    padding: 16px; // Further reduced padding
+  }
+  
+  .mobileHeader {
+    margin-bottom: 20px; // Further reduced
+  }
+  
+  .mobileTitle {
+    font-size: 20px; // Further reduced
+  }
+  
+  .mobileNavItems {
+    gap: 4px;
+  }
+  
+  .mobileNavButton,
+  .mobileDropdownButton {
+    padding: 10px; // Further reduced
+  }
+  
+  .mobileNavText {
+    font-size: 13px; // Further reduced
+  }
+  
+  .mobileDropdownMenu {
+    padding-left: 32px; // Further reduced
+  }
+  
+  .mobileDropdownLink {
+    padding: 8px 10px; // Further reduced
+    font-size: 12px; // Further reduced
+  }
+  
+  // Mega menu mobile styles
+  .megaMenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    min-width: 90vw;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    
+    &::before {
+      display: none; // Remove arrow on mobile
+    }
+  }
+  
+  .megaMenuContent {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .megaMenuSection {
+    h3 {
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+  }
+  
+  .featuredProduct {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .productIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .productIcon img {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .productInfo h4 {
+    font-size: 13px;
+  }
+  
+  .productInfo p {
+    font-size: 11px;
+  }
+  
+  // Dropdown menu mobile styles
+  .dropdownMenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    min-width: 80vw;
+    max-width: 80vw;
+    max-height: 60vh;
+    overflow-y: auto;
+    
+    &::before {
+      display: none; // Remove arrow on mobile
+    }
+  }
+  
+  .dropdownMenuItem {
+    padding: 16px;
+    font-size: 16px;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileNavigation {
+    width: 260px; // Even smaller for very small screens
+    max-width: 95vw;
+    padding: 12px; // Minimal padding
+  }
+  
+  .mobileTitle {
+    font-size: 18px; // Even smaller
+  }
+  
+  .mobileNavText {
+    font-size: 12px; // Even smaller
+  }
+}
+
+// Mega Menu Additional Styles
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(223, 186, 116, 0.3);
+    border-top: 3px solid var(--colorGold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    color: var(--colorDark);
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  
+  p {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  button {
+    background: var(--colorGold);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #d4a574;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  
+  .emptyIcon {
+    width: 48px;
+    height: 48px;
+    background: rgba(223, 186, 116, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colorGold);
+    margin-bottom: 16px;
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  h3 {
+    color: var(--colorDark);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+  
+  p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    margin: 0 0 16px 0;
+  }
+  
+  .adminLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--colorGold);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #d4a574;
+      transform: translateY(-1px);
+    }
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.viewAllSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.viewAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--colorGold), var(--colorAccentLight));
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(223, 186, 116, 0.3);
+  }
+}
+
+// Ensure mega menu content is clickable
+.megaMenu {
+  z-index: 2000;
+  pointer-events: auto;
+  
+  .megaMenuContent,
+  .megaMenuContent * {
+    pointer-events: auto;
+  }
+}
+

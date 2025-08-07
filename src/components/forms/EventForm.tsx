@@ -1,5 +1,5 @@
 'use client';
-import { FC, FormEvent, useState, useEffect, useRef } from 'react';
+import { FC, FormEvent, useState, useEffect, useRef, useCallback } from 'react';
 import {
   validateName,
   validateEmail,
@@ -21,15 +21,21 @@ import FormCloseButton from './FormCloseButton/FormCloseButton';
 import { usePathname } from 'next/navigation';
 import { sendPaymentDataToCRM } from '@/utils/sendPayment';
 import type { NameTypeMain, NameTypeEvent } from '@/types';
+import { useUser, useAddNotification } from '@/store/store';
+import { eventService } from '@/lib/services/eventService';
+import { orderService } from '@/lib/services/orderService';
 
 const EventForm: FC = () => {
-  const { numberOfTickets, discountModifier } = useAppStore((state) => state);
+  const numberOfTickets = useAppStore((state) => state.numberOfTickets);
+  const discountModifier = useAppStore((state) => state.discountModifier);
   const t = useTranslations();
   const pathname = usePathname();
-  const isEventPage = pathname.includes('event');
+  const isEventPage = pathname ? pathname.includes('event') : false;
   const locale = useLocale();
   const formRef = useRef<HTMLDivElement>(null);
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const user = useUser();
+  const addNotification = useAddNotification();
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [formData, setFormData] = useState<EventFormDataType>({
@@ -53,22 +59,66 @@ const EventForm: FC = () => {
   const onSubmit = async (e?: FormEvent) => {
     e?.preventDefault();
     setIsSending(true);
-    const data = {
-      ...formData,
-      totalPrice,
-      quantity: numberOfTickets,
-      discount: discountModifier,
-      lang: locale,
-    };
+    
+    try {
+      const data = {
+        ...formData,
+        totalPrice,
+        quantity: numberOfTickets,
+        discount: discountModifier,
+        lang: locale,
+      };
 
-    sendPaymentDataToCRM(data)
-      .then((res) => {
-        setIsSending(false);
-        setIsSent(true);
-        const url = res.pay_url;
-        if (url) window.location.href = url;
-      })
-      .catch((err) => console.log(err));
+      // Register for event in our system
+      const eventId = 'current-event'; // This should come from context or props
+      const registrationData = {
+        eventId,
+        userId: user?.id || null,
+        guestInfo: !user ? {
+          name: formData.name.value,
+          email: formData.email.value,
+          phone: formData.phone.value,
+          idNumber: formData.idNumber.value
+        } : null,
+        numberOfTickets,
+        totalAmount: parseFloat(totalPrice),
+        status: 'pending_payment',
+        registrationDate: new Date().toISOString()
+      };
+
+      const registration = await eventService.registerForEvent(
+        eventId,
+        user?.id || 'guest',
+        parseFloat(totalPrice),
+        'Event registration from form'
+      );
+      
+      // Send to existing payment system
+      const paymentResponse = await sendPaymentDataToCRM(data);
+      
+      addNotification({
+        type: 'success',
+        title: t('event.registration.success'),
+        message: t('event.registration.successMessage'),
+        isRead: false
+      });
+      
+      setIsSent(true);
+      
+      if (paymentResponse.pay_url) {
+        window.location.href = paymentResponse.pay_url;
+      }
+    } catch (error) {
+      console.error('Event registration error:', error);
+      addNotification({
+        type: 'error',
+        title: t('event.registration.error'),
+        message: t('event.registration.errorMessage'),
+        isRead: false
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const onEnterHit = (e: KeyboardEvent) => {
@@ -80,9 +130,9 @@ const EventForm: FC = () => {
   useEffect(() => {
     window.addEventListener('keypress', onEnterHit);
     return () => window.removeEventListener('keypress', onEnterHit);
-  }, [isButtonDisabled]);
+  }, []); // Remove isButtonDisabled dependency as it's not needed for event listener setup
 
-  const validatePageForm = () => {
+  const validatePageForm = useCallback(() => {
     !formData.email.isValid ||
     !formData.name.isValid ||
     !formData.phone.isValid ||
@@ -90,11 +140,11 @@ const EventForm: FC = () => {
     !isChecked
       ? setIsButtonDisabled(true)
       : setIsButtonDisabled(false);
-  };
+  }, [formData, isChecked]);
 
   useEffect(() => {
     validatePageForm();
-  }, [formData, isChecked]);
+  }, [validatePageForm]);
 
   return (
     <div className={styles.container}>

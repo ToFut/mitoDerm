@@ -1,0 +1,7 @@
+
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f5656522"/>
+  <circle cx="100" cy="80" r="40" fill="#f56565"/>
+  <rect x="60" y="140" width="80" height="40" rx="20" fill="#f56565"/>
+  <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">David Levy</text>
+</svg>

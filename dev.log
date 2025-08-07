@@ -1,0 +1,1277 @@
+
+> mitoderm@1.0.0 dev
+> next dev -p 3000
+
+ ⚠ Warning: Found multiple lockfiles. Selecting /Users/segevbin/package-lock.json.
+   Consider removing the lockfiles at:
+   * /Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/package-lock.json
+
+   ▲ Next.js 15.4.1
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.86.94:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` as Turbopack is now stable.
+ ✓ Ready in 4.6s
+ ○ Compiling /api/events ...
+ ✓ Compiled /api/events in 1414ms (334 modules)
+Failed to initialize Firebase Admin SDK: Error: Failed to parse private key: Error: Invalid PEM formatted message.
+    at eval (lib/firebaseAdmin.ts:26:25)
+  24 |     if (!getApps().length) {
+  25 |       app = initializeApp({
+> 26 |         credential: cert({
+     |                         ^
+  27 |           projectId,
+  28 |           clientEmail,
+  29 |           privateKey: privateKey.replace(/\\n/g, '\n'), {
+  errorInfo: [Object],
+  codePrefix: 'app'
+}
+Firebase not configured, returning mock data
+ GET /api/events 200 in 2235ms
+Firebase not configured, returning mock data
+ GET /api/events 200 in 44ms
+ ✓ Compiled /middleware in 304ms (264 modules)
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ○ Compiling /[lang]/admin ...
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /en/admin 200 in 5362ms
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /api/auth/session 304 in 1045ms
+ GET /api/auth/session 304 in 4ms
+ GET /api/auth/session 304 in 9ms
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⨯ ./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:135:1]
+ [2m132[0m |       ];
+ [2m133[0m |       
+ [2m134[0m |       setEvents(mockEvents);
+ [2m135[0m |     } catch (error) {
+     : [35;1m      ^^^^^[0m
+ [2m136[0m |       console.error('Failed to fetch events:', error);
+ [2m137[0m |     } finally {
+ [2m138[0m |       setLoading(false);
+     `----
+  [31mx[0m Expected '}', got '<eof>'
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:906:1]
+ [2m903[0m |       </motion.div>
+ [2m904[0m |     </motion.div>
+ [2m905[0m |   );
+ [2m906[0m | };
+     : [35;1m ^[0m
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+./src/app/[lang]/admin/events/page.tsx
+ ⨯ ./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:135:1]
+ [2m132[0m |       ];
+ [2m133[0m |       
+ [2m134[0m |       setEvents(mockEvents);
+ [2m135[0m |     } catch (error) {
+     : [35;1m      ^^^^^[0m
+ [2m136[0m |       console.error('Failed to fetch events:', error);
+ [2m137[0m |     } finally {
+ [2m138[0m |       setLoading(false);
+     `----
+  [31mx[0m Expected '}', got '<eof>'
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:906:1]
+ [2m903[0m |       </motion.div>
+ [2m904[0m |     </motion.div>
+ [2m905[0m |   );
+ [2m906[0m | };
+     : [35;1m ^[0m
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+./src/app/[lang]/admin/events/page.tsx
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:135:1]
+ [2m132[0m |       ];
+ [2m133[0m |       
+ [2m134[0m |       setEvents(mockEvents);
+ [2m135[0m |     } catch (error) {
+     : [35;1m      ^^^^^[0m
+ [2m136[0m |       console.error('Failed to fetch events:', error);
+ [2m137[0m |     } finally {
+ [2m138[0m |       setLoading(false);
+     `----
+  [31mx[0m Expected '}', got '<eof>'
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:906:1]
+ [2m903[0m |       </motion.div>
+ [2m904[0m |     </motion.div>
+ [2m905[0m |   );
+ [2m906[0m | };
+     : [35;1m ^[0m
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+./src/app/[lang]/admin/events/page.tsx
+ GET /en/admin/events 500 in 3751ms
+ GET /en/admin 500 in 1388ms
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin 500 in 15ms
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin 500 in 19ms
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiAward,FiBarChart3,FiCalendar,FiCheckCircle,FiPackage,FiPlus,FiSettings,FiUsers!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /_next/static/webpack/969a69c264cb5021.webpack.hot-update.json 404 in 575ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin 200 in 215ms
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /api/auth/session 304 in 336ms
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /api/auth/session 304 in 11ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin 200 in 328ms
+ GET /api/auth/session 304 in 7ms
+ GET /api/auth/session 304 in 5ms
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⨯ ./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:135:1]
+ [2m132[0m |       ];
+ [2m133[0m |       
+ [2m134[0m |       setEvents(mockEvents);
+ [2m135[0m |     } catch (error) {
+     : [35;1m      ^^^^^[0m
+ [2m136[0m |       console.error('Failed to fetch events:', error);
+ [2m137[0m |     } finally {
+ [2m138[0m |       setLoading(false);
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+./src/app/[lang]/admin/events/page.tsx
+ GET /en/admin/events 500 in 662ms
+ ⨯ ./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:136:1]
+ [2m133[0m |       ];
+ [2m134[0m |       
+ [2m135[0m |       setEvents(mockEvents);
+ [2m136[0m |     } catch (error) {
+     : [35;1m      ^^^^^[0m
+ [2m137[0m |       console.error('Failed to fetch events:', error);
+ [2m138[0m |     } finally {
+ [2m139[0m |       setLoading(false);
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+./src/app/[lang]/admin/events/page.tsx
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin/events 500 in 192ms
+ ⨯ ./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:136:1]
+ [2m133[0m |       ];
+ [2m134[0m |       
+ [2m135[0m |       setEvents(mockEvents);
+ [2m136[0m |     } catch (error) {
+     : [35;1m      ^^^^^[0m
+ [2m137[0m |       console.error('Failed to fetch events:', error);
+ [2m138[0m |     }
+ [2m139[0m |     } finally {
+     `----
+  [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:139:1]
+ [2m136[0m |     } catch (error) {
+ [2m137[0m |       console.error('Failed to fetch events:', error);
+ [2m138[0m |     }
+ [2m139[0m |     } finally {
+     : [35;1m      ^^^^^^^[0m
+ [2m140[0m |       setLoading(false);
+ [2m141[0m |     }
+ [2m142[0m |   };
+     `----
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/Users/segevbin/Desktop/MitoDerm Co iL/mitoderm/src/app/[lang]/admin/events/EventsAdminClient.tsx[0m:142:1]
+ [2m139[0m |     } finally {
+ [2m140[0m |       setLoading(false);
+ [2m141[0m |     }
+ [2m142[0m |   };
+     : [35;1m  ^[0m
+ [2m143[0m | 
+ [2m144[0m |   const fetchPendingRegistrations = async () => {
+ [2m145[0m |     try {
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+./src/app/[lang]/admin/events/page.tsx
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiBarChart3,FiCalendar,FiCheck,FiClock,FiEdit3,FiEye,FiFilter,FiMapPin,FiPlus,FiSearch,FiSend,FiTrash2,FiUsers,FiX!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiBarChart3,FiCalendar,FiCheck,FiClock,FiEdit3,FiEye,FiFilter,FiMapPin,FiPlus,FiSearch,FiSend,FiTrash2,FiUsers,FiX!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiBarChart3,FiCalendar,FiCheck,FiClock,FiEdit3,FiEye,FiFilter,FiMapPin,FiPlus,FiSearch,FiSend,FiTrash2,FiUsers,FiX!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+Attempted import error: 'FiBarChart3' is not exported from '__barrel_optimize__?names=FiBarChart3,FiCalendar,FiCheck,FiClock,FiEdit3,FiEye,FiFilter,FiMapPin,FiPlus,FiSearch,FiSend,FiTrash2,FiUsers,FiX!=!react-icons/fi' (imported as 'FiBarChart3').
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+🔍 MIDDLEWARE RUNNING for: /admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 307
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin/events 200 in 935ms
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+ GET /en/admin/events 500 in 759ms
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+ GET /en/admin/events 500 in 627ms
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin 200 in 724ms
+🔍 MIDDLEWARE RUNNING for: /en/admin/products
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/products
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin 200 in 384ms
+ GET /en/admin 200 in 1142ms
+ GET /en/admin 200 in 719ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+🔍 MIDDLEWARE RUNNING for: /en/admin
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/admin/products 200 in 4597ms
+ GET /en/admin/events 500 in 1304ms
+ GET /en/admin 200 in 32ms
+ GET /en/admin 200 in 33ms
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /api/auth/session 304 in 1124ms
+ GET /api/auth/session 304 in 1124ms
+ GET /_next/static/webpack/969a69c264cb5021.webpack.hot-update.json 404 in 734ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+🔍 MIDDLEWARE RUNNING for: /en/contact
+🔍 MIDDLEWARE URL: http://localhost:3000/en/contact
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /en/admin/events 500 in 542ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+🔍 MIDDLEWARE RUNNING for: /en/contact
+🔍 MIDDLEWARE URL: http://localhost:3000/en/contact
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ GET /api/placeholder/400x225 404 in 330ms
+ GET /en/contact 200 in 3015ms
+ GET /api/auth/session 304 in 173ms
+ GET /api/auth/session 304 in 4ms
+ GET /api/auth/session 304 in 3ms
+🔍 MIDDLEWARE RUNNING for: /en/about
+🔍 MIDDLEWARE URL: http://localhost:3000/en/about
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+ GET /en/about 200 in 1690ms
+ GET /en/admin/events 500 in 687ms
+🔍 MIDDLEWARE RUNNING for: /en/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/events/events.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/events/events.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/events/events.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/events/events.module.scss
+./src/app/[lang]/events/EventsClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/events/EventsClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/events/EventsClient.tsx (.next/server/app/[lang]/events/page.js:288:1) {
+  digest: '1652123714'
+}
+ GET /en/admin/events 500 in 674ms
+ GET /en/events 500 in 2976ms
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/events/events.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/events/events.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/events/events.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/events/events.module.scss
+./src/app/[lang]/events/EventsClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+ ⚠ ./src/app/[lang]/admin/events/events-admin.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/admin/events/events-admin.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/admin/events/events-admin.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/admin/events/events-admin.module.scss
+./src/app/[lang]/admin/events/EventsAdminClient.tsx
+
+./src/app/[lang]/events/events.module.scss
+Deprecation Warning on line 0, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/app/%5Blang%5D/events/events.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../../styles/nextgen-variables.scss';
+
+src/app/[lang]/events/events.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./src/app/[lang]/events/events.module.scss
+./src/app/[lang]/events/EventsClient.tsx
+
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+Deprecation Warning on line 62, column 8 of file:///Users/segevbin/Desktop/MitoDerm%20Co%20iL/mitoderm/src/components/admin/AdminDashboard/AdminDashboard.module.scss:62:8:
+Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+62 |         line-height: 1.5;
+
+src/components/admin/AdminDashboard/AdminDashboard.module.scss 63:9  root stylesheet
+
+Import trace for requested module:
+./src/components/admin/AdminDashboard/AdminDashboard.module.scss
+./src/components/admin/AdminDashboard/AdminDashboard.tsx
+[getAllProducts] called
+[getAllProducts] called
+[getAllProducts] found products: 12
+ GET /api/products 200 in 6765ms
+[getAllProducts] found products: 12
+ GET /api/products 200 in 6857ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/ff3ac8b9f5dda584.webpack.hot-update.json 404 in 2466ms
+🔍 MIDDLEWARE RUNNING for: /en/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+🔍 MIDDLEWARE RUNNING for: /en/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/events/page.js:341:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/events/EventsClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/events/EventsClient.tsx (.next/server/app/[lang]/events/page.js:288:1) {
+  digest: '1652123714'
+}
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /en/events 200 in 1333ms
+🔍 MIDDLEWARE RUNNING for: /en/admin/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/admin/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+🔍 MIDDLEWARE RUNNING for: /en/events
+🔍 MIDDLEWARE URL: http://localhost:3000/en/events
+✅ MIDDLEWARE SUCCESS - Status: 200
+ GET /en/events 500 in 1345ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')
+    at (ssr)/./node_modules/@react-three/fiber/dist/events-776716bd.esm.js (.next/server/vendor-chunks/@react-three.js:100:1)
+    at (ssr)/./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js (.next/server/vendor-chunks/@react-three.js:110:1)
+    at eval (webpack-internal:///(ssr)/./src/components/nextgen/LuxuryComponents.tsx:14:76)
+    at (ssr)/./src/components/nextgen/LuxuryComponents.tsx (.next/server/app/[lang]/admin/events/page.js:416:1)
+    at eval (webpack-internal:///(ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx:12:94)
+    at (ssr)/./src/app/[lang]/admin/events/EventsAdminClient.tsx (.next/server/app/[lang]/admin/events/page.js:342:1) {
+  digest: '2327089746'
+}
+ GET /en/events 200 in 321ms
+ GET /en/admin/events 500 in 339ms
+[?25h

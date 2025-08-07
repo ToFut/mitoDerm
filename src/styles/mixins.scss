@@ -1,0 +1,80 @@
+// Utility Mixins for MitoDerm Design System
+
+@mixin glass-morphism {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--border-radius);
+}
+
+@mixin neuro-morphism {
+  background: linear-gradient(145deg, var(--neuro-light), var(--neuro-dark));
+  box-shadow: var(--neuro-shadow-light), var(--neuro-shadow-dark);
+  border-radius: var(--border-radius);
+}
+
+@mixin luxury-hover {
+  transition: all var(--duration-normal) var(--ease-luxury);
+  
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-luxury);
+    filter: brightness(1.1);
+  }
+}
+
+@mixin floating-animation {
+  animation: floating 6s ease-in-out infinite;
+  
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+@mixin glow-effect {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+  }
+  
+  &:hover::before {
+    opacity: 1;
+    filter: blur(8px);
+  }
+}
+
+// Responsive breakpoint mixin
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// Breakpoints map
+$breakpoints: (
+  'xs': 320px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1440px,
+  'xxxl': 1920px
+); 

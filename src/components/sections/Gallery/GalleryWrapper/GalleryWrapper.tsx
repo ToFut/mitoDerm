@@ -17,7 +17,8 @@ const GalleryWrapper: FC<Props> = ({ itemList }) => {
   const isTabletOrMobile = useMediaQuery({
     query: '(max-width: 1224px)',
   });
-  const { galleryPage, setGalleryPage } = useAppStore((state) => state);
+  const galleryPage = useAppStore((state) => state.galleryPage);
+  const setGalleryPage = useAppStore((state) => state.setGalleryPage);
 
   const scrollTo = () => {
     const container = document.getElementById('galleryItemBox');
@@ -40,8 +41,10 @@ const GalleryWrapper: FC<Props> = ({ itemList }) => {
   };
 
   useEffect(() => {
-    isTabletOrMobile ? null : scrollTo();
-  }, [galleryPage]);
+    if (!isTabletOrMobile) {
+      scrollTo();
+    }
+  }, [galleryPage, isTabletOrMobile, itemList.length]);
 
   const increment = () => {
     itemList.length >= galleryPage

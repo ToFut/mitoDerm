@@ -1,0 +1,360 @@
+.testimonialsSection {
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonialCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.15);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.authorImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  flex-shrink: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.authorDetails {
+  flex: 1;
+}
+
+.authorName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--colorWhite);
+  margin-bottom: 0.3rem;
+}
+
+.authorTitle {
+  font-size: 0.9rem;
+  color: #ffd700;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.authorClinic {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rating {
+  display: flex;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.starFilled {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+.starEmpty {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+}
+
+.testimonialContent {
+  .testimonialText {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+}
+
+.eventInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  
+  .eventIcon {
+    font-size: 1rem;
+    color: #ffd700;
+  }
+  
+  .eventName {
+    font-weight: 500;
+  }
+}
+
+.statisticsSection {
+  margin-bottom: 4rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+  }
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ctaSection {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--colorWhite);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.ctaStat {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.ctaStatNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ctaStatLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Animation Classes
+.testimonialsSection {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.testimonialCard {
+  animation: fadeInUp 0.8s ease-out;
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+.statCard {
+  animation: fadeInUp 0.8s ease-out;
+  
+  &:nth-child(1) { animation-delay: 0.5s; }
+  &:nth-child(2) { animation-delay: 0.6s; }
+  &:nth-child(3) { animation-delay: 0.7s; }
+  &:nth-child(4) { animation-delay: 0.8s; }
+}
+
+.ctaCard {
+  animation: fadeInUp 0.8s ease-out 0.9s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .testimonialCard {
+    padding: 1.5rem;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .rating {
+    align-self: flex-start;
+  }
+  
+  .statCard {
+    padding: 1.5rem;
+  }
+  
+  .ctaCard {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+} 

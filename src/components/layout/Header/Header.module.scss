@@ -4,21 +4,80 @@
   align-items: center;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  padding-block: 10px;
-  z-index: 10;
-}
-
-.header .scrolled {
-  background-color: #000;
+  backdrop-filter: blur(20px);
+  padding-block: 16px;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(25px);
+    padding-block: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .container {
   max-width: var(--contentWidthDesktop);
-  height: 40px;
+  height: 48px;
   width: 100%;
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.actionButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: var(--colorWhite);
+  cursor: pointer;
+  transition: all var(--transitionFast);
+  text-decoration: none;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  svg {
+    font-size: 1.125rem;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--colorError);
+  color: var(--colorWhite);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.375rem;
+  border-radius: 10px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .logoContainer {
@@ -26,10 +85,20 @@
   align-items: center;
   user-select: none;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
-.logoContainer img {
+.logo {
   -webkit-user-drag: none;
+  transition: filter 0.3s ease;
+  
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
 .overlay {
@@ -52,9 +121,24 @@
   pointer-events: all;
 }
 
-@media screen and (max-width: 1224px) {
+@media screen and (max-width: 1024px) {
   .header {
     height: 72px;
-    padding: 0 80px 0 20px;
+    padding: 0 20px;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 64px;
+    padding: 0 16px;
+  }
+  
+  .container {
+    padding: 0 12px;
   }
 }

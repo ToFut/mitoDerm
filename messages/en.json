@@ -1,13 +1,137 @@
 {
   "navigation": {
     "product": "Products",
+    "products": "All Products",
     "results": "Results",
     "about": "About us",
     "info": "More info",
     "contact": "Contact us",
     "event": "Event",
+    "events": "Events",
     "agenda": "Event program",
-    "clinic": "Local clinic"
+    "clinic": "Local clinic",
+    "education": "Education",
+    "certification": "Certification",
+    "member": "Member",
+    "admin": "Admin"
+  },
+  "about": {
+    "meta": {
+      "title": "About MitoDerm - Leading Medical Aesthetics Innovation",
+      "description": "Discover MitoDerm's journey in revolutionizing medical aesthetics with synthetic exosomes and PDRN technology. Learn about our team, values, and mission.",
+      "keywords": "MitoDerm, medical aesthetics, synthetic exosomes, PDRN, innovation, team, company"
+    },
+    "hero": {
+      "title": "We are MitoDerm",
+      "description": "Leading the revolution in medical aesthetics with advanced synthetic exosome technology"
+    },
+    "sections": {
+      "story": "Our Story",
+      "team": "Our Team",
+      "values": "Our Values",
+      "timeline": "Our Journey"
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "subtitle": "From inception to today - a story of innovation and growth",
+      "2018": {
+        "title": "Company Founded",
+        "description": "MitoDerm established with a vision to revolutionize medical aesthetics"
+      },
+      "2020": {
+        "title": "V-Tech Technology Development",
+        "description": "Breakthrough in developing synthetic exosomes with PDRN polynucleotides"
+      },
+      "2022": {
+        "title": "International Expansion",
+        "description": "Expansion to international markets and strategic partnerships"
+      },
+      "2024": {
+        "title": "Industry Leaders",
+        "description": "Leading position in synthetic exosomes field with 2000+ aesthetics professionals"
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide us every step of the way",
+      "commitment": {
+        "title": "Patient Commitment",
+        "description": "We put patient wellbeing at the center of everything we do"
+      },
+      "safety": {
+        "title": "Safety & Quality",
+        "description": "Highest standards of safety and quality in all our products"
+      },
+      "innovation": {
+        "title": "Continuous Innovation",
+        "description": "Ongoing research and development to bring the most advanced technologies"
+      },
+      "partnership": {
+        "title": "True Partnership",
+        "description": "Building long-term relationships with aesthetics professionals"
+      }
+    }
+  },
+  "education": {
+    "meta": {
+      "title": "Educational Hub - Professional Training & Resources",
+      "description": "Master the latest techniques and technologies with our comprehensive educational content and professional training programs.",
+      "keywords": "education, training, medical aesthetics, professional development, courses"
+    },
+    "hero": {
+      "title": "Educational Hub",
+      "description": "Master the latest techniques and technologies with our comprehensive educational content"
+    },
+    "search": {
+      "placeholder": "Search educational content...",
+      "sortBy": {
+        "date": "Sort by Date",
+        "name": "Sort by Name",
+        "duration": "Sort by Duration",
+        "popularity": "Sort by Popularity"
+      }
+    },
+    "progress": {
+      "learningProgress": "Learning Progress",
+      "currentLevel": "Current Level",
+      "learningStreak": "Learning Streak",
+      "completedText": "videos completed",
+      "level": "Level",
+      "days": "days",
+      "keepItUp": "Keep it up!"
+    },
+    "categories": {
+      "all": "All Content",
+      "product": "Product Training",
+      "technology": "Technology",
+      "howTo": "How to Use",
+      "business": "Business Growth",
+      "advanced": "Advanced Training",
+      "newProducts": "New Products",
+      "accounting": "Accounting & Finance",
+      "ai": "AI Implementation"
+    }
+  },
+  "certification": {
+    "meta": {
+      "title": "Professional Certification & Training Programs",
+      "description": "Join our professional certification meetings and training programs for licensed aesthetics professionals. Advance your career with MitoDerm.",
+      "keywords": "certification, training, professional development, aesthetics, meetings, workshops"
+    },
+    "hero": {
+      "title": "Training & Certification",
+      "description": "Professional introduction meetings and conferences for licensed cosmetologists and aestheticians"
+    },
+    "tabs": {
+      "meetings": "Introduction Meetings",
+      "benefits": "Professional Benefits",
+      "requirements": "Requirements & Registration"
+    },
+    "stats": {
+      "professionals": "professionals",
+      "successRate": "success rate",
+      "rating": "rating"
+    }
   },
   "buttons": {
     "intro": "Learn More",
@@ -59,13 +183,16 @@
     "wrongPromo": "Wrong promo code"
   },
   "intro": {
-    "title": "V-Tech System",
-    "text": "A new generation in cosmeceuticals - a breakthrough in skincare for cosmeticians",
-    "eventSubtitle1": "Are you a Cosmetologist? Aesthetician?  Working with professional devices?",
-    "eventSubtitle2": "The company that brings the next generation of aesthetics.",
-    "eventTitleP1": "This ",
-    "eventTitleP2": "event ",
-    "eventTitleP3": "is exactly for you!"
+    "title": "Revolutionary Exosome Technology",
+    "subtitle": "Discover the power of V-Tech synthetic exosomes with PDRN polynucleotides for advanced skin regeneration and medical applications.",
+    "text": "Discover the power of V-Tech synthetic exosomes with PDRN polynucleotides for advanced skin regeneration and medical applications.",
+    "exploreProducts": "Explore Products",
+    "learnMore": "Learn More",
+    "eventSubtitle1": "Join our exclusive event",
+    "eventTitleP1": "Master the Art of ",
+    "eventTitleP2": "Exosome Technology",
+    "eventTitleP3": " in Medical Practice",
+    "eventSubtitle2": "Limited seats available"
   },
   "chevron": {
     "text1": "V Tech System ",
@@ -133,7 +260,12 @@
     "itemExp2": "Inflammation Reduction",
     "itemExp3": "Growth factors and cytokines",
     "itemExp4": "Increase in intracellular collagen and hyaluronic acid.",
-    "itemExp5": "Nanometers"
+    "itemExp5": "Nanometers",
+    "meta": {
+      "title": "About Us - MitoDerm",
+      "description": "Learn about MitoDerm's mission to advance medical aesthetics with cutting-edge technology",
+      "keywords": "about, medical aesthetics, innovation, technology, company"
+    }
   },
   "solution": {
     "title": "The V-Tech system is a technology for cellular biological renewal composed of 2 products:",
@@ -221,21 +353,44 @@
     "textP6": "helps you excel at the professional level. ",
     "textP7": "At Mitoderm, we provide advanced solutions for skin rejuvenation, anti-aging, hair thinning, and other skin concerns, tailored to your unique needs. Be part of our family today!"
   },
+  "contact": {
+    "meta": {
+      "title": "Contact Us - MitoDerm",
+      "description": "Get in touch with MitoDerm for personalized solutions and support",
+      "keywords": "contact, support, consultation, personalized solutions"
+    },
+    "contactUs": {
+      "item1title": "Contact Information",
+      "phone": "Phone",
+      "phoneText": "Call us:",
+      "address": "Address",
+      "addressText": "Rafael Eitan 38, Ramat Gan, 5590500",
+      "email": "Email",
+      "emailText": "info@mitoderm.com",
+      "item2title": "Working Hours",
+      "workWeek": "Sunday - Thursday",
+      "friday": "Friday",
+      "fridayText": "By appointment",
+      "saturday": "Saturday",
+      "closed": "Closed",
+      "followUs": "Follow Us"
+    }
+  },
   "contactUs": {
-    "item1title": "Contact Us",
+    "item1title": "Contact Information",
     "phone": "Phone",
-    "phoneText": "For all details: ",
+    "phoneText": "Call us:",
     "address": "Address",
-    "addressText": "רפאל איתן 38, Ramat Gan, 5590500",
+    "addressText": "Rafael Eitan 38, Ramat Gan, 5590500",
     "email": "Email",
     "emailText": "info@mitoderm.com",
-    "item2title": "Office Hours",
+    "item2title": "Working Hours",
     "workWeek": "Sunday - Thursday",
     "friday": "Friday",
-    "fridayText": "By appointment only",
+    "fridayText": "By appointment",
     "saturday": "Saturday",
     "closed": "Closed",
-    "followUs": "Follow us on"
+    "followUs": "Follow Us"
   },
   "footer": {
     "copyright": "© 2024 Mitoderm. All Rights Reserved.",
@@ -310,5 +465,225 @@
     "email": "Email: ",
     "phone": "Phone: ",
     "amount": "Amount: "
+  },
+  "products": {
+    "meta": {
+      "title": "Products",
+      "description": "Discover our revolutionary V-Tech exosome products for advanced medical applications",
+      "keywords": "exosome products, V-Tech, medical technology, skin regeneration"
+    },
+    "hero": {
+      "title": "Revolutionary V-Tech Products",
+      "subtitle": "Advanced exosome technology for medical professionals",
+      "products": "Products",
+      "featured": "Featured",
+      "certified": "Certified"
+    },
+    "search": {
+      "placeholder": "Search products..."
+    },
+    "categories": {
+      "all": "All Categories",
+      "serums": "Serums",
+      "masks": "Masks",
+      "cleansers": "Cleansers",
+      "kits": "Kits"
+    },
+    "featured": {
+      "title": "Featured Products"
+    },
+    "allProducts": {
+      "title": "All Products"
+    },
+    "badges": {
+      "featured": "Featured"
+    },
+    "certification": {
+      "required": "Certification Required"
+    },
+    "actions": {
+      "learnMore": "Learn More"
+    },
+    "noResults": {
+      "message": "No products found matching your criteria."
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Contact us to learn more about our products and certification process.",
+      "contact": "Contact Us",
+      "certification": "Get Certified"
+    }
+  },
+  "education": {
+    "meta": {
+      "title": "Education & Training",
+      "description": "Comprehensive training materials and educational content for medical professionals",
+      "keywords": "medical training, exosome education, clinical protocols"
+    },
+    "hero": {
+      "title": "Professional Education",
+      "subtitle": "Comprehensive training materials for medical professionals",
+      "courses": "Courses",
+      "featured": "Featured",
+      "certified": "Certified"
+    },
+    "categories": {
+      "all": "All Categories",
+      "basics": "Basics",
+      "advanced": "Advanced",
+      "clinical": "Clinical",
+      "business": "Business"
+    },
+    "featured": {
+      "title": "Featured Courses"
+    },
+    "allContent": {
+      "title": "All Training Materials"
+    },
+    "badges": {
+      "featured": "Featured"
+    },
+    "types": {
+      "video": "Video",
+      "document": "Document"
+    },
+    "actions": {
+      "startLearning": "Start Learning"
+    },
+    "noResults": {
+      "message": "No content found matching your criteria."
+    },
+    "cta": {
+      "title": "Ready to Advance Your Practice?",
+      "subtitle": "Get certified and unlock access to our complete product line.",
+      "getCertified": "Get Certified",
+      "contact": "Contact Us"
+    }
+  },
+  "certification": {
+    "meta": {
+      "title": "Certification",
+      "description": "Apply for MitoDerm certification to access our advanced exosome products",
+      "keywords": "medical certification, exosome certification, professional training"
+    },
+    "hero": {
+      "title": "Professional Certification",
+      "subtitle": "Get certified to access our advanced V-Tech products",
+      "steps": "Steps",
+      "certified": "Certified",
+      "professionals": "Professionals"
+    },
+    "steps": {
+      "title": "Certification Process",
+      "step1": {
+        "title": "Application",
+        "description": "Submit your professional credentials and experience"
+      },
+      "step2": {
+        "title": "Review",
+        "description": "Our team reviews your application within 48 hours"
+      },
+      "step3": {
+        "title": "Training",
+        "description": "Complete required training modules"
+      },
+      "step4": {
+        "title": "Certification",
+        "description": "Receive your certification and access to products"
+      }
+    },
+    "form": {
+      "title": "Application Form",
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "profession": "Profession",
+      "experience": "Years of Experience",
+      "clinic": "Clinic/Hospital Name",
+      "message": "Why do you want to be certified?",
+      "submit": "Submit Application"
+    },
+    "cta": {
+      "title": "Ready to Get Certified?",
+      "subtitle": "Join thousands of certified medical professionals using V-Tech products.",
+      "apply": "Apply Now",
+      "contact": "Contact Us"
+    }
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "users": "Users",
+    "certifications": "Certifications",
+    "rewards": "Rewards",
+    "settings": "Settings",
+    "meta": {
+      "title": "Admin Dashboard - MitoDerm",
+      "description": "Admin dashboard for managing MitoDerm platform",
+      "keywords": "admin, dashboard, management, platform"
+    },
+    "title": "Admin Dashboard",
+    "subtitle": "Manage your MitoDerm platform",
+    "stats": {
+      "activeUsers": "Active Users",
+      "activeProducts": "Active Products",
+      "totalVideos": "Total Videos"
+    },
+    "certifications": "Certifications",
+    "administrator": "Administrator",
+    "main": "Main",
+    "content": "Content",
+    "system": "System",
+    "media": "Media",
+    "gallery": "Gallery",
+    "logout": "Logout"
+  },
+  "vmProducts": {
+    "meta": {
+      "title": "VM Products - MitoDerm",
+      "description": "Discover our premium VM product line with advanced skincare solutions",
+      "keywords": "VM products, skincare, beauty, professional, exosomes"
+    },
+    "hero": {
+      "title": "VM Product Line",
+      "subtitle": "Premium skincare solutions for professionals",
+      "products": "Products",
+      "rating": "Rating",
+      "line": "Line"
+    },
+    "categories": {
+      "all": "All Categories",
+      "serums": "Serums",
+      "creams": "Creams",
+      "masks": "Masks",
+      "boosters": "Boosters"
+    },
+    "products": {
+      "title": "VM Products"
+    },
+    "badges": {
+      "featured": "Featured",
+      "outOfStock": "Out of Stock"
+    },
+    "actions": {
+      "addToCart": "Add to Cart",
+      "outOfStock": "Out of Stock"
+    },
+    "noResults": {
+      "message": "No products found for this category."
+    },
+    "cta": {
+      "title": "Ready to Experience VM?",
+      "subtitle": "Discover the power of our premium VM product line and transform your skincare routine.",
+      "learnMore": "Learn More",
+      "contact": "Contact Us"
+    }
+  },
+  "clinic": {
+    "meta": {
+      "title": "Our Clinics - MitoDerm",
+      "description": "Find authorized MitoDerm clinics and certified professionals near you",
+      "keywords": "clinics, certified professionals, authorized centers, locations"
+    }
   }
 }

@@ -1,0 +1,386 @@
+.productDetail {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  .glassBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    
+    .headerContent {
+      flex: 1;
+      
+      .backButton {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: white;
+        }
+      }
+      
+      .gradientTitle {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+      
+      .description {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+      }
+    }
+    
+    .headerActions {
+      .editButton, .saveButton, .cancelButton {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .editButton {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+      }
+      
+      .editActions {
+        display: flex;
+        gap: 1rem;
+        
+        .saveButton {
+          background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+          color: white;
+          
+          &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+          }
+          
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+        
+        .cancelButton {
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          
+          &:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      
+      &:hover {
+        color: white;
+      }
+      
+      &.active {
+        color: white;
+        border-bottom-color: #667eea;
+      }
+    }
+  }
+  
+  .tabContent {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    
+    .basicInfo, .pricingSection, .seoSection, .advancedSection {
+      .formGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        
+        .formGroup {
+          label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+          
+          input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            
+            &::placeholder {
+              color: rgba(255, 255, 255, 0.6);
+            }
+            
+            &:focus {
+              outline: none;
+              border-color: #667eea;
+              box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            }
+            
+            &:disabled {
+              opacity: 0.6;
+              cursor: not-allowed;
+            }
+          }
+          
+          textarea {
+            resize: vertical;
+            min-height: 100px;
+          }
+          
+          .dimensions {
+            display: flex;
+            gap: 0.5rem;
+            
+            input {
+              flex: 1;
+            }
+          }
+        }
+      }
+      
+      .checkboxes {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        
+        .checkbox {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: white;
+          cursor: pointer;
+          
+          input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+          }
+        }
+      }
+    }
+    
+    .imagesSection {
+      .imageUpload {
+        margin-bottom: 2rem;
+        
+        label {
+          display: block;
+          color: white;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+        
+        input[type="file"] {
+          width: 100%;
+          padding: 0.75rem 1rem;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          font-size: 1rem;
+          
+          &::-webkit-file-upload-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 1rem;
+          }
+        }
+      }
+      
+      .imageGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        
+        .imageCard {
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          
+          img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+          }
+          
+          .deleteImage {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(239, 68, 68, 0.9);
+            border: none;
+            color: white;
+            padding: 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              background: rgba(239, 68, 68, 1);
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .loading, .error {
+    text-align: center;
+    padding: 3rem;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .error {
+    color: #ef4444;
+    
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .productDetail {
+    .content {
+      padding: 1rem;
+    }
+    
+    .header {
+      flex-direction: column;
+      gap: 1rem;
+      
+      .gradientTitle {
+        font-size: 2rem;
+      }
+      
+      .headerActions {
+        .editActions {
+          flex-direction: column;
+        }
+      }
+    }
+    
+    .tabs {
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      
+      .tab {
+        white-space: nowrap;
+        padding: 0.75rem 1rem;
+      }
+    }
+    
+    .tabContent {
+      padding: 1rem;
+      
+      .basicInfo, .pricingSection, .seoSection, .advancedSection {
+        .formGrid {
+          grid-template-columns: 1fr;
+        }
+        
+        .checkboxes {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+      
+      .imagesSection {
+        .imageGrid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,71 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.mainImageWrapper {
+  background: rgba(255,255,255,0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(255,215,0,0.08);
+  border: 3px solid #ffd70044;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainImage {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(255,215,0,0.10);
+}
+
+.thumbnails {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.thumbnails button {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.2rem;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.thumbnails button.active,
+.thumbnails button:hover {
+  border: 2px solid #ffd700;
+  background: rgba(255,215,0,0.08);
+}
+
+.thumbnails img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .mainImage {
+    max-width: 220px;
+    height: 220px;
+  }
+  .mainImageWrapper {
+    padding: 0.5rem;
+  }
+  .thumbnails img {
+    width: 40px;
+    height: 40px;
+  }
+} 
