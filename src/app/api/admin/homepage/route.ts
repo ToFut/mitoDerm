@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { auth } from '@/lib/auth';
 import { db } from '@/lib/firebase';
 import { collection, doc, getDoc, setDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 
 export async function GET() {
   try {
     // Get session to verify admin access
-    const session = await getServerSession();
+    const session = await auth();
     
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -68,7 +68,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     // Get session to verify admin access
-    const session = await getServerSession();
+    const session = await auth();
     
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -132,7 +132,7 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
   try {
     // Get session to verify admin access
-    const session = await getServerSession();
+    const session = await auth();
     
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

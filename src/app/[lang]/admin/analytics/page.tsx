@@ -129,7 +129,9 @@ export default function AdminAnalyticsPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Load analytics data
@@ -490,14 +492,13 @@ export default function AdminAnalyticsPage() {
       </div>
 
       {/* KPI Cards */}
-      <AdminStats stats={statsData} columns={6} />
+      <AdminStats stats={statsData as any} columns={6} />
 
       {/* AI Insights */}
       {aiInsights && (
         <AdminCard 
-          variant="ai" 
+          variant="gradient" 
           padding="large"
-          style={{ marginBottom: "2rem" }}
         >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem" }}>
             <div style={{

@@ -9,3 +9,4 @@
 # SSH Deploy Keys
 mitoderm_deploy_key
 mitoderm_deploy_key.pub
+.vercel

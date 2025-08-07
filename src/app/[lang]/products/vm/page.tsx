@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import VMProductsClient from './VMProductsClient';
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
   const t = await getTranslations({ locale: lang, namespace: 'vmProducts' });
   
   return {
@@ -18,7 +19,8 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
   };
 }
 
-export default function ProductsVMPage({ params: { lang } }: { params: { lang: string } }) {
+export default async function ProductsVMPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   unstable_setRequestLocale(lang);
   
   return (

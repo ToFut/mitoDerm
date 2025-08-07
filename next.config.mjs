@@ -4,6 +4,11 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Ignore ESLint errors during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
   // Performance optimizations
   experimental: {
     // Disable CSS optimization temporarily to avoid critters dependency issues

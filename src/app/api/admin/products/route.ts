@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import authOptions from '@/pages/api/auth/[...nextauth]';
+import { auth } from '@/lib/auth';
 import { getProducts, addProduct, updateProduct, deleteProduct } from '@/lib/services/productService';
 import { Session } from 'next-auth';
 
@@ -14,7 +13,7 @@ const adminUsers = [
 
 export async function GET() {
   try {
-    const session = await getServerSession(authOptions) as Session | null;
+    const session = await auth() as Session | null;
     
     if (!session?.user?.email || !adminUsers.includes(session.user.email)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -30,7 +29,7 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions) as Session | null;
+    const session = await auth() as Session | null;
     
     if (!session?.user?.email || !adminUsers.includes(session.user.email)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -48,7 +47,7 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions) as Session | null;
+    const session = await auth() as Session | null;
     
     if (!session?.user?.email || !adminUsers.includes(session.user.email)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -71,7 +70,7 @@ export async function PUT(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions) as Session | null;
+    const session = await auth() as Session | null;
     
     if (!session?.user?.email || !adminUsers.includes(session.user.email)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

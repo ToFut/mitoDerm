@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import authOptions from '@/pages/api/auth/[...nextauth]';
+import { auth } from '@/lib/auth';
 import { 
   getMedia, 
   uploadMedia, 
@@ -14,7 +13,7 @@ import {
 export async function GET(request: NextRequest) {
   try {
     // Temporarily disable authentication for testing
-    // const session = await getServerSession(authOptions);
+    // const session = await auth();
     // if (!session || !session.user?.role || session.user.role !== 'admin') {
     //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     // }
@@ -49,7 +48,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     // Temporarily disable authentication for testing
-    // const session = await getServerSession(authOptions);
+    // const session = await auth();
     // if (!session || !session.user?.role || session.user.role !== 'admin') {
     //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     // }
@@ -98,7 +97,7 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     // Temporarily disable authentication for testing
-    // const session = await getServerSession(authOptions);
+    // const session = await auth();
     // if (!session || !session.user?.role || session.user.role !== 'admin') {
     //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     // }
@@ -127,7 +126,7 @@ export async function PUT(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   try {
     // Temporarily disable authentication for testing
-    // const session = await getServerSession(authOptions);
+    // const session = await auth();
     // if (!session || !session.user?.role || session.user.role !== 'admin') {
     //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     // }

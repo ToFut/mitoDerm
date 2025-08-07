@@ -8,7 +8,7 @@ import {
   FiCalendar, FiClock, FiMapPin, FiUsers, FiStar, FiPlay, 
   FiShare2, FiHeart, FiBookmark, FiArrowRight, FiCheckCircle,
   FiTrendingUp, FiAward, FiMic, FiVideo, FiCoffee, FiWifi,
-  FiParking, FiShield, FiGift, FiZap, FiTarget, FiEye,
+  FiTruck, FiShield, FiGift, FiZap, FiTarget, FiEye,
   FiChevronDown, FiChevronUp, FiPhone, FiMail, FiGlobe,
   FiLinkedin, FiTwitter, FiInstagram, FiDownload
 } from 'react-icons/fi';
@@ -578,7 +578,7 @@ const EventEnhanced = () => {
                       <span>Free WiFi</span>
                     </div>
                     <div className={styles.venueFeature}>
-                      <FiParking />
+                      <FiTruck />
                       <span>Parking Available</span>
                     </div>
                     <div className={styles.venueFeature}>

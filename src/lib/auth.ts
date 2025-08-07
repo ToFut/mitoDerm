@@ -1,10 +1,9 @@
-import NextAuth, { User } from 'next-auth';
+import NextAuth from 'next-auth';
 import Google from 'next-auth/providers/google';
 import Apple from 'next-auth/providers/apple';
 import Credentials from 'next-auth/providers/credentials';
-import '@/types/auth';
 
-export default NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     // OAuth providers disabled for development
     ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_ID !== 'disabled' ? [
@@ -27,7 +26,7 @@ export default NextAuth({
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials, request): Promise<User | null> {
+      async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
@@ -39,8 +38,9 @@ export default NextAuth({
             return {
               id: 'quick-user',
               email: 'quick@mitoderm.com',
-              name: 'Quick User'
-            } as User;
+              name: 'Quick User',
+              role: 'user'
+            };
           }
 
           // Demo admin user
@@ -48,8 +48,9 @@ export default NextAuth({
             return {
               id: 'admin-user',
               email: 'admin@mitoderm.com',
-              name: 'Admin User'
-            } as User;
+              name: 'Admin User',
+              role: 'admin'
+            };
           }
 
           // Demo regular user
@@ -57,19 +58,19 @@ export default NextAuth({
             return {
               id: 'demo-user',
               email: 'user@mitoderm.com',
-              name: 'Demo User'
-            } as User;
+              name: 'Demo User',
+              role: 'user'
+            };
           }
 
           // For any other email/password combination in development
-          const email = credentials.email as string;
-          const password = credentials.password as string;
-          if (email.includes('@') && password.length >= 6) {
+          if (credentials.email.includes('@') && credentials.password.length >= 6) {
             return {
               id: `user-${Date.now()}`,
-              email: email,
-              name: email.split('@')[0]
-            } as User;
+              email: credentials.email,
+              name: credentials.email.split('@')[0],
+              role: 'user'
+            };
           }
           
           return null;
@@ -107,4 +108,4 @@ export default NextAuth({
   session: {
     strategy: 'jwt' as const,
   },
-}); 
+});

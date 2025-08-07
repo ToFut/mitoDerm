@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import authOptions from '@/pages/api/auth/[...nextauth]';
+import { auth } from '@/lib/auth';
 
 // Admin users list
 const adminUsers = [
@@ -12,7 +11,7 @@ const adminUsers = [
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions) as any;
+    const session = await auth() as any;
     
     if (!session?.user?.email || !adminUsers.includes(session.user.email)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

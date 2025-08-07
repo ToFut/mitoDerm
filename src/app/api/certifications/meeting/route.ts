@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { certificationService } from '@/lib/services/certificationService';
-import { getServerSession } from 'next-auth';
-import authOptions from '@/pages/api/auth/[...nextauth]';
+import { auth } from '@/lib/auth';
 import { Session } from 'next-auth';
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(authOptions) as Session | null;
+    const session = await auth() as Session | null;
     
     if (!session?.user?.email) {
       return NextResponse.json(

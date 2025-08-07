@@ -7,11 +7,11 @@ import { OrbitControls, Float, Environment, Text3D, Sphere, MeshDistortMaterial 
 import dynamic from 'next/dynamic';
 import styles from './nextgen-about.module.scss';
 
-// Advanced Components
-const InteractiveTimeline = dynamic(() => import('@/components/timeline/InteractiveTimeline'), { ssr: false });
-const TeamHologram = dynamic(() => import('@/components/3d/TeamHologram'), { ssr: false });
-const CompanyDNA = dynamic(() => import('@/components/3d/CompanyDNA'), { ssr: false });
-const VirtualOffice = dynamic(() => import('@/components/vr/VirtualOffice'), { ssr: false });
+// Advanced Components - Temporarily commented out due to missing files
+// const InteractiveTimeline = dynamic(() => import('@/components/timeline/InteractiveTimeline'), { ssr: false });
+// const TeamHologram = dynamic(() => import('@/components/3d/TeamHologram'), { ssr: false });
+// const CompanyDNA = dynamic(() => import('@/components/3d/CompanyDNA'), { ssr: false });
+// const VirtualOffice = dynamic(() => import('@/components/vr/VirtualOffice'), { ssr: false });
 
 interface TeamMember {
   id: string;
@@ -77,7 +77,7 @@ export default function NextGenAboutClient() {
         <div className={styles.nebula} />
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
           <CosmicBackground />
-          <Environment preset="space" />
+          <Environment preset="night" />
         </Canvas>
       </motion.div>
 
@@ -180,7 +180,8 @@ export default function NextGenAboutClient() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <VirtualOffice />
+            {/* <VirtualOffice /> */}
+            <div>Virtual Office Component - Coming Soon</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -242,7 +243,8 @@ const StorySection = () => {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <InteractiveTimeline />
+          {/* <InteractiveTimeline /> */}
+          <div>Interactive Timeline Component - Coming Soon</div>
         </motion.div>
       </div>
     </section>
@@ -269,7 +271,7 @@ const DNASection = () => {
         <div className={styles.dnaContainer}>
           <div className={styles.dnaVisualization}>
             <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-              <CompanyDNA />
+              {/* <CompanyDNA /> */}
               <Environment preset="warehouse" />
             </Canvas>
           </div>
@@ -312,7 +314,7 @@ const DNASection = () => {
 };
 
 // TEAM SECTION
-const TeamSection = ({ selectedMember, onSelectMember }) => {
+const TeamSection = ({ selectedMember, onSelectMember }: { selectedMember: TeamMember | null, onSelectMember: (member: TeamMember | null) => void }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -381,7 +383,8 @@ const TeamSection = ({ selectedMember, onSelectMember }) => {
               onClick={() => onSelectMember(member)}
             >
               <div className={styles.memberHologram}>
-                <TeamHologram member={member} />
+                {/* <TeamHologram member={member} /> */}
+                <div>Team Hologram - Coming Soon</div>
               </div>
 
               <div className={styles.memberInfo}>
@@ -417,10 +420,14 @@ const TeamSection = ({ selectedMember, onSelectMember }) => {
       {/* Team Member Modal */}
       <AnimatePresence>
         {selectedMember && (
-          <TeamMemberModal
+          <div className={styles.teamMemberModal}>
+            {/* <TeamMemberModal
             member={selectedMember}
             onClose={() => onSelectMember(null)}
-          />
+          /> */}
+            <div>Team Member Modal - Coming Soon</div>
+            <button onClick={() => onSelectMember(null)}>Close</button>
+          </div>
         )}
       </AnimatePresence>
     </section>
@@ -428,7 +435,7 @@ const TeamSection = ({ selectedMember, onSelectMember }) => {
 };
 
 // Supporting Components
-const FloatingMetric = ({ value, label, color }) => (
+const FloatingMetric = ({ value, label, color }: { value: string, label: string, color: string }) => (
   <motion.div
     className={`${styles.floatingMetric} ${styles[color]}`}
     initial={{ opacity: 0, y: 100, rotateX: 90 }}
@@ -450,7 +457,7 @@ const FloatingMetric = ({ value, label, color }) => (
   </motion.div>
 );
 
-const NavigationNode = ({ section, index, active, onClick }) => {
+const NavigationNode = ({ section, index, active, onClick }: { section: any, index: number, active: boolean, onClick: () => void }) => {
   const angle = (index / 5) * 360;
   
   return (
@@ -468,7 +475,7 @@ const NavigationNode = ({ section, index, active, onClick }) => {
   );
 };
 
-const DNATrait = ({ title, description, percentage, color }) => (
+const DNATrait = ({ title, description, percentage, color }: { title: string, description: string, percentage: number, color: string }) => (
   <motion.div
     className={styles.dnaTrait}
     initial={{ opacity: 0, x: 50 }}
@@ -495,7 +502,7 @@ const DNATrait = ({ title, description, percentage, color }) => (
 
 // 3D Visualization Components
 const CosmicBackground = () => {
-  const meshRef = useRef();
+  const meshRef = useRef<any>();
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -545,6 +552,26 @@ const StoryVisualization = () => (
   </Float>
 );
 
+// INNOVATION SECTION
+const InnovationSection = () => {
+  return (
+    <div className={styles.innovationSection}>
+      <h2>Innovation Lab</h2>
+      <p>Coming Soon - Our innovation lab will showcase the latest breakthroughs in aesthetic medicine.</p>
+    </div>
+  );
+};
+
+// FUTURE SECTION
+const FutureSection = () => {
+  return (
+    <div className={styles.futureSection}>
+      <h2>Future Vision</h2>
+      <p>Coming Soon - Our vision for the future of aesthetic medicine and technology.</p>
+    </div>
+  );
+};
+
 // Icon Components
 const VRIcon = () => <svg>...</svg>;
-const PersonalityIcon = ({ type }) => <svg>...</svg>;
+const PersonalityIcon = ({ type }: { type: string }) => <svg>...</svg>;
