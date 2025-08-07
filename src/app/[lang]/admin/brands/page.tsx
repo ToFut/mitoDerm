@@ -118,7 +118,9 @@ export default function AdminBrandsPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Data fetching
@@ -1315,7 +1317,7 @@ export default function AdminBrandsPage() {
       )}
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{ 
             display: "flex", 
             alignItems: "center", 

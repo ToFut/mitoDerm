@@ -134,7 +134,9 @@ export default function AdminEventsPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Real-time data fetching
@@ -817,7 +819,7 @@ export default function AdminEventsPage() {
       />
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{ 
             display: "flex", 
             alignItems: "center", 

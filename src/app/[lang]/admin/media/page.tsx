@@ -132,7 +132,9 @@ export default function AdminMediaPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Load media data
@@ -613,10 +615,7 @@ export default function AdminMediaPage() {
       padding: "1rem 0"
     }}>
       {filteredMedia.map((item) => (
-        <AdminCard key={item.id} padding="medium" style={{ 
-          cursor: "pointer",
-          border: selectedMedia.includes(item.id!) ? "2px solid var(--colorPrimary)" : undefined
-        }}>
+        <AdminCard key={item.id} padding="medium">
           <div onClick={() => {
             if (selectedMedia.includes(item.id!)) {
               setSelectedMedia(selectedMedia.filter(id => id !== item.id));
@@ -1159,7 +1158,7 @@ export default function AdminMediaPage() {
       </div>
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{
             display: "flex",
             alignItems: "center",

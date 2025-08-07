@@ -931,7 +931,7 @@ export default function AdminAnalyticsPage() {
       </div>
 
       {/* Business Metrics Summary */}
-      <AdminCard variant="gradient" padding="large" style={{ marginTop: "2rem" }}>
+      <AdminCard variant="gradient" padding="large">
         <h3 style={{ margin: "0 0 1.5rem 0", color: "rgba(255, 255, 255, 0.95)" }}>
           Business Performance Summary
         </h3>

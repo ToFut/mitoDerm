@@ -108,7 +108,9 @@ export default function AdminCertificationsPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Real-time data fetching with Firebase
@@ -898,7 +900,7 @@ export default function AdminCertificationsPage() {
       />
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{
             display: "flex",
             alignItems: "center",

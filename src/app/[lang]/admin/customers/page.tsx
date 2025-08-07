@@ -170,7 +170,9 @@ export default function AdminCustomersPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Load customers data
@@ -1049,7 +1051,7 @@ export default function AdminCustomersPage() {
       />
 
       {/* Segment Distribution */}
-      <AdminCard variant="gradient" padding="large" style={{ marginTop: "2rem" }}>
+      <AdminCard variant="gradient" padding="large">
         <h3 style={{ margin: "0 0 1.5rem 0", color: "rgba(255, 255, 255, 0.95)" }}>
           Customer Segment Distribution
         </h3>
@@ -1080,7 +1082,7 @@ export default function AdminCustomersPage() {
       </AdminCard>
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{ 
             display: "flex", 
             alignItems: "center", 

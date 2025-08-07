@@ -172,7 +172,9 @@ export default function AdminOrdersPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Real-time data fetching with Firebase
@@ -1096,7 +1098,7 @@ export default function AdminOrdersPage() {
       />
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{
             display: "flex",
             alignItems: "center",

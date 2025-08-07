@@ -54,7 +54,9 @@ export default function AdminUsersPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   useEffect(() => {

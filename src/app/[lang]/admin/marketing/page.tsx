@@ -187,7 +187,9 @@ export default function AdminMarketingPage() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Load campaigns
@@ -1171,7 +1173,7 @@ export default function AdminMarketingPage() {
 
           {/* Top Performing Campaign */}
           {stats.topPerformingCampaign && (
-            <AdminCard variant="gradient" padding="large" style={{ marginTop: "2rem" }}>
+            <AdminCard variant="gradient" padding="large">
               <h3 style={{ margin: "0 0 1rem 0", color: "rgba(255, 255, 255, 0.95)" }}>
                 <FiAward style={{ marginRight: "0.5rem", verticalAlign: "middle", color: "#f59e0b" }} />
                 Top Performing Campaign
@@ -1293,7 +1295,7 @@ export default function AdminMarketingPage() {
       )}
 
       {error && (
-        <AdminCard variant="gradient" style={{ marginTop: "1rem" }}>
+        <AdminCard variant="gradient">
           <div style={{ 
             display: "flex", 
             alignItems: "center", 

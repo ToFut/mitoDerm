@@ -17,6 +17,9 @@ import { db } from '@/lib/firebase';
 import { Event, EventRegistration, EventFeedback, EventType, EventStatus, EventVisibility } from '@/types';
 import { userService } from './userService';
 
+// Re-export Event type for convenience
+export type { Event };
+
 // Helper function to check if Firebase is initialized
 const checkFirebase = () => {
   if (!db) {
