@@ -34,7 +34,6 @@ const HomePageEnhanced = ({ initialProducts = [], initialEvents = [], showClassi
   const [events, setEvents] = useState<Event[]>(initialEvents);
   const [isLoading, setIsLoading] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [timeLeft, setTimeLeft] = useState({ days: 2, hours: 14, minutes: 28, seconds: 45 });
   
   // Video controls
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -203,25 +202,6 @@ const HomePageEnhanced = ({ initialProducts = [], initialEvents = [], showClassi
     }
   };
 
-  // Countdown timer effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   // Testimonial rotation
   useEffect(() => {
@@ -615,29 +595,6 @@ const HomePageEnhanced = ({ initialProducts = [], initialEvents = [], showClassi
           position: 'relative',
           zIndex: 2
         }}>
-          {/* Limited Offer Badge */}
-          <motion.div
-            initial={{ scale: 0, rotate: -10 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              background: 'linear-gradient(135deg, #940030, #dc2626)',
-              color: '#ffffff',
-              padding: '12px 25px',
-              borderRadius: '50px',
-              fontSize: '16px',
-              fontWeight: 700,
-              marginBottom: '30px',
-              boxShadow: '0 10px 30px rgba(148, 0, 48, 0.3)'
-            }}
-          >
-            <FiZap style={{ fontSize: '20px' }} />
-            LIMITED TIME: 35% OFF ALL PRODUCTS
-          </motion.div>
-
           {/* Main Hero Title */}
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
@@ -787,61 +744,6 @@ const HomePageEnhanced = ({ initialProducts = [], initialEvents = [], showClassi
               </div>
             ))}
           </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Sale Countdown Timer */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        style={{
-          background: 'linear-gradient(135deg, #940030, #dc2626)',
-          padding: '30px 0',
-          textAlign: 'center'
-        }}
-      >
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-          <h3 style={{ color: '#ffffff', fontSize: '24px', fontWeight: 700, marginBottom: '20px' }}>
-            ⏰ Sale Ends Soon - Don't Miss Out!
-          </h3>
-          <div style={{
-            display: 'flex',
-            gap: '20px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap'
-          }}>
-            {[
-              { label: 'Days', value: timeLeft.days },
-              { label: 'Hours', value: timeLeft.hours },
-              { label: 'Minutes', value: timeLeft.minutes },
-              { label: 'Seconds', value: timeLeft.seconds }
-            ].map((item, index) => (
-              <div key={index} style={{
-                background: 'rgba(255,255,255,0.1)',
-                padding: '15px',
-                borderRadius: '15px',
-                minWidth: '80px'
-              }}>
-                <div style={{
-                  fontSize: '28px',
-                  fontWeight: 900,
-                  color: '#ffffff',
-                  marginBottom: '5px'
-                }}>
-                  {item.value.toString().padStart(2, '0')}
-                </div>
-                <div style={{
-                  fontSize: '14px',
-                  color: 'rgba(255,255,255,0.8)',
-                  fontWeight: 600
-                }}>
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </motion.section>
 
@@ -2120,7 +2022,7 @@ const HomePageEnhanced = ({ initialProducts = [], initialEvents = [], showClassi
               }}
             >
               <FiShoppingCart />
-              Shop Now - 35% Off
+              Shop Now
             </Link>
             
             <Link 
