@@ -15,7 +15,7 @@ import {
   FiTrendingUp
 } from 'react-icons/fi';
 import { Product } from '@/types';
-import { useCart, useWishlist, useAuth, useAddNotification } from '@/store/store';
+import { useCart, useWishlist, useUser, useAddNotification, useAddToCart, useAddToWishlist, useRemoveFromWishlist } from '@/store/store';
 import { canUserAccessProduct, getProductPrice } from '@/lib/services/productService';
 import styles from './ProductCard.module.scss';
 
@@ -34,9 +34,12 @@ const ProductCard: FC<ProductCardProps> = ({
 }) => {
   const router = useRouter();
   const t = useTranslations();
-  const { user } = useAuth();
-  const { addToCart } = useCart();
-  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const user = useUser();
+  const cart = useCart();
+  const addToCart = useAddToCart();
+  const wishlist = useWishlist();
+  const addToWishlist = useAddToWishlist();
+  const removeFromWishlist = useRemoveFromWishlist();
   const addNotification = useAddNotification();
   
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +64,8 @@ const ProductCard: FC<ProductCardProps> = ({
         title: t('product.accessDenied'),
         message: product.certificationRequired 
           ? t('product.requiresCertification')
-          : t('product.partnersOnly')
+          : t('product.partnersOnly'),
+        isRead: false
       });
       return;
     }
@@ -70,7 +74,8 @@ const ProductCard: FC<ProductCardProps> = ({
       addNotification({
         type: 'error',
         title: t('product.outOfStock'),
-        message: t('product.outOfStockMessage')
+        message: t('product.outOfStockMessage'),
+        isRead: false
       });
       return;
     }
@@ -81,13 +86,15 @@ const ProductCard: FC<ProductCardProps> = ({
       addNotification({
         type: 'success',
         title: t('cart.itemAdded'),
-        message: t('cart.itemAddedMessage', { name: product.name })
+        message: t('cart.itemAddedMessage', { name: product.name }),
+        isRead: false
       });
     } catch (error) {
       addNotification({
         type: 'error',
         title: t('error.generic'),
-        message: t('cart.addError')
+        message: t('cart.addError'),
+        isRead: false
       });
     } finally {
       setIsLoading(false);
@@ -103,14 +110,16 @@ const ProductCard: FC<ProductCardProps> = ({
       addNotification({
         type: 'info',
         title: t('wishlist.removed'),
-        message: t('wishlist.removedMessage', { name: product.name })
+        message: t('wishlist.removedMessage', { name: product.name }),
+        isRead: false
       });
     } else {
       addToWishlist(product.id!);
       addNotification({
         type: 'success',
         title: t('wishlist.added'),
-        message: t('wishlist.addedMessage', { name: product.name })
+        message: t('wishlist.addedMessage', { name: product.name }),
+        isRead: false
       });
     }
   };
@@ -209,7 +218,7 @@ const ProductCard: FC<ProductCardProps> = ({
       {/* Image Container */}
       <div className={styles.imageContainer}>
         <Image
-          src={imageError ? '/images/placeholder-product.jpg' : (product.images?.[0]?.url || product.image)}
+          src={imageError ? '/images/placeholder-product.jpg' : (product.images?.[0]?.url || '/images/placeholder-product.jpg')}
           alt={product.images?.[0]?.alt || product.name}
           fill
           className={styles.productImage}
@@ -276,11 +285,11 @@ const ProductCard: FC<ProductCardProps> = ({
         {renderRating()}
 
         {/* Features */}
-        {product.features && product.features.length > 0 && variant === 'featured' && (
+        {product.benefits && product.benefits.length > 0 && variant === 'featured' && (
           <div className={styles.features}>
-            {product.features.slice(0, 3).map((feature, index) => (
+            {product.benefits.slice(0, 3).map((benefit, index) => (
               <span key={index} className={styles.feature}>
-                {feature}
+                {typeof benefit === 'string' ? benefit : benefit.title}
               </span>
             ))}
           </div>

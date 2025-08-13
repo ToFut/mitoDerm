@@ -184,7 +184,7 @@ const Cart: FC<CartProps> = ({ isOpen = false, onClose, products = [] }) => {
                     
                     <div className={styles.itemActions}>
                       <div className={styles.itemTotal}>
-                        ${(getProductPrice(item.product!, isPartner) * item.quantity).toFixed(2)}
+                        ${((item.product?.price || 0) * item.quantity).toFixed(2)}
                       </div>
                       <button
                         onClick={() => removeFromCart(item.productId)}
