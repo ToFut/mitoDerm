@@ -290,7 +290,7 @@ class UserService {
         totalUsers: users.length,
         activeUsers: users.filter(u => u.status === 'active').length,
         newUsersThisMonth: users.filter(u => 
-          u.createdAt && u.createdAt.toDate() >= thisMonth
+          u.createdAt && new Date(u.createdAt) >= thisMonth
         ).length,
         usersByRole: users.reduce((acc, user) => {
           acc[user.role] = (acc[user.role] || 0) + 1;

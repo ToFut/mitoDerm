@@ -208,7 +208,6 @@ class OrderService {
         order.orderNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
         order.shippingAddress.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
         order.shippingAddress.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        order.shippingAddress.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         order.items.some(item => 
           item.productName.toLowerCase().includes(searchTerm.toLowerCase())
         )

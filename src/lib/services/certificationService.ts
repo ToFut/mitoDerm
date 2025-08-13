@@ -461,9 +461,9 @@ class CertificationService {
       };
       
       // Remove the original id and timestamps
-      delete newCertificate.id;
-      delete newCertificate.createdAt;
-      delete newCertificate.updatedAt;
+      delete (newCertificate as any).id;
+      delete (newCertificate as any).createdAt;
+      delete (newCertificate as any).updatedAt;
       
       const newCertRef = await addDoc(collection(db, 'issued_certificates'), newCertificate);
       return newCertRef.id;

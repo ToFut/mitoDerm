@@ -15,6 +15,10 @@ const nextConfig = {
     // optimizeCss: true,
     optimizePackageImports: ['react-icons', 'framer-motion'],
   },
+
+
+
+
   
   // Turbopack configuration (moved from experimental.turbo)
   turbopack: {
@@ -159,6 +163,8 @@ const nextConfig = {
       },
     ];
   },
+
+
 };
 
 export default withNextIntl(nextConfig);

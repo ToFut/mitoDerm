@@ -289,7 +289,7 @@ const ProductCard: FC<ProductCardProps> = ({
           <div className={styles.features}>
             {product.benefits.slice(0, 3).map((benefit, index) => (
               <span key={index} className={styles.feature}>
-                {typeof benefit === 'string' ? benefit : benefit.title}
+                {benefit}
               </span>
             ))}
           </div>

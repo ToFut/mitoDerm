@@ -26,50 +26,190 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials) {
+      async authorize(credentials: Partial<Record<"email" | "password", unknown>>) {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
+        
+        const email = credentials.email as string;
+        const password = credentials.password as string;
 
         // Development authentication - simplified for testing
         try {
           // Handle quick sign-up credentials
-          if (credentials.email === 'quick@mitoderm.com' && credentials.password === 'quick123') {
+          if (email === 'quick@mitoderm.com' && password === 'quick123') {
             return {
               id: 'quick-user',
               email: 'quick@mitoderm.com',
               name: 'Quick User',
-              role: 'user'
+              role: 'user',
+              status: 'active',
+              membershipTier: 'basic',
+              createdAt: new Date().toISOString(),
+              lastLogin: new Date().toISOString(),
+              profile: {
+                phone: '',
+                avatar: '',
+                bio: '',
+                certificationStatus: 'none',
+                preferences: {
+                  language: 'en',
+                  notifications: {
+                    email: true,
+                    sms: false,
+                    push: true,
+                    orderUpdates: true,
+                    eventInvites: true,
+                    educationContent: true
+                  },
+                  privacy: {
+                    profileVisible: true,
+                    certificateVisible: true,
+                    contactInfoVisible: true
+                  }
+                },
+                stats: {
+                  totalOrders: 0,
+                  totalSpent: 0,
+                  coursesCompleted: 0,
+                  certificatesEarned: 0,
+                  eventsAttended: 0,
+                  joinedDate: new Date().toISOString()
+                }
+              }
             };
           }
 
           // Demo admin user
-          if (credentials.email === 'admin@mitoderm.com' && credentials.password === 'admin123') {
+          if (email === 'admin@mitoderm.com' && password === 'admin123') {
             return {
               id: 'admin-user',
               email: 'admin@mitoderm.com',
               name: 'Admin User',
-              role: 'admin'
+              role: 'admin',
+              status: 'active',
+              membershipTier: 'vip',
+              createdAt: new Date().toISOString(),
+              lastLogin: new Date().toISOString(),
+              profile: {
+                phone: '',
+                avatar: '',
+                bio: '',
+                certificationStatus: 'approved',
+                certificationLevel: 'expert',
+                preferences: {
+                  language: 'en',
+                  notifications: {
+                    email: true,
+                    sms: false,
+                    push: true,
+                    orderUpdates: true,
+                    eventInvites: true,
+                    educationContent: true
+                  },
+                  privacy: {
+                    profileVisible: true,
+                    certificateVisible: true,
+                    contactInfoVisible: true
+                  }
+                },
+                stats: {
+                  totalOrders: 0,
+                  totalSpent: 0,
+                  coursesCompleted: 0,
+                  certificatesEarned: 0,
+                  eventsAttended: 0,
+                  joinedDate: new Date().toISOString()
+                }
+              }
             };
           }
 
           // Demo regular user
-          if (credentials.email === 'user@mitoderm.com' && credentials.password === 'user123') {
+          if (email === 'user@mitoderm.com' && password === 'user123') {
             return {
               id: 'demo-user',
               email: 'user@mitoderm.com',
               name: 'Demo User',
-              role: 'user'
+              role: 'user',
+              status: 'active',
+              membershipTier: 'basic',
+              createdAt: new Date().toISOString(),
+              lastLogin: new Date().toISOString(),
+              profile: {
+                phone: '',
+                avatar: '',
+                bio: '',
+                certificationStatus: 'none',
+                preferences: {
+                  language: 'en',
+                  notifications: {
+                    email: true,
+                    sms: false,
+                    push: true,
+                    orderUpdates: true,
+                    eventInvites: true,
+                    educationContent: true
+                  },
+                  privacy: {
+                    profileVisible: true,
+                    certificateVisible: true,
+                    contactInfoVisible: true
+                  }
+                },
+                stats: {
+                  totalOrders: 0,
+                  totalSpent: 0,
+                  coursesCompleted: 0,
+                  certificatesEarned: 0,
+                  eventsAttended: 0,
+                  joinedDate: new Date().toISOString()
+                }
+              }
             };
           }
 
           // For any other email/password combination in development
-          if (credentials.email.includes('@') && credentials.password.length >= 6) {
+          if (email.includes('@') && password.length >= 6) {
             return {
               id: `user-${Date.now()}`,
-              email: credentials.email,
-              name: credentials.email.split('@')[0],
-              role: 'user'
+              email: email,
+              name: email.split('@')[0],
+              role: 'user',
+              status: 'active',
+              membershipTier: 'basic',
+              createdAt: new Date().toISOString(),
+              lastLogin: new Date().toISOString(),
+              profile: {
+                phone: '',
+                avatar: '',
+                bio: '',
+                certificationStatus: 'none',
+                preferences: {
+                  language: 'en',
+                  notifications: {
+                    email: true,
+                    sms: false,
+                    push: true,
+                    orderUpdates: true,
+                    eventInvites: true,
+                    educationContent: true
+                  },
+                  privacy: {
+                    profileVisible: true,
+                    certificateVisible: true,
+                    contactInfoVisible: true
+                  }
+                },
+                stats: {
+                  totalOrders: 0,
+                  totalSpent: 0,
+                  coursesCompleted: 0,
+                  certificatesEarned: 0,
+                  eventsAttended: 0,
+                  joinedDate: new Date().toISOString()
+                }
+              }
             };
           }
           
