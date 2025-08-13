@@ -120,7 +120,6 @@ export default async function LangLayout({
   children: React.ReactNode;
   params: Promise<{ lang: string }>;
 }>) {
-  const messages = await getMessages();
   const resolvedParams = await params;
 
   if (!routing.locales.includes(resolvedParams.lang as any)) {
@@ -128,6 +127,8 @@ export default async function LangLayout({
   }
 
   unstable_setRequestLocale(resolvedParams.lang);
+  
+  const messages = await getMessages();
 
   return (
     <NextIntlClientProvider messages={messages}>
