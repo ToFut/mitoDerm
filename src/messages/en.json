@@ -421,6 +421,56 @@
       "title": "About Us - MitoDerm",
       "description": "Learn about MitoDerm's mission to advance medical aesthetics with cutting-edge technology",
       "keywords": "about, medical aesthetics, innovation, technology, company"
+    },
+    "hero": {
+      "title": "About MitoDerm",
+      "description": "Leading the revolution in medical aesthetics with advanced synthetic exosome technology"
+    },
+    "sections": {
+      "story": "Our Story",
+      "team": "Our Team",
+      "values": "Our Values",
+      "timeline": "Our Journey"
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "subtitle": "From inception to today - a story of innovation and growth",
+      "2018": {
+        "title": "Company Founded",
+        "description": "MitoDerm established with a vision to revolutionize medical aesthetics"
+      },
+      "2020": {
+        "title": "V-Tech Technology Development",
+        "description": "Breakthrough in developing synthetic exosomes with PDRN polynucleotides"
+      },
+      "2022": {
+        "title": "International Expansion",
+        "description": "Expansion to international markets and strategic partnerships"
+      },
+      "2024": {
+        "title": "Industry Leaders",
+        "description": "Leading position in synthetic exosomes field with 2000+ aesthetics professionals"
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide us every step of the way",
+      "commitment": {
+        "title": "Patient Commitment",
+        "description": "We put patient wellbeing at the center of everything we do"
+      },
+      "safety": {
+        "title": "Safety & Quality",
+        "description": "Highest standards of safety and quality in all our products"
+      },
+      "innovation": {
+        "title": "Continuous Innovation",
+        "description": "Ongoing research and development to bring the most advanced technologies"
+      },
+      "partnership": {
+        "title": "True Partnership",
+        "description": "Building long-term relationships with aesthetics professionals"
+      }
     }
   },
   "admin": {
