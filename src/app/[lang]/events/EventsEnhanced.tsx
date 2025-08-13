@@ -385,7 +385,11 @@ const EventsEnhanced = ({ initialEvents = [] }: EventsEnhancedProps) => {
           <div className={styles.eventMeta}>
             <div className={styles.dateTime}>
               <FiCalendar />
-              <span>{new Date(event.startDate).toLocaleDateString()}</span>
+                              <span>{new Date(event.startDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</span>
             </div>
             <div className={styles.location}>
               <FiMapPin />
@@ -777,7 +781,11 @@ const EventsEnhanced = ({ initialEvents = [] }: EventsEnhancedProps) => {
                   <div className={styles.modalMeta}>
                     <div className={styles.modalDate}>
                       <FiCalendar />
-                      <span>{new Date(quickViewEvent.startDate).toLocaleDateString()}</span>
+                      <span>{new Date(quickViewEvent.startDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</span>
                     </div>
                     <div className={styles.modalLocation}>
                       <FiMapPin />

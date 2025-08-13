@@ -347,7 +347,11 @@ export default function EventsClient() {
                   >
                     <div className={styles.heroDetail}>
                       <FiCalendar />
-                      <span>{featuredEvent.startDate.toLocaleDateString()}</span>
+                      <span>{featuredEvent.startDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</span>
                     </div>
                     
                     <div className={styles.heroDetail}>
@@ -503,7 +507,11 @@ export default function EventsClient() {
                     <div className={styles.eventCardDetails}>
                       <div className={styles.eventDetail}>
                         <FiCalendar />
-                        <span>{event.startDate.toLocaleDateString()}</span>
+                        <span>{event.startDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</span>
                       </div>
                       
                       <div className={styles.eventDetail}>
@@ -594,7 +602,11 @@ export default function EventsClient() {
                           {event.type}
                         </div>
                         <div className={styles.eventDate}>
-                          {event.startDate.toLocaleDateString()}
+                          {event.startDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}
                         </div>
                       </div>
 

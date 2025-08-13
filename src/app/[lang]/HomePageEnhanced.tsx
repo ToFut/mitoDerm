@@ -2002,7 +2002,11 @@ const HomePageEnhanced = ({ initialProducts = [], initialEvents = [], showClassi
                   <div style={{ marginBottom: '20px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                       <FiCalendar style={{ color: '#be800c' }} />
-                      <span style={{ color: '#666' }}>{new Date(event.date).toLocaleDateString()}</span>
+                      <span style={{ color: '#666' }}>{new Date(event.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                      })}</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                       <FiMapPin style={{ color: '#be800c' }} />

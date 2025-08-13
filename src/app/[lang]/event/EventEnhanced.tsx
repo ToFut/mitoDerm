@@ -197,7 +197,11 @@ const EventEnhanced = () => {
               </div>
               <div className={styles.eventDate}>
                 <FiCalendar />
-                <span>{new Date(event.startDate).toLocaleDateString()}</span>
+                <span>{new Date(event.startDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit'
+                })}</span>
               </div>
             </div>
             
@@ -296,7 +300,14 @@ const EventEnhanced = () => {
                       <div>
                         <span className={styles.detailLabel}>Date & Time</span>
                         <span className={styles.detailValue}>
-                          {new Date(event.startDate).toLocaleDateString()} at {new Date(event.startDate).toLocaleTimeString()}
+                          {new Date(event.startDate).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit'
+                          })} at {new Date(event.startDate).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
                         </span>
                       </div>
                     </div>
@@ -608,7 +619,11 @@ const EventEnhanced = () => {
           <div className={styles.eventInfo}>
             <h4>{event.title}</h4>
             <div className={styles.eventMeta}>
-              <span><FiCalendar /> {new Date(event.startDate).toLocaleDateString()}</span>
+              <span><FiCalendar /> {new Date(event.startDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+              })}</span>
               <span><FiMapPin /> {event.location.venue}</span>
             </div>
           </div>
